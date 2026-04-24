@@ -1,3 +1,4 @@
+import Link from 'next/link';
 import Script from 'next/script';
 import CalculatorForm from '@/components/CalculatorForm';
 import FAQ, { faqItems } from '@/components/FAQ';
@@ -175,6 +176,22 @@ export default function HomePage() {
               <h3>3. Vende mejor</h3>
               <p>Usa la cuota recomendada como base para presentar un plan mensual mas defendible.</p>
             </article>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container text-block">
+          <span className="eyebrow">Guia SEO</span>
+          <h2>Cuanto cobrar mantenimiento web mensual paso a paso</h2>
+          <p>
+            Si prefieres entender primero la logica y despues tocar numeros, hemos preparado una
+            guia practica sobre como fijar una cuota mensual sin cobrar el mantenimiento a ojo.
+          </p>
+          <div className="guide-cta">
+            <Link href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
+              Leer la guia
+            </Link>
           </div>
         </div>
       </section>

@@ -1,7 +1,13 @@
 import type { MetadataRoute } from 'next';
 import { getSiteUrl } from '@/lib/site';
 
-const routes = ['/', '/aviso-legal', '/privacidad', '/cookies'];
+const routes = [
+  '/',
+  '/cuanto-cobrar-mantenimiento-web-mensual',
+  '/aviso-legal',
+  '/privacidad',
+  '/cookies',
+];
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const siteUrl = getSiteUrl();
