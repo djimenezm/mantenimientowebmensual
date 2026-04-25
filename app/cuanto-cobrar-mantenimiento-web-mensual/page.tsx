@@ -275,6 +275,11 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
             mensual, costes fijos, horas incluidas, buffer, costes por cliente, margen e IVA para
             obtener una cuota mensual mucho mas util que una cifra improvisada.
           </p>
+          <p>
+            Si tu caso gira especificamente alrededor de WordPress, puedes apoyarte tambien en la
+            guia sobre <Link href="/precio-mantenimiento-wordpress">precio de mantenimiento
+            WordPress</Link> para separar mejor soporte, incidencias y coste del servicio.
+          </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
               Calcular mi cuota mensual

@@ -183,15 +183,38 @@ export default function HomePage() {
       <section className="section">
         <div className="container text-block">
           <span className="eyebrow">Guia SEO</span>
-          <h2>Cuanto cobrar mantenimiento web mensual paso a paso</h2>
+          <h2>Guias para fijar mejor tu cuota mensual</h2>
           <p>
-            Si prefieres entender primero la logica y despues tocar numeros, hemos preparado una
-            guia practica sobre como fijar una cuota mensual sin cobrar el mantenimiento a ojo.
+            Si prefieres entender primero la logica y despues tocar numeros, aqui tienes dos guias
+            practicas para fijar mejor un mantenimiento web mensual y bajar WordPress a una cuota
+            mas defendible.
           </p>
-          <div className="guide-cta">
-            <Link href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
-              Leer la guia
-            </Link>
+          <div className="feature-grid" aria-label="Guias destacadas">
+            <article className="feature-card">
+              <h3>Cuanto cobrar mantenimiento web mensual</h3>
+              <p>
+                Entiende la logica general para fijar una cuota mensual sin cobrar el mantenimiento
+                a ojo.
+              </p>
+              <div className="guide-cta">
+                <Link href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Precio de mantenimiento WordPress</h3>
+              <p>
+                Baja un servicio WordPress a horas reales, incidencias, herramientas y soporte
+                continuo antes de cerrar una cuota.
+              </p>
+              <div className="guide-cta">
+                <Link href="/precio-mantenimiento-wordpress" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>

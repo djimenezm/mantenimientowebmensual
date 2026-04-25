@@ -4,6 +4,7 @@ import { getSiteUrl } from '@/lib/site';
 const routes = [
   '/',
   '/cuanto-cobrar-mantenimiento-web-mensual',
+  '/precio-mantenimiento-wordpress',
   '/aviso-legal',
   '/privacidad',
   '/cookies',
