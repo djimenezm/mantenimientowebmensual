@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/precio-mantenimiento-wordpress';
@@ -282,6 +283,17 @@ export default function PrecioMantenimientoWordPressPage() {
               Calcular mi cuota WordPress
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <LeadMagnetForm
+            source="precio-mantenimiento-wordpress"
+            title="Apuntate y te avisamos del kit de mantenimiento"
+            description="Estamos preparando un kit gratuito para vender mejor soporte y mantenimiento WordPress. Si quieres, te avisaremos cuando publiquemos el recurso."
+            buttonLabel="Quiero enterarme"
+          />
         </div>
       </section>
 

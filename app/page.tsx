@@ -4,6 +4,7 @@ import CalculatorForm from '@/components/CalculatorForm';
 import FAQ, { faqItems } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { siteConfig } from '@/lib/site';
 
 export default function HomePage() {
@@ -216,6 +217,17 @@ export default function HomePage() {
               </div>
             </article>
           </div>
+        </div>
+      </section>
+
+      <section className="section alt">
+        <div className="container">
+          <LeadMagnetForm
+            source="home"
+            title="Te avisamos cuando publiquemos el kit de mantenimiento web"
+            description="Estamos preparando un recurso gratuito con checklist de mantenimiento, ejemplo de alcance y estructura de cuota mensual para vender mejor un soporte recurrente. Si quieres, te avisamos en cuanto salga."
+            buttonLabel="Avisadme cuando salga"
+          />
         </div>
       </section>
 

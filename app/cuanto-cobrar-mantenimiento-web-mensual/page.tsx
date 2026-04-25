@@ -3,6 +3,7 @@ import Link from 'next/link';
 import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/cuanto-cobrar-mantenimiento-web-mensual';
@@ -285,6 +286,17 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
               Calcular mi cuota mensual
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <LeadMagnetForm
+            source="cuanto-cobrar-mantenimiento-web-mensual"
+            title="Quieres el kit cuando este listo?"
+            description="Si esta guia te resulta util, deja tu email y te avisaremos cuando publiquemos el kit gratuito con checklist de mantenimiento, estructura de cuota mensual y ejemplo de alcance."
+            buttonLabel="Quiero el kit"
+          />
         </div>
       </section>
 
