@@ -1,0 +1,58 @@
+KIT DE MANTENIMIENTO WEB
+
+1. CHECKLIST MENSUAL
+
+- Revisar copias y confirmar que el sitio puede restaurarse.
+- Aplicar actualizaciones del core, temas y plugins dentro del alcance pactado.
+- Comprobar formularios, puntos criticos y elementos visibles del sitio.
+- Revisar alertas, errores visibles y senales basicas de seguridad.
+- Registrar incidencias, tiempo consumido y tareas pequenas realizadas.
+- Preparar observaciones o recomendaciones para el cliente si hace falta.
+
+2. ESTRUCTURA CORTA DE ALCANCE
+
+- Que incluye el plan:
+  - actualizaciones
+  - supervision basica
+  - soporte
+  - pequenas tareas dentro de limite
+
+- Limites:
+  - horas incluidas
+  - revisiones o tareas fuera de cuota
+  - tiempo de respuesta orientativo
+
+- Que no entra:
+  - redisenos
+  - nuevas paginas completas
+  - desarrollos grandes
+  - integraciones complejas
+  - compras de terceros no incluidas
+
+- Gestion de extras:
+  - urgencias
+  - horas adicionales
+  - nuevas necesidades no contempladas
+
+3. ESTRUCTURA BASICA DE CUOTA
+
+- referencia interna por hora
+- horas incluidas realistas
+- buffer para incidencias y friccion
+- costes mensuales por cliente
+- margen del servicio
+- IVA aparte
+- forma de pago clara
+
+4. CHECKLIST ANTES DE ENVIAR LA PROPUESTA
+
+- La cuota parte de una base economica sana.
+- El cliente entiende que entra y que no entra.
+- Las urgencias y extras no quedan ambiguas.
+- El IVA y la forma de pago estan claros.
+- El siguiente paso para aprobar el plan esta bien explicado.
+
+5. RECORDATORIO FINAL
+
+Este kit ayuda a presentar mejor el mantenimiento web.
+La calculadora sigue siendo la pieza para aterrizar una cuota minima y una zona recomendada con tus propios numeros.

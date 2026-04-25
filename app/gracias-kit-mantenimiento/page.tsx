@@ -23,16 +23,22 @@ export default function GraciasKitMantenimientoPage() {
           <span className="eyebrow">Todo correcto</span>
           <h1>Gracias por apuntarte al kit de mantenimiento web</h1>
           <p className="lead">
-            Ya hemos recibido tu solicitud. Cuando publiquemos el kit con checklist, estructura de
-            cuota mensual y materiales de apoyo, te avisaremos en ese email.
+            Ya hemos recibido tu solicitud. Acabas de desbloquear el kit con checklist mensual,
+            estructura de cuota y ejemplo de alcance para vender mejor mantenimiento recurrente.
           </p>
           <div className="disclaimer-box">
-            <strong>Nota:</strong> si es la primera vez que usas este formulario, puede que el
-            servicio de captura pida una confirmacion inicial en el buzon de destino.
+            <strong>Nota:</strong> tambien deberias recibir un email con el acceso directo al kit.
+            Si no lo ves, revisa spam o promociones.
           </div>
           <div className="guide-cta">
+            <Link href="/kit-mantenimiento-web" className="primary-button">
+              Abrir el kit
+            </Link>
             <Link href="/" className="primary-button">
               Volver a la calculadora
+            </Link>
+            <Link href="/recursos/kit-mantenimiento-web.txt" className="primary-button">
+              Descargar version en texto
             </Link>
             <Link href="/precio-mantenimiento-wordpress" className="primary-button">
               Ver la guia de WordPress

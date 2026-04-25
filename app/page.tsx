@@ -224,9 +224,9 @@ export default function HomePage() {
         <div className="container">
           <LeadMagnetForm
             source="home"
-            title="Te avisamos cuando publiquemos el kit de mantenimiento web"
-            description="Estamos preparando un recurso gratuito con checklist de mantenimiento, ejemplo de alcance y estructura de cuota mensual para vender mejor un soporte recurrente. Si quieres, te avisamos en cuanto salga."
-            buttonLabel="Avisadme cuando salga"
+            title="Te enviamos el kit de mantenimiento web"
+            description="Accede al recurso gratuito con checklist de mantenimiento, ejemplo de alcance y estructura de cuota mensual para vender mejor un soporte recurrente."
+            buttonLabel="Quiero el kit"
           />
         </div>
       </section>

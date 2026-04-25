@@ -290,9 +290,9 @@ export default function PrecioMantenimientoWordPressPage() {
         <div className="container">
           <LeadMagnetForm
             source="precio-mantenimiento-wordpress"
-            title="Apuntate y te avisamos del kit de mantenimiento"
-            description="Estamos preparando un kit gratuito para vender mejor soporte y mantenimiento WordPress. Si quieres, te avisaremos cuando publiquemos el recurso."
-            buttonLabel="Quiero enterarme"
+            title="Te enviamos el kit de mantenimiento"
+            description="Accede al recurso gratuito para vender mejor soporte y mantenimiento WordPress, con checklist, alcance y estructura de cuota."
+            buttonLabel="Quiero el kit"
           />
         </div>
       </section>

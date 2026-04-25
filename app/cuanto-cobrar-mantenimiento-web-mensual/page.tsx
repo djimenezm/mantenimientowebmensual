@@ -293,8 +293,8 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
         <div className="container">
           <LeadMagnetForm
             source="cuanto-cobrar-mantenimiento-web-mensual"
-            title="Quieres el kit cuando este listo?"
-            description="Si esta guia te resulta util, deja tu email y te avisaremos cuando publiquemos el kit gratuito con checklist de mantenimiento, estructura de cuota mensual y ejemplo de alcance."
+            title="Te enviamos el kit de mantenimiento"
+            description="Si esta guia te resulta util, deja tu email y te damos acceso al kit gratuito con checklist de mantenimiento, estructura de cuota mensual y ejemplo de alcance."
             buttonLabel="Quiero el kit"
           />
         </div>

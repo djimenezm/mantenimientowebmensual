@@ -9,12 +9,14 @@ type LeadMagnetFormProps = {
 
 export default function LeadMagnetForm({
   source,
-  title = 'Apuntate al kit de mantenimiento web',
-  description = 'Deja tu email y te avisaremos cuando publiquemos el kit gratuito con checklist de mantenimiento, estructura de cuota mensual y ejemplo de alcance para soporte recurrente.',
-  buttonLabel = 'Quiero que me aviseis',
+  title = 'Te enviamos el kit de mantenimiento web',
+  description = 'Deja tu email y te enviaremos acceso al kit con checklist mensual, ejemplo de alcance y estructura de cuota para vender mejor soporte recurrente.',
+  buttonLabel = 'Quiero el kit',
 }: LeadMagnetFormProps) {
   const siteUrl = getSiteUrl();
   const thankYouUrl = new URL('/gracias-kit-mantenimiento', siteUrl).toString();
+  const resourceUrl = new URL('/kit-mantenimiento-web', siteUrl).toString();
+  const downloadUrl = new URL('/recursos/kit-mantenimiento-web.txt', siteUrl).toString();
   const formAction = `https://formsubmit.co/${siteConfig.contactEmail}`;
 
   return (
@@ -34,7 +36,7 @@ export default function LeadMagnetForm({
         <input
           type="hidden"
           name="_autoresponse"
-          value="Gracias por apuntarte al kit de mantenimiento web. Te avisaremos cuando publiquemos el recurso y las plantillas asociadas."
+          value={`Gracias por pedir el kit de mantenimiento web. Puedes verlo aqui: ${resourceUrl} y descargar la version en texto aqui: ${downloadUrl}. Si publicamos mejoras importantes, te avisaremos en este mismo email.`}
         />
         <input type="hidden" name="_next" value={thankYouUrl} />
         <input type="hidden" name="origen" value={source} />
@@ -48,8 +50,9 @@ export default function LeadMagnetForm({
           {buttonLabel}
         </button>
         <p className="form-note">
-          Al enviar el formulario aceptas que usemos tu email para avisarte sobre este recurso.
-          Mas informacion en <a href="/privacidad">privacidad</a>.
+          Al enviar el formulario aceptas que usemos tu email para darte acceso a este recurso y
+          avisarte de futuras actualizaciones relacionadas. Mas informacion en{' '}
+          <a href="/privacidad">privacidad</a>.
         </p>
       </form>
     </section>

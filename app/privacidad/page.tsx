@@ -38,9 +38,9 @@ export default function PrivacidadPage() {
           unicamente para responder a tu consulta.
         </p>
         <p>
-          Si dejas tu email en el formulario de aviso del kit de mantenimiento web, ese dato se
-          usara para avisarte cuando publiquemos ese recurso o materiales directamente
-          relacionados. El formulario se procesa mediante un proveedor externo de formularios que
+          Si dejas tu email en el formulario del kit de mantenimiento web, ese dato se usara para
+          darte acceso al recurso y para avisarte de futuras actualizaciones directamente
+          relacionadas. El formulario se procesa mediante un proveedor externo de formularios que
           reenvia la solicitud al buzon de contacto del proyecto.
         </p>
       </section>
