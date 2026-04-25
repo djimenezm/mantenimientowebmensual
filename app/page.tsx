@@ -205,6 +205,15 @@ export default function HomePage() {
             primero quieres aclarar cuanto necesitas facturar como autonomo o freelance, puedes
             apoyarte tambien en <a href="https://www.cuantofacturar.es">Cuanto Facturar</a>.
           </p>
+          <p>
+            Y si el cliente todavia esta en fase de captacion o lanzamiento, puedes contrastar ese
+            trabajo puntual con <a href="https://www.cuantocobrarlandingpage.es">Cuanto Cobrar
+            Landing Page</a> antes de pasar a una cuota mensual.
+          </p>
+          <p>
+            Para ver todas las herramientas conectadas entre si, tienes tambien{' '}
+            <a href="https://www.paneldeherramientas.es">Panel de Herramientas</a>.
+          </p>
         </div>
       </section>
 
