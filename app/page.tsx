@@ -205,6 +205,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Mantenimiento web vs bolsa de horas</h3>
+              <p>
+                Decide cuándo vender una cuota mensual, una bolsa de horas o un proyecto cerrado
+                sin mezclar alcances.
+              </p>
+              <div className="guide-cta">
+                <Link href="/mantenimiento-web-vs-bolsa-horas" className="primary-button">
+                  Leer la guía
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Cuanto cobrar mantenimiento web mensual</h3>
               <p>
                 Entiende la logica general para fijar una cuota mensual sin cobrar el mantenimiento

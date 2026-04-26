@@ -12,6 +12,7 @@ export default function Header() {
           <Link href="/#calculadora">Calculadora</Link>
           <Link href="/cuanto-cobrar-mantenimiento-web-mensual">Guia</Link>
           <Link href="/que-incluye-mantenimiento-web">Que incluye</Link>
+          <Link href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</Link>
           <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
           <Link href="/#como-funciona">Como funciona</Link>
           <Link href="/#faq">FAQ</Link>

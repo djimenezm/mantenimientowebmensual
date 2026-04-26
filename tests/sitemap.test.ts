@@ -9,6 +9,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/');
     expect(paths).toContain('/cuanto-cobrar-mantenimiento-web-mensual');
     expect(paths).toContain('/kit-mantenimiento-web');
+    expect(paths).toContain('/mantenimiento-web-vs-bolsa-horas');
     expect(paths).toContain('/paquetes-mantenimiento-web');
     expect(paths).toContain('/precio-mantenimiento-wordpress');
     expect(paths).toContain('/que-incluye-mantenimiento-web');
