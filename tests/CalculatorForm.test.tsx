@@ -79,7 +79,29 @@ describe('CalculatorForm', () => {
     expect(within(resultCard!).getByText(/^cuota minima defendible$/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/cuota recomendada sin iva/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/colchon entre minimo y recomendado/i)).toBeInTheDocument();
-    expect(within(resultCard!).getByText(/total mensual con iva/i)).toBeInTheDocument();
+    expect(within(resultCard!).getAllByText(/total mensual con iva/i).length).toBeGreaterThan(0);
+  });
+
+  it('copies a concise maintenance summary', async () => {
+    const user = userEvent.setup();
+    const writeText = vi.fn().mockResolvedValue(undefined);
+
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText,
+      },
+    });
+
+    render(<CalculatorForm />);
+
+    await user.click(screen.getByRole('button', { name: /calcular cuota mensual/i }));
+    await user.click(screen.getByRole('button', { name: /copiar resumen/i }));
+
+    expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Cuota recomendada'));
+    expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Cuota mínima defendible'));
+    expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Colchón de negociación'));
+    expect(screen.getByText('Resumen copiado.')).toBeInTheDocument();
   });
 
   it('normalizes decimal billable hours to a whole number on blur', async () => {
