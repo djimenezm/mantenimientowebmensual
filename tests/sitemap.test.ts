@@ -11,6 +11,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/kit-mantenimiento-web');
     expect(paths).toContain('/paquetes-mantenimiento-web');
     expect(paths).toContain('/precio-mantenimiento-wordpress');
+    expect(paths).toContain('/que-incluye-mantenimiento-web');
     expect(paths).not.toContain('/gracias-kit-mantenimiento');
   });
 });

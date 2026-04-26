@@ -7,6 +7,7 @@ const routes = [
   '/kit-mantenimiento-web',
   '/paquetes-mantenimiento-web',
   '/precio-mantenimiento-wordpress',
+  '/que-incluye-mantenimiento-web',
   '/aviso-legal',
   '/privacidad',
   '/cookies',

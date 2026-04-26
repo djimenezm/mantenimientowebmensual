@@ -192,6 +192,19 @@ export default function HomePage() {
           </p>
           <div className="feature-grid" aria-label="Guias destacadas">
             <article className="feature-card">
+              <h3>Que incluye un mantenimiento web</h3>
+              <p>
+                Separa tareas incluidas, soporte, incidencias, limites y extras antes de cerrar una
+                cuota mensual.
+              </p>
+              <div className="guide-cta">
+                <Link href="/que-incluye-mantenimiento-web" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Cuanto cobrar mantenimiento web mensual</h3>
               <p>
                 Entiende la logica general para fijar una cuota mensual sin cobrar el mantenimiento

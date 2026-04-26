@@ -19,6 +19,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="footer-links">
+          <Link href="/que-incluye-mantenimiento-web">Que incluye</Link>
           <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
           <a href="https://www.cuantofacturar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Facturar
