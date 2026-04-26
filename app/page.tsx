@@ -244,6 +244,22 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Planes de mantenimiento WordPress</h3>
+              <p>
+                Separa un plan basico, profesional y avanzado sin convertir la cuota mensual en
+                soporte ilimitado.
+              </p>
+              <div className="guide-cta">
+                <Link
+                  href="/mantenimiento-wordpress-basico-profesional-avanzado"
+                  className="primary-button"
+                >
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Paquetes de mantenimiento web</h3>
               <p>
                 Estructura planes basico, profesional y avanzado con alcance claro, limites y
