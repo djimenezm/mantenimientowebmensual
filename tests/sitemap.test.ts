@@ -7,6 +7,7 @@ describe('sitemap', () => {
 
     urls.forEach((url) => expect(url.origin).toBe('https://www.mantenimientowebmensual.es'));
     expect(paths).toContain('/');
+    expect(paths).toContain('/contrato-mantenimiento-web-mensual');
     expect(paths).toContain('/cuanto-cobrar-mantenimiento-web-mensual');
     expect(paths).toContain('/kit-mantenimiento-web');
     expect(paths).toContain('/mantenimiento-web-vs-bolsa-horas');

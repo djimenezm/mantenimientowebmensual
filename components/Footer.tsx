@@ -22,6 +22,7 @@ export default function Footer() {
           <Link href="/que-incluye-mantenimiento-web">Que incluye</Link>
           <Link href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</Link>
           <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
+          <Link href="/contrato-mantenimiento-web-mensual">Contrato</Link>
           <a href="https://www.cuantofacturar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Facturar
           </a>

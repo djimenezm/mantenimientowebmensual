@@ -3,6 +3,7 @@ import { getSiteUrl } from '@/lib/site';
 
 const routes = [
   '/',
+  '/contrato-mantenimiento-web-mensual',
   '/cuanto-cobrar-mantenimiento-web-mensual',
   '/kit-mantenimiento-web',
   '/mantenimiento-web-vs-bolsa-horas',

@@ -255,6 +255,19 @@ export default function HomePage() {
                 </Link>
               </div>
             </article>
+
+            <article className="feature-card">
+              <h3>Contrato de mantenimiento web</h3>
+              <p>
+                Ordena alcance, horas, soporte, urgencias, extras y cancelacion antes de activar
+                una cuota mensual.
+              </p>
+              <div className="guide-cta">
+                <Link href="/contrato-mantenimiento-web-mensual" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>
