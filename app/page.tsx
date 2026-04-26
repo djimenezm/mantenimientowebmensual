@@ -216,6 +216,19 @@ export default function HomePage() {
                 </Link>
               </div>
             </article>
+
+            <article className="feature-card">
+              <h3>Paquetes de mantenimiento web</h3>
+              <p>
+                Estructura planes basico, profesional y avanzado con alcance claro, limites y
+                extras fuera de la cuota.
+              </p>
+              <div className="guide-cta">
+                <Link href="/paquetes-mantenimiento-web" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
           </div>
         </div>
       </section>

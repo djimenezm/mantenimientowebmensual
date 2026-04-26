@@ -11,6 +11,7 @@ export default function Header() {
         <nav className="nav" aria-label="Navegacion principal">
           <Link href="/#calculadora">Calculadora</Link>
           <Link href="/cuanto-cobrar-mantenimiento-web-mensual">Guia</Link>
+          <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
           <Link href="/#como-funciona">Como funciona</Link>
           <Link href="/#faq">FAQ</Link>
         </nav>

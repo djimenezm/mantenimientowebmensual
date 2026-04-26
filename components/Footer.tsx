@@ -19,6 +19,7 @@ export default function Footer() {
           </p>
         </div>
         <div className="footer-links">
+          <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
           <Link href="/aviso-legal">Aviso legal</Link>
           <Link href="/privacidad">Privacidad</Link>
           <Link href="/cookies">Cookies</Link>
