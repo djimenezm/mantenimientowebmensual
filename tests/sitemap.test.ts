@@ -2,8 +2,10 @@ import sitemap from '@/app/sitemap';
 
 describe('sitemap', () => {
   it('includes the main indexable routes and excludes conversion-only pages', () => {
-    const paths = sitemap().map((entry) => new URL(entry.url).pathname);
+    const urls = sitemap().map((entry) => new URL(entry.url));
+    const paths = urls.map((url) => url.pathname);
 
+    urls.forEach((url) => expect(url.origin).toBe('https://www.mantenimientowebmensual.es'));
     expect(paths).toContain('/');
     expect(paths).toContain('/cuanto-cobrar-mantenimiento-web-mensual');
     expect(paths).toContain('/kit-mantenimiento-web');

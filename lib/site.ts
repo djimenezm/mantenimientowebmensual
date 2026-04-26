@@ -1,3 +1,5 @@
+const productionUrl = 'https://www.mantenimientowebmensual.es';
+
 export const siteConfig = {
   name: 'Cuanto Cobrar Mantenimiento Web',
   shortName: 'Mantenimiento Web',
@@ -13,7 +15,7 @@ export const siteConfig = {
     'retainer mantenimiento web',
     'mantenimiento web mensual freelance',
   ],
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? 'http://localhost:3003',
+  url: process.env.NODE_ENV === 'development' ? 'http://localhost:3003' : productionUrl,
   ownerName: 'Equipo de Cuanto Cobrar Mantenimiento Web',
   contactEmail: 'hola@mantenimientowebmensual.es',
   country: 'Espana',
