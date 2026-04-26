@@ -47,6 +47,56 @@ export default function GraciasKitMantenimientoPage() {
         </div>
       </section>
 
+      <section className="section alt">
+        <div className="container">
+          <span className="eyebrow">Siguiente paso</span>
+          <h2>Conecta el mantenimiento con otros precios del proyecto</h2>
+          <div className="feature-grid" aria-label="Siguientes pasos recomendados">
+            <article className="feature-card">
+              <h3>Proyecto web completo</h3>
+              <p>
+                Si el mantenimiento viene despues de una web nueva, revisa tambien como
+                presupuestar el desarrollo inicial.
+              </p>
+              <div className="guide-cta">
+                <a
+                  href="https://www.cuantopresupuestar.es/presupuesto-desarrollo-web-freelance"
+                  className="primary-button"
+                >
+                  Ver presupuesto web
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Landing page</h3>
+              <p>
+                Si el cliente empieza por una landing, calcula primero el precio del proyecto
+                puntual y despues la cuota de soporte.
+              </p>
+              <div className="guide-cta">
+                <a href="https://www.cuantocobrarlandingpage.es" className="primary-button">
+                  Calcular landing
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
+              <h3>Ver el ecosistema</h3>
+              <p>
+                El panel central te ayuda a elegir la calculadora adecuada segun el tipo de precio
+                que quieras defender.
+              </p>
+              <div className="guide-cta">
+                <a href="https://www.paneldeherramientas.es" className="primary-button">
+                  Abrir panel
+                </a>
+              </div>
+            </article>
+          </div>
+        </div>
+      </section>
+
       <Footer />
     </main>
   );
