@@ -20,10 +20,18 @@ export default function Footer() {
         </div>
         <div className="footer-links">
           <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
-          <a href="https://www.cuantofacturar.es">Facturar</a>
-          <a href="https://www.cuantopresupuestar.es">Presupuestar</a>
-          <a href="https://www.cuantocobrarlandingpage.es">Landing pages</a>
-          <a href="https://www.paneldeherramientas.es">Panel</a>
+          <a href="https://www.cuantofacturar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+            Facturar
+          </a>
+          <a href="https://www.cuantopresupuestar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+            Presupuestar
+          </a>
+          <a href="https://www.cuantocobrarlandingpage.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+            Landing pages
+          </a>
+          <a href="https://www.paneldeherramientas.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+            Panel
+          </a>
           <Link href="/aviso-legal">Aviso legal</Link>
           <Link href="/privacidad">Privacidad</Link>
           <Link href="/cookies">Cookies</Link>

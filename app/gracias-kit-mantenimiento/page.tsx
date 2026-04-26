@@ -60,7 +60,7 @@ export default function GraciasKitMantenimientoPage() {
               </p>
               <div className="guide-cta">
                 <a
-                  href="https://www.cuantopresupuestar.es/presupuesto-desarrollo-web-freelance"
+                  href="https://www.cuantopresupuestar.es/presupuesto-desarrollo-web-freelance?utm_source=mantenimientowebmensual&utm_medium=thank-you&utm_campaign=kit_next_step"
                   className="primary-button"
                 >
                   Ver presupuesto web
@@ -75,7 +75,10 @@ export default function GraciasKitMantenimientoPage() {
                 puntual y despues la cuota de soporte.
               </p>
               <div className="guide-cta">
-                <a href="https://www.cuantocobrarlandingpage.es" className="primary-button">
+                <a
+                  href="https://www.cuantocobrarlandingpage.es?utm_source=mantenimientowebmensual&utm_medium=thank-you&utm_campaign=kit_next_step"
+                  className="primary-button"
+                >
                   Calcular landing
                 </a>
               </div>
@@ -88,7 +91,10 @@ export default function GraciasKitMantenimientoPage() {
                 que quieras defender.
               </p>
               <div className="guide-cta">
-                <a href="https://www.paneldeherramientas.es" className="primary-button">
+                <a
+                  href="https://www.paneldeherramientas.es?utm_source=mantenimientowebmensual&utm_medium=thank-you&utm_campaign=kit_next_step"
+                  className="primary-button"
+                >
                   Abrir panel
                 </a>
               </div>
