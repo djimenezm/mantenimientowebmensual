@@ -5,6 +5,7 @@ const routes = [
   '/',
   '/contrato-mantenimiento-web-mensual',
   '/cuanto-cobrar-mantenimiento-web-mensual',
+  '/horas-incluidas-mantenimiento-web',
   '/kit-mantenimiento-web',
   '/mantenimiento-wordpress-basico-profesional-avanzado',
   '/mantenimiento-web-vs-bolsa-horas',

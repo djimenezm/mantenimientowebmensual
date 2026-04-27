@@ -260,6 +260,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Horas incluidas en mantenimiento web</h3>
+              <p>
+                Decide cuantas horas incluir, cuando caducan, que tareas consumen bolsa y como
+                cobrar extras sin convertir la cuota en soporte ilimitado.
+              </p>
+              <div className="guide-cta">
+                <Link href="/horas-incluidas-mantenimiento-web" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Paquetes de mantenimiento web</h3>
               <p>
                 Estructura planes basico, profesional y avanzado con alcance claro, limites y

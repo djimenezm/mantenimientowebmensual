@@ -21,6 +21,7 @@ export default function Footer() {
         <div className="footer-links">
           <Link href="/que-incluye-mantenimiento-web">Que incluye</Link>
           <Link href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</Link>
+          <Link href="/horas-incluidas-mantenimiento-web">Horas</Link>
           <Link href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</Link>
           <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
           <Link href="/contrato-mantenimiento-web-mensual">Contrato</Link>
