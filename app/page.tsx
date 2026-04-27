@@ -273,6 +273,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Mantenimiento web para pymes</h3>
+              <p>
+                Define que necesita una pyme, que tareas entran en la cuota, como separar urgencias
+                y que trabajos conviene presupuestar aparte.
+              </p>
+              <div className="guide-cta">
+                <Link href="/mantenimiento-web-para-pymes" className="primary-button">
+                  Leer la guia
+                </Link>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Paquetes de mantenimiento web</h3>
               <p>
                 Estructura planes basico, profesional y avanzado con alcance claro, limites y

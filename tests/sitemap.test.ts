@@ -11,6 +11,7 @@ describe('sitemap', () => {
     expect(paths).toContain('/cuanto-cobrar-mantenimiento-web-mensual');
     expect(paths).toContain('/horas-incluidas-mantenimiento-web');
     expect(paths).toContain('/kit-mantenimiento-web');
+    expect(paths).toContain('/mantenimiento-web-para-pymes');
     expect(paths).toContain('/mantenimiento-wordpress-basico-profesional-avanzado');
     expect(paths).toContain('/mantenimiento-web-vs-bolsa-horas');
     expect(paths).toContain('/paquetes-mantenimiento-web');
