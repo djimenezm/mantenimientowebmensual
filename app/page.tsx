@@ -65,9 +65,8 @@ export default function HomePage() {
             <span className="eyebrow">Cuanto Cobrar Mantenimiento Web</span>
             <h1>Calculadora para saber cuanto cobrar mantenimiento web mensual</h1>
             <p className="lead">
-              Convierte tu objetivo mensual en una cuota de mantenimiento web mas defendible.
-              Calcula una referencia base por hora, anade buffer de incidencias, costes mensuales
-              por cliente, margen extra e IVA aparte para no fijar la mensualidad a ciegas.
+              Calcula una cuota mensual defendible con horas incluidas, buffer, costes, margen e
+              IVA aparte.
             </p>
             <div className="hero-badges" aria-label="Ventajas principales">
               <span className="hero-badge">Sin registro</span>
