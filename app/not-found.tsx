@@ -1,4 +1,4 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages */
 
 export default function NotFoundPage() {
   return (
@@ -6,7 +6,7 @@ export default function NotFoundPage() {
       <h1>Pagina no encontrada</h1>
       <p>La pagina que buscas no existe o ya no esta disponible.</p>
       <p>
-        Puedes volver a la <Link href="/">calculadora principal</Link>.
+        Puedes volver a la <a href="/">calculadora principal</a>.
       </p>
     </main>
   );

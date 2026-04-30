@@ -1,9 +1,9 @@
 'use client';
 
-import { useMemo, useState } from 'react';
-import { track } from '@vercel/analytics';
-import ResultCard from '@/components/ResultCard';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { calculateMaintenanceRetainer } from '@/lib/calculator';
+
+const ResultCard = lazy(() => import('@/components/ResultCard'));
 
 type FieldName =
   | 'targetMonthlyNet'
@@ -16,6 +16,13 @@ type FieldName =
   | 'profitMarginPercent';
 
 type FormErrors = Partial<Record<FieldName, string>>;
+
+function trackMaintenanceRetainerCalculated(data: Record<string, string>) {
+  window.va?.('event', {
+    name: 'maintenance_retainer_calculated',
+    data,
+  });
+}
 
 function parseNumericValue(value: string) {
   const normalizedValue = value.replace(',', '.').trim();
@@ -168,6 +175,8 @@ export default function CalculatorForm() {
   const [hasIVA, setHasIVA] = useState(true);
   const [submitted, setSubmitted] = useState(false);
   const [hasTrackedConversion, setHasTrackedConversion] = useState(false);
+  const [validSubmissionCount, setValidSubmissionCount] = useState(0);
+  const resultRegionRef = useRef<HTMLElement | null>(null);
 
   const validationErrors = useMemo(
     () =>
@@ -226,6 +235,23 @@ export default function CalculatorForm() {
     hasIVA,
   ]);
 
+  useEffect(() => {
+    if (validSubmissionCount > 0) {
+      resultRegionRef.current?.focus({ preventScroll: false });
+    }
+  }, [validSubmissionCount]);
+
+  const setResultRegionRef = useCallback(
+    (node: HTMLElement | null) => {
+      resultRegionRef.current = node;
+
+      if (node && validSubmissionCount > 0) {
+        window.requestAnimationFrame(() => node.focus({ preventScroll: false }));
+      }
+    },
+    [validSubmissionCount],
+  );
+
   return (
     <div className="calculator-card" id="calculadora">
       <h2>Calculadora</h2>
@@ -242,8 +268,12 @@ export default function CalculatorForm() {
           event.preventDefault();
           setSubmitted(true);
 
+          if (!hasValidationErrors) {
+            setValidSubmissionCount((currentCount) => currentCount + 1);
+          }
+
           if (!hasValidationErrors && !hasTrackedConversion) {
-            track('maintenance_retainer_calculated', {
+            trackMaintenanceRetainerCalculated({
               hasIVA: hasIVA ? 'yes' : 'no',
               hasMargin: parseNumericValue(profitMarginPercent) > 0 ? 'yes' : 'no',
             });
@@ -495,7 +525,17 @@ export default function CalculatorForm() {
         </p>
       </form>
 
-      {submitted && !hasValidationErrors && <ResultCard result={result} hasIVA={hasIVA} />}
+      {submitted && !hasValidationErrors && (
+        <Suspense
+          fallback={
+            <p className="form-note" role="status">
+              Preparando resultado...
+            </p>
+          }
+        >
+          <ResultCard ref={setResultRegionRef} result={result} hasIVA={hasIVA} />
+        </Suspense>
+      )}
     </div>
   );
 }

@@ -1,4 +1,3 @@
-import Link from 'next/link';
 import { siteConfig } from '@/lib/site';
 
 export default function Footer() {
@@ -19,13 +18,13 @@ export default function Footer() {
           </p>
         </div>
         <div className="footer-links">
-          <Link href="/que-incluye-mantenimiento-web">Que incluye</Link>
-          <Link href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</Link>
-          <Link href="/horas-incluidas-mantenimiento-web">Horas</Link>
-          <Link href="/mantenimiento-web-para-pymes">Pymes</Link>
-          <Link href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</Link>
-          <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
-          <Link href="/contrato-mantenimiento-web-mensual">Contrato</Link>
+          <a href="/que-incluye-mantenimiento-web">Que incluye</a>
+          <a href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</a>
+          <a href="/horas-incluidas-mantenimiento-web">Horas</a>
+          <a href="/mantenimiento-web-para-pymes">Pymes</a>
+          <a href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</a>
+          <a href="/paquetes-mantenimiento-web">Paquetes</a>
+          <a href="/contrato-mantenimiento-web-mensual">Contrato</a>
           <a href="https://www.cuantofacturar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Facturar
           </a>
@@ -41,9 +40,9 @@ export default function Footer() {
           <a href="https://www.paneldeherramientas.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
             Panel
           </a>
-          <Link href="/aviso-legal">Aviso legal</Link>
-          <Link href="/privacidad">Privacidad</Link>
-          <Link href="/cookies">Cookies</Link>
+          <a href="/aviso-legal">Aviso legal</a>
+          <a href="/privacidad">Privacidad</a>
+          <a href="/cookies">Cookies</a>
         </div>
       </div>
     </footer>

@@ -30,4 +30,31 @@ describe('performance config', () => {
     expect(globalStyles).toMatch(/\.lead\s*{[^}]*line-height:\s*1\.55/s);
     expect(globalStyles).toMatch(/\.lead\s*{[^}]*max-width:\s*48ch/s);
   });
+
+  it('keeps result-only code out of the initial calculator bundle', () => {
+    const calculatorForm = readFileSync(
+      join(process.cwd(), 'components/CalculatorForm.tsx'),
+      'utf8',
+    );
+
+    expect(calculatorForm).not.toContain("import ResultCard from '@/components/ResultCard'");
+    expect(calculatorForm).not.toContain("from '@vercel/analytics'");
+    expect(calculatorForm).toContain("lazy(() => import('@/components/ResultCard'))");
+    expect(calculatorForm).toContain('window.va?.');
+  });
+
+  it('keeps static homepage chrome out of the client bundle', () => {
+    const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
+    const header = readFileSync(join(process.cwd(), 'components/Header.tsx'), 'utf8');
+    const footer = readFileSync(join(process.cwd(), 'components/Footer.tsx'), 'utf8');
+    const notFound = readFileSync(join(process.cwd(), 'app/not-found.tsx'), 'utf8');
+    const jsonLd = readFileSync(join(process.cwd(), 'components/JsonLd.tsx'), 'utf8');
+
+    expect(homePage).not.toContain("from 'next/script'");
+    expect(homePage).not.toContain("from 'next/link'");
+    expect(header).not.toContain("from 'next/link'");
+    expect(footer).not.toContain("from 'next/link'");
+    expect(notFound).not.toContain("from 'next/link'");
+    expect(jsonLd).toContain('type="application/ld+json"');
+  });
 });

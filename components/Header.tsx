@@ -1,25 +1,25 @@
-import Link from 'next/link';
+/* eslint-disable @next/next/no-html-link-for-pages */
 
 export default function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link href="/" className="brand">
+        <a href="/" className="brand">
           Cuanto Cobrar Mantenimiento Web
-        </Link>
+        </a>
 
         <nav className="nav" aria-label="Navegacion principal">
-          <Link href="/#calculadora">Calculadora</Link>
-          <Link href="/cuanto-cobrar-mantenimiento-web-mensual">Guia</Link>
-          <Link href="/que-incluye-mantenimiento-web">Que incluye</Link>
-          <Link href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</Link>
-          <Link href="/horas-incluidas-mantenimiento-web">Horas</Link>
-          <Link href="/mantenimiento-web-para-pymes">Pymes</Link>
-          <Link href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</Link>
-          <Link href="/paquetes-mantenimiento-web">Paquetes</Link>
-          <Link href="/contrato-mantenimiento-web-mensual">Contrato</Link>
-          <Link href="/#como-funciona">Como funciona</Link>
-          <Link href="/#faq">FAQ</Link>
+          <a href="/#calculadora">Calculadora</a>
+          <a href="/cuanto-cobrar-mantenimiento-web-mensual">Guia</a>
+          <a href="/que-incluye-mantenimiento-web">Que incluye</a>
+          <a href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</a>
+          <a href="/horas-incluidas-mantenimiento-web">Horas</a>
+          <a href="/mantenimiento-web-para-pymes">Pymes</a>
+          <a href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</a>
+          <a href="/paquetes-mantenimiento-web">Paquetes</a>
+          <a href="/contrato-mantenimiento-web-mensual">Contrato</a>
+          <a href="/#como-funciona">Como funciona</a>
+          <a href="/#faq">FAQ</a>
         </nav>
       </div>
     </header>

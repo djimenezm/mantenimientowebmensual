@@ -1,9 +1,8 @@
-import Link from 'next/link';
-import Script from 'next/script';
 import CalculatorForm from '@/components/CalculatorForm';
 import FAQ, { faqItems } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
+import JsonLd from '@/components/JsonLd';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { siteConfig } from '@/lib/site';
 
@@ -46,16 +45,8 @@ export default function HomePage() {
 
   return (
     <main>
-      <Script
-        id="webapp-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(webAppSchema) }}
-      />
-      <Script
-        id="faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
+      <JsonLd id="webapp-schema" data={webAppSchema} />
+      <JsonLd id="faq-schema" data={faqSchema} />
 
       <Header />
 
@@ -197,9 +188,9 @@ export default function HomePage() {
                 cuota mensual.
               </p>
               <div className="guide-cta">
-                <Link href="/que-incluye-mantenimiento-web" className="primary-button">
+                <a href="/que-incluye-mantenimiento-web" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -210,9 +201,9 @@ export default function HomePage() {
                 sin mezclar alcances.
               </p>
               <div className="guide-cta">
-                <Link href="/mantenimiento-web-vs-bolsa-horas" className="primary-button">
+                <a href="/mantenimiento-web-vs-bolsa-horas" className="primary-button">
                   Leer la guía
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -223,9 +214,9 @@ export default function HomePage() {
                 a ojo.
               </p>
               <div className="guide-cta">
-                <Link href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
+                <a href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -236,9 +227,9 @@ export default function HomePage() {
                 continuo antes de cerrar una cuota.
               </p>
               <div className="guide-cta">
-                <Link href="/precio-mantenimiento-wordpress" className="primary-button">
+                <a href="/precio-mantenimiento-wordpress" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -249,12 +240,12 @@ export default function HomePage() {
                 soporte ilimitado.
               </p>
               <div className="guide-cta">
-                <Link
+                <a
                   href="/mantenimiento-wordpress-basico-profesional-avanzado"
                   className="primary-button"
                 >
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -265,9 +256,9 @@ export default function HomePage() {
                 cobrar extras sin convertir la cuota en soporte ilimitado.
               </p>
               <div className="guide-cta">
-                <Link href="/horas-incluidas-mantenimiento-web" className="primary-button">
+                <a href="/horas-incluidas-mantenimiento-web" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -278,9 +269,9 @@ export default function HomePage() {
                 y que trabajos conviene presupuestar aparte.
               </p>
               <div className="guide-cta">
-                <Link href="/mantenimiento-web-para-pymes" className="primary-button">
+                <a href="/mantenimiento-web-para-pymes" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -291,9 +282,9 @@ export default function HomePage() {
                 extras fuera de la cuota.
               </p>
               <div className="guide-cta">
-                <Link href="/paquetes-mantenimiento-web" className="primary-button">
+                <a href="/paquetes-mantenimiento-web" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
 
@@ -304,9 +295,9 @@ export default function HomePage() {
                 una cuota mensual.
               </p>
               <div className="guide-cta">
-                <Link href="/contrato-mantenimiento-web-mensual" className="primary-button">
+                <a href="/contrato-mantenimiento-web-mensual" className="primary-button">
                   Leer la guia
-                </Link>
+                </a>
               </div>
             </article>
           </div>

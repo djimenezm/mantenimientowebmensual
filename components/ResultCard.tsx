@@ -1,6 +1,6 @@
 'use client';
 
-import { useState } from 'react';
+import { forwardRef, useState } from 'react';
 import { type CalculationResult } from '@/lib/calculator';
 import { formatCurrency } from '@/lib/format';
 
@@ -20,6 +20,8 @@ async function copyTextToClipboard(text: string) {
   const textArea = document.createElement('textarea');
   textArea.value = text;
   textArea.setAttribute('readonly', '');
+  textArea.setAttribute('aria-hidden', 'true');
+  textArea.tabIndex = -1;
   textArea.style.position = 'fixed';
   textArea.style.left = '-9999px';
   document.body.appendChild(textArea);
@@ -33,7 +35,10 @@ async function copyTextToClipboard(text: string) {
   }
 }
 
-export default function ResultCard({ result, hasIVA }: ResultCardProps) {
+const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
+  { result, hasIVA },
+  ref,
+) {
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
   const pricingBuffer = Math.max(
     0,
@@ -67,8 +72,14 @@ export default function ResultCard({ result, hasIVA }: ResultCardProps) {
   }
 
   return (
-    <section className="result-card" aria-live="polite">
-      <h3>Tu cuota mensual recomendada para mantenimiento web</h3>
+    <section
+      ref={ref}
+      className="result-card"
+      tabIndex={-1}
+      aria-live="polite"
+      aria-labelledby="result-card-title"
+    >
+      <h3 id="result-card-title">Tu cuota mensual recomendada para mantenimiento web</h3>
 
       <p className="result-lead">
         Con esta simulacion, una cuota mensual razonable quedaria en{' '}
@@ -197,4 +208,6 @@ export default function ResultCard({ result, hasIVA }: ResultCardProps) {
       </div>
     </section>
   );
-}
+});
+
+export default ResultCard;

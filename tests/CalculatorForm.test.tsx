@@ -2,15 +2,13 @@ import { render, screen, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CalculatorForm from '@/components/CalculatorForm';
-import { track } from '@vercel/analytics';
 
-vi.mock('@vercel/analytics', () => ({
-  track: vi.fn(),
-}));
+const trackEvent = vi.fn();
 
 describe('CalculatorForm', () => {
   beforeEach(() => {
-    vi.mocked(track).mockClear();
+    trackEvent.mockClear();
+    window.va = trackEvent;
   });
 
   it('shows an error and blocks results when billable hours are 0', async () => {
@@ -28,7 +26,7 @@ describe('CalculatorForm', () => {
 
     expect(screen.getByText('Las horas facturables deben ser mayores que 0.')).toBeInTheDocument();
     expect(screen.getByText('Revisa los campos marcados antes de calcular.')).toBeInTheDocument();
-    expect(track).not.toHaveBeenCalled();
+    expect(trackEvent).not.toHaveBeenCalled();
     expect(
       screen.queryByRole('heading', {
         name: /tu cuota mensual recomendada para mantenimiento web/i,
@@ -64,15 +62,18 @@ describe('CalculatorForm', () => {
 
     await user.click(screen.getByRole('button', { name: /calcular cuota mensual/i }));
 
-    const resultCardHeading = screen.getByRole('heading', {
+    const resultCardHeading = await screen.findByRole('heading', {
       name: /tu cuota mensual recomendada para mantenimiento web/i,
     });
     const resultCard = resultCardHeading.closest('section');
 
     expect(resultCard).not.toBeNull();
-    expect(track).toHaveBeenCalledWith('maintenance_retainer_calculated', {
-      hasIVA: 'yes',
-      hasMargin: 'yes',
+    expect(trackEvent).toHaveBeenCalledWith('event', {
+      name: 'maintenance_retainer_calculated',
+      data: {
+        hasIVA: 'yes',
+        hasMargin: 'yes',
+      },
     });
     expect(resultCardHeading).toBeInTheDocument();
     expect(within(resultCard!).getByText(/referencia base por hora/i)).toBeInTheDocument();
@@ -96,7 +97,7 @@ describe('CalculatorForm', () => {
     render(<CalculatorForm />);
 
     await user.click(screen.getByRole('button', { name: /calcular cuota mensual/i }));
-    await user.click(screen.getByRole('button', { name: /copiar resumen/i }));
+    await user.click(await screen.findByRole('button', { name: /copiar resumen/i }));
 
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Cuota recomendada'));
     expect(writeText).toHaveBeenCalledWith(expect.stringContaining('Cuota mínima defendible'));
@@ -130,6 +131,6 @@ describe('CalculatorForm', () => {
     await user.click(submitButton);
     await user.click(submitButton);
 
-    expect(track).toHaveBeenCalledTimes(1);
+    expect(trackEvent).toHaveBeenCalledTimes(1);
   });
 });
