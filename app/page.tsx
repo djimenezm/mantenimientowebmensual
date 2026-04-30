@@ -189,7 +189,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/que-incluye-mantenimiento-web" className="primary-button">
-                  Leer la guia
+                  Ver alcance
                 </a>
               </div>
             </article>
@@ -202,7 +202,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/mantenimiento-web-vs-bolsa-horas" className="primary-button">
-                  Leer la guía
+                  Comparar bolsas
                 </a>
               </div>
             </article>
@@ -215,7 +215,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
-                  Leer la guia
+                  Calcular cuota
                 </a>
               </div>
             </article>
@@ -228,7 +228,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/precio-mantenimiento-wordpress" className="primary-button">
-                  Leer la guia
+                  Precio WordPress
                 </a>
               </div>
             </article>
@@ -244,7 +244,7 @@ export default function HomePage() {
                   href="/mantenimiento-wordpress-basico-profesional-avanzado"
                   className="primary-button"
                 >
-                  Leer la guia
+                  Ver planes
                 </a>
               </div>
             </article>
@@ -257,7 +257,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/horas-incluidas-mantenimiento-web" className="primary-button">
-                  Leer la guia
+                  Definir horas
                 </a>
               </div>
             </article>
@@ -270,7 +270,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/mantenimiento-web-para-pymes" className="primary-button">
-                  Leer la guia
+                  Mantenimiento pyme
                 </a>
               </div>
             </article>
@@ -283,7 +283,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/paquetes-mantenimiento-web" className="primary-button">
-                  Leer la guia
+                  Crear paquetes
                 </a>
               </div>
             </article>
@@ -296,7 +296,7 @@ export default function HomePage() {
               </p>
               <div className="guide-cta">
                 <a href="/contrato-mantenimiento-web-mensual" className="primary-button">
-                  Leer la guia
+                  Preparar contrato
                 </a>
               </div>
             </article>
