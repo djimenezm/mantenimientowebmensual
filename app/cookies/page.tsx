@@ -4,6 +4,9 @@ import { siteConfig } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Politica de cookies',
   description: `Informacion sobre el uso de cookies en ${siteConfig.name}.`,
+  alternates: {
+    canonical: '/cookies',
+  },
 };
 
 export default function CookiesPage() {

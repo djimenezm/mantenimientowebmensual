@@ -4,6 +4,9 @@ import { siteConfig } from '@/lib/site';
 export const metadata: Metadata = {
   title: 'Aviso legal',
   description: `Condiciones de uso y limitacion de responsabilidad de ${siteConfig.name}.`,
+  alternates: {
+    canonical: '/aviso-legal',
+  },
 };
 
 export default function AvisoLegalPage() {
