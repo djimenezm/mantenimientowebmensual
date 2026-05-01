@@ -43,6 +43,13 @@ describe('performance config', () => {
     expect(calculatorForm).toContain('window.va?.');
   });
 
+  it('provides a visible focus state for generated calculator results', () => {
+    const globalStyles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+
+    expect(globalStyles).toMatch(/\.result-card:focus\s*{[^}]*outline:\s*3px solid var\(--accent\)/s);
+    expect(globalStyles).toMatch(/\.result-card:focus\s*{[^}]*outline-offset:\s*4px/s);
+  });
+
   it('keeps static homepage chrome out of the client bundle', () => {
     const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
     const header = readFileSync(join(process.cwd(), 'components/Header.tsx'), 'utf8');

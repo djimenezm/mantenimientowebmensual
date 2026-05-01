@@ -1,4 +1,4 @@
-import { render, screen, within } from '@testing-library/react';
+import { render, screen, waitFor, within } from '@testing-library/react';
 import userEvent from '@testing-library/user-event';
 import { beforeEach, describe, expect, it, vi } from 'vitest';
 import CalculatorForm from '@/components/CalculatorForm';
@@ -81,6 +81,25 @@ describe('CalculatorForm', () => {
     expect(within(resultCard!).getByText(/cuota recomendada sin iva/i)).toBeInTheDocument();
     expect(within(resultCard!).getByText(/colchon entre minimo y recomendado/i)).toBeInTheDocument();
     expect(within(resultCard!).getAllByText(/total mensual con iva/i).length).toBeGreaterThan(0);
+  });
+
+  it('moves focus to the result card after a successful calculation', async () => {
+    const user = userEvent.setup();
+
+    render(<CalculatorForm />);
+
+    await user.click(screen.getByRole('button', { name: /calcular cuota mensual/i }));
+
+    const resultCardHeading = await screen.findByRole('heading', {
+      name: /tu cuota mensual recomendada para mantenimiento web/i,
+    });
+    const resultCard = resultCardHeading.closest('section');
+
+    expect(resultCard).not.toBeNull();
+    expect(resultCard).toHaveAttribute('tabindex', '-1');
+    await waitFor(() => {
+      expect(resultCard).toHaveFocus();
+    });
   });
 
   it('copies a concise maintenance summary', async () => {
