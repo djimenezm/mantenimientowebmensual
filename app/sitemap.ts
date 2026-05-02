@@ -8,6 +8,7 @@ const routes = [
   '/horas-incluidas-mantenimiento-web',
   '/kit-mantenimiento-web',
   '/mantenimiento-web-para-pymes',
+  '/cuanto-cobrar-mantenimiento-wordpress-mensual',
   '/mantenimiento-wordpress-basico-profesional-avanzado',
   '/mantenimiento-web-vs-bolsa-horas',
   '/paquetes-mantenimiento-web',

@@ -84,7 +84,7 @@ export default function MantenimientoWordPressPlanesPage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-26',
-    dateModified: '2026-04-26',
+    dateModified: '2026-05-02',
   };
 
   const breadcrumbSchema = {
@@ -160,6 +160,12 @@ export default function MantenimientoWordPressPlanesPage() {
               </Link>
               <Link href="/precio-mantenimiento-wordpress" className="primary-button">
                 Ver precio WordPress
+              </Link>
+              <Link
+                href="/cuanto-cobrar-mantenimiento-wordpress-mensual"
+                className="primary-button"
+              >
+                Cuanto cobrar
               </Link>
             </div>
           </div>
@@ -315,6 +321,13 @@ export default function MantenimientoWordPressPlanesPage() {
             Si ya tienes una cuota pensada, prueba el escenario en la calculadora y compara cuota
             minima con cuota recomendada. La diferencia te dira si el plan esta demasiado justo o si
             tiene espacio para absorber soporte normal.
+          </p>
+          <p>
+            Para bajar el caso WordPress a una cuota mensual concreta, revisa tambien la guia sobre{' '}
+            <Link href="/cuanto-cobrar-mantenimiento-wordpress-mensual">
+              cuanto cobrar mantenimiento WordPress mensual
+            </Link>
+            .
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">

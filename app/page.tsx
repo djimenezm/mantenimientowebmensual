@@ -234,6 +234,22 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Cuanto cobrar mantenimiento WordPress</h3>
+              <p>
+                Convierte soporte, actualizaciones, incidencias y margen en una cuota mensual
+                WordPress mas defendible.
+              </p>
+              <div className="guide-cta">
+                <a
+                  href="/cuanto-cobrar-mantenimiento-wordpress-mensual"
+                  className="primary-button"
+                >
+                  Cobrar WordPress
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Planes de mantenimiento WordPress</h3>
               <p>
                 Separa un plan basico, profesional y avanzado sin convertir la cuota mensual en

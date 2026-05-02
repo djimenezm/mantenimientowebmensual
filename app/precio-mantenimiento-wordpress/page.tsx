@@ -84,7 +84,7 @@ export default function PrecioMantenimientoWordPressPage() {
       name: siteConfig.name,
     },
     datePublished: '2026-04-25',
-    dateModified: '2026-04-25',
+    dateModified: '2026-05-02',
   };
 
   const breadcrumbSchema = {
@@ -238,6 +238,13 @@ export default function PrecioMantenimientoWordPressPage() {
               cuanto cobrar mantenimiento web mensual
             </Link>
             .
+          </p>
+          <p>
+            Si lo que buscas es fijar tu propia cuota como freelance, la guia sobre{' '}
+            <Link href="/cuanto-cobrar-mantenimiento-wordpress-mensual">
+              cuanto cobrar mantenimiento WordPress mensual
+            </Link>{' '}
+            baja el servicio a horas, soporte, incidencias, costes y margen.
           </p>
         </div>
       </section>
