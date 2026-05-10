@@ -25,6 +25,7 @@ export default function Footer() {
           <a href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</a>
           <a href="/horas-incluidas-mantenimiento-web">Horas</a>
           <a href="/mantenimiento-web-para-pymes">Pymes</a>
+          <a href="/mantenimiento-web-para-ecommerce">Ecommerce</a>
           <a href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</a>
           <a href="/paquetes-mantenimiento-web">Paquetes</a>
           <a href="/contrato-mantenimiento-web-mensual">Contrato</a>

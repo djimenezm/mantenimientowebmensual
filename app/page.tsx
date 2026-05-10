@@ -292,6 +292,19 @@ export default function HomePage() {
             </article>
 
             <article className="feature-card">
+              <h3>Mantenimiento web para ecommerce</h3>
+              <p>
+                Ajusta una cuota mensual para tiendas online con mas riesgo, integraciones, soporte
+                y limites claros fuera del mantenimiento recurrente.
+              </p>
+              <div className="guide-cta">
+                <a href="/mantenimiento-web-para-ecommerce" className="primary-button">
+                  Mantenimiento ecommerce
+                </a>
+              </div>
+            </article>
+
+            <article className="feature-card">
               <h3>Paquetes de mantenimiento web</h3>
               <p>
                 Estructura planes basico, profesional y avanzado con alcance claro, limites y
