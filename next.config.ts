@@ -6,14 +6,14 @@ export const contentSecurityPolicy = [
   "object-src 'none'",
   "frame-ancestors 'none'",
   "form-action 'self' https://formsubmit.co",
-  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
+  "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://securepubads.g.doubleclick.net",
   "style-src 'self' 'unsafe-inline'",
-  "img-src 'self' data: blob:",
+  "img-src 'self' data: blob: https://*.googlesyndication.com https://*.doubleclick.net",
   "font-src 'self'",
-  "connect-src 'self' https://vitals.vercel-insights.com https://*.vercel-insights.com",
+  "connect-src 'self' https://vitals.vercel-insights.com https://*.vercel-insights.com https://*.googlesyndication.com https://*.doubleclick.net",
   "manifest-src 'self'",
   "worker-src 'self' blob:",
-  "frame-src 'none'",
+  "frame-src https://*.googlesyndication.com https://*.doubleclick.net",
   'upgrade-insecure-requests',
 ].join('; ');
 

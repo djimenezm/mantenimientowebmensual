@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import AdSlot from '@/components/AdSlot';
 import CalculatorForm from '@/components/CalculatorForm';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
@@ -99,6 +100,8 @@ export default function HomePage() {
           </div>
         </section>
 
+        <AdSlot placement="primary" />
+
         <section className="maintenance-checklist-band" id="kit-mantenimiento-form">
           <div className="container maintenance-checklist-grid">
             <div className="maintenance-checklist-copy">
@@ -115,6 +118,8 @@ export default function HomePage() {
             />
           </div>
         </section>
+
+        <AdSlot placement="secondary" />
       </main>
       <Footer />
     </>

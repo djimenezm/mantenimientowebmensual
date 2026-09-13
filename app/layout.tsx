@@ -1,5 +1,6 @@
 import type { Metadata } from 'next';
 import { Analytics } from '@vercel/analytics/next';
+import AdSenseScript from '@/components/AdSenseScript';
 import { fontVariables } from '@/lib/fonts';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 import './globals.css';
@@ -67,6 +68,7 @@ export default function RootLayout({
     <html lang="es" data-scroll-behavior="smooth" className={fontVariables}>
       <body>
         {children}
+        <AdSenseScript />
         <Analytics />
       </body>
     </html>
