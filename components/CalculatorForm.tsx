@@ -256,9 +256,7 @@ export default function CalculatorForm() {
     <div className="calculator-card" id="calculadora">
       <h2>Calculadora</h2>
       <p className="card-intro" id="calculator-intro">
-        Convierte tu objetivo mensual en una cuota de mantenimiento web mas defendible usando horas
-        incluidas, buffer de incidencias, costes mensuales por cliente y una reserva fiscal
-        orientativa.
+        Introduce tus costes, horas y margen. Te damos una cuota mínima y otra recomendada.
       </p>
 
       <form
@@ -400,8 +398,7 @@ export default function CalculatorForm() {
             }
           />
           <small className="field-hint" id="incident-buffer-hint">
-            Usalo para cubrir pequenos picos de soporte, incidencias y tareas mensuales que no
-            siempre se ven venir.
+            Reserva para pequeñas incidencias y soporte imprevisto.
           </small>
           {submitted && validationErrors.incidentBufferPercent && (
             <small className="field-error" id="incident-buffer-error" role="alert">
@@ -431,8 +428,7 @@ export default function CalculatorForm() {
             }
           />
           <small className="field-hint" id="direct-monthly-costs-hint">
-            Ejemplos: herramientas especificas, monitorizacion, compras de terceros o soporte
-            externalizado asociado a ese cliente.
+            Herramientas o servicios asociados a ese cliente.
           </small>
           {submitted && validationErrors.directMonthlyClientCosts && (
             <small className="field-error" id="direct-monthly-costs-error" role="alert">
@@ -461,8 +457,7 @@ export default function CalculatorForm() {
             }
           />
           <small className="field-hint" id="tax-reserve-hint">
-            No intenta sustituir un calculo fiscal exacto: solo te ayuda a no fijar la cuota como
-            si todo el ingreso fuera limpio.
+            Reserva orientativa; no sustituye un cálculo fiscal.
           </small>
           {submitted && validationErrors.taxReservePercent && (
             <small className="field-error" id="tax-reserve-percent-error" role="alert">
@@ -520,8 +515,7 @@ export default function CalculatorForm() {
         )}
 
         <p className="form-note">
-          La herramienta es orientativa: sirve para transformar una intuicion difusa en una cuota
-          mensual mas defendible, no para cerrar un encaje fiscal exacto.
+          Referencia orientativa para presupuestar con más criterio.
         </p>
       </form>
 

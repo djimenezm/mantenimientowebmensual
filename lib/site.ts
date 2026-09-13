@@ -19,8 +19,8 @@ export const siteConfig = {
   ownerName: 'Equipo de Cuanto Cobrar Mantenimiento Web',
   contactEmail: 'hola@mantenimientowebmensual.es',
   country: 'Espana',
-  themeColor: '#145da0',
-  backgroundColor: '#f6f8fb',
+  themeColor: '#07110e',
+  backgroundColor: '#fbfaf5',
 } as const;
 
 export function getSiteUrl() {

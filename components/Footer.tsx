@@ -1,52 +1,85 @@
+/* eslint-disable @next/next/no-html-link-for-pages */
+
 import { siteConfig } from '@/lib/site';
+
+const footerGroups = [
+  {
+    title: 'Calcular',
+    links: [
+      { href: '/#calculadora', label: 'Calculadora' },
+      { href: '/que-incluye-mantenimiento-web', label: 'Qué incluye' },
+      { href: '/precio-mantenimiento-wordpress', label: 'Precio WordPress' },
+      { href: '/paquetes-mantenimiento-web', label: 'Paquetes' },
+    ],
+  },
+  {
+    title: 'Aplicar',
+    links: [
+      { href: '/horas-incluidas-mantenimiento-web', label: 'Horas incluidas' },
+      { href: '/mantenimiento-web-para-pymes', label: 'Para pymes' },
+      { href: '/mantenimiento-web-para-ecommerce', label: 'Para ecommerce' },
+      { href: '/contrato-mantenimiento-web-mensual', label: 'Contrato mensual' },
+    ],
+  },
+] as const;
 
 export default function Footer() {
   return (
     <footer className="site-footer">
-      <div className="container footer-inner">
-        <div className="footer-copy">
-          <p>
-            Copyright {new Date().getFullYear()} {siteConfig.name}
-          </p>
-          <p>Titular: {siteConfig.ownerName}</p>
-          <p className="footer-contact-row">
-            <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
-              Contacto: {siteConfig.contactEmail}
+      <div className="container footer-shell">
+        <div className="footer-main">
+          <div className="footer-brand-block">
+            <a href="/" className="footer-brand">
+              Mantenimiento Web
             </a>
-          </p>
-          <p className="footer-note">
-            Herramienta orientativa para cobrar mantenimiento web mensual. No constituye
-            asesoramiento fiscal ni legal.
-          </p>
+            <p>Calcula una cuota mensual que proteja tu tiempo y tu margen.</p>
+            <p className="footer-contact-row">
+              <a className="footer-contact-link" href={`mailto:${siteConfig.contactEmail}`}>
+                Contacto: {siteConfig.contactEmail}
+              </a>
+            </p>
+          </div>
+
+          <nav className="footer-nav" aria-label="Enlaces del pie de página">
+            {footerGroups.map((group) => (
+              <div className="footer-group" key={group.title}>
+                <p className="footer-group-title">{group.title}</p>
+                {group.links.map((link) => (
+                  <a href={link.href} key={link.href}>
+                    {link.label}
+                  </a>
+                ))}
+              </div>
+            ))}
+
+            <div className="footer-group">
+              <p className="footer-group-title">Herramientas</p>
+              <a href="https://www.cuantofacturar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Facturar
+              </a>
+              <a href="https://www.cuantopresupuestar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Presupuestar
+              </a>
+              <a href="https://www.cuantocobrarlandingpage.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Landing pages
+              </a>
+              <a href="https://www.paneldeherramientas.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
+                Panel
+              </a>
+            </div>
+          </nav>
         </div>
-        <div className="footer-links">
-          <a href="/que-incluye-mantenimiento-web">Que incluye</a>
-          <a href="/cuanto-cobrar-mantenimiento-wordpress-mensual">Cobrar WordPress</a>
-          <a href="/mantenimiento-wordpress-basico-profesional-avanzado">WordPress</a>
-          <a href="/horas-incluidas-mantenimiento-web">Horas</a>
-          <a href="/mantenimiento-web-para-pymes">Pymes</a>
-          <a href="/mantenimiento-web-para-ecommerce">Ecommerce</a>
-          <a href="/mantenimiento-web-vs-bolsa-horas">Bolsa horas</a>
-          <a href="/paquetes-mantenimiento-web">Paquetes</a>
-          <a href="/contrato-mantenimiento-web-mensual">Contrato</a>
-          <a href="https://www.cuantofacturar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Facturar
-          </a>
-          <a href="https://www.cuantopresupuestar.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Presupuestar
-          </a>
-          <a href="https://www.cuantocobrarlandingpage.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Landing pages
-          </a>
-          <a href="https://www.paneldeherramientas.es/precios-freelance?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=pricing_hub">
-            Precios freelance
-          </a>
-          <a href="https://www.paneldeherramientas.es?utm_source=mantenimientowebmensual&utm_medium=ecosystem-footer&utm_campaign=cross_navigation">
-            Panel
-          </a>
-          <a href="/aviso-legal">Aviso legal</a>
-          <a href="/privacidad">Privacidad</a>
-          <a href="/cookies">Cookies</a>
+
+        <div className="footer-bottom">
+          <div className="footer-legal-copy">
+            <p>© {new Date().getFullYear()} Mantenimiento Web · Titular: {siteConfig.ownerName}</p>
+            <p>Herramienta orientativa. No constituye asesoramiento fiscal ni legal.</p>
+          </div>
+          <nav aria-label="Enlaces legales">
+            <a href="/aviso-legal">Aviso legal</a>
+            <a href="/privacidad">Privacidad</a>
+            <a href="/cookies">Cookies</a>
+          </nav>
         </div>
       </div>
     </footer>

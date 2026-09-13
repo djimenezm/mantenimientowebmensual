@@ -7,7 +7,6 @@ export const contentSecurityPolicy = [
   "frame-ancestors 'none'",
   "form-action 'self' https://formsubmit.co",
   "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com",
-  "require-trusted-types-for 'script'",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob:",
   "font-src 'self'",

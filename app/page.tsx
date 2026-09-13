@@ -1,10 +1,16 @@
+import Image from 'next/image';
 import CalculatorForm from '@/components/CalculatorForm';
-import FAQ, { faqItems } from '@/components/FAQ';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { siteConfig } from '@/lib/site';
+
+const outcomeItems = [
+  'Cuota mínima defendible',
+  'Precio mensual recomendado',
+  'IVA y margen separados',
+] as const;
 
 export default function HomePage() {
   const webAppSchema = {
@@ -23,350 +29,94 @@ export default function HomePage() {
       priceCurrency: 'EUR',
     },
     featureList: [
-      'Calculadora para saber cuanto cobrar mantenimiento web mensual',
-      'Referencia base por hora a partir de tu objetivo mensual',
-      'Buffer de incidencias y soporte',
-      'IVA aparte y margen configurable',
+      'Cuota mínima para mantenimiento web mensual',
+      'Precio recomendado según horas y margen',
+      'IVA y costes directos calculados por separado',
     ],
   };
 
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: faqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
-
   return (
-    <main>
-      <JsonLd id="webapp-schema" data={webAppSchema} />
-      <JsonLd id="faq-schema" data={faqSchema} />
-
+    <>
       <Header />
+      <main id="contenido-principal" className="maintenance-landing">
+        <JsonLd id="webapp-schema" data={webAppSchema} />
 
-      <section className="hero">
-        <div className="container hero-grid">
-          <div>
-            <span className="eyebrow">Cuanto Cobrar Mantenimiento Web</span>
-            <h1>Calculadora para saber cuanto cobrar mantenimiento web mensual</h1>
-            <p className="lead">
-              Calcula una cuota mensual defendible con horas incluidas, buffer, costes, margen e
-              IVA aparte.
-            </p>
-            <div className="hero-badges" aria-label="Ventajas principales">
-              <span className="hero-badge">Sin registro</span>
-              <span className="hero-badge">Pensada para retainers mensuales</span>
-              <span className="hero-badge">IVA siempre aparte</span>
-            </div>
-            <ul className="hero-points">
-              <li>Convierte una cuota intuitiva en una cifra mas defendible para el cliente.</li>
-              <li>
-                Incluye horas facturables reales, buffer de incidencias, costes directos y reserva
-                fiscal orientativa.
-              </li>
-              <li>
-                Util para WordPress, webs corporativas, landing pages, soporte tecnico y servicios
-                recurrentes.
-              </li>
-            </ul>
-            <p className="hero-cta-note">
-              Si ya ofreces mantenimiento mensual, usala para comprobar si esa cuota te deja el
-              margen que buscas o si estas absorbiendo demasiado soporte.
-            </p>
-          </div>
-
-          <CalculatorForm />
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container feature-grid" aria-label="Puntos clave de la herramienta">
-          <article className="feature-card">
-            <h2>Que resuelve</h2>
-            <p>
-              Parte de tu objetivo mensual, tus costes fijos y tus horas facturables para sacar una
-              referencia por hora. Despues la convierte en una cuota mensual por cliente con buffer,
-              costes directos y margen.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Cuando te aporta mas valor</h2>
-            <p>
-              Cuando vendes soporte o mantenimiento recurrente y quieres validar si la mensualidad
-              cubre el tiempo real, las incidencias y el suelo economico de tu actividad.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Donde poner el filtro final</h2>
-            <p>
-              En contratos complejos, SLA mas estrictos o servicios con responsabilidad tecnica
-              alta. La herramienta esta pensada para orientar tu cuota, no para sustituir una
-              revision fiscal o contractual profesional.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="section" id="como-funciona">
-        <div className="container text-block">
-          <h2>Como funciona la calculadora</h2>
-          <p>
-            Primero estima cuanto necesitas facturar al mes para sostener tu objetivo neto y tus
-            costes fijos. Esa cifra se reparte entre tus horas facturables reales para obtener una
-            referencia base por hora.
-          </p>
-          <p>
-            Despues esa referencia se lleva al cliente de mantenimiento: introduces las horas
-            incluidas, un buffer de incidencias, los costes mensuales directos y el margen extra que
-            quieres defender. Con eso obtienes una cuota minima defendible, una cuota recomendada y,
-            si aplica, el total mensual con IVA aparte.
-          </p>
-          <div className="disclaimer-box">
-            <strong>Idea clave:</strong> un retainer mensual sano no deberia salir de una intuicion
-            rapida. Deberia salir de tus horas reales, el soporte que esperas absorber y el margen
-            que necesitas conservar.
-          </div>
-        </div>
-      </section>
-
-      <section className="section alt">
-        <div className="container conversion-grid">
-          <div className="conversion-copy">
-            <h2>No uses la cuota mensual como gesto comercial: usala como suelo defendible</h2>
-            <p>
-              La herramienta te da una cifra para no fijar el mantenimiento solo por sensacion o por
-              comparacion con el mercado. Si tu cuota actual queda muy por debajo, probablemente te
-              falte margen, tiempo o proteccion frente a incidencias.
-            </p>
-            <p>
-              La idea no es fijar una mensualidad exacta al centimo, sino ayudarte a llegar a una
-              cifra que puedas defender con mas criterio delante de un cliente.
-            </p>
-          </div>
-
-          <div className="conversion-steps" aria-label="Como aprovechar mejor el resultado">
-            <article className="conversion-step">
-              <h3>1. Contrasta</h3>
-              <p>Compara la cuota calculada con tu plan actual y detecta si te deja margen real.</p>
-            </article>
-
-            <article className="conversion-step">
-              <h3>2. Ajusta</h3>
-              <p>Prueba cambios en horas, buffer o margen para encontrar tu minimo razonable.</p>
-            </article>
-
-            <article className="conversion-step">
-              <h3>3. Vende mejor</h3>
-              <p>Usa la cuota recomendada como base para presentar un plan mensual mas defendible.</p>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container text-block">
-          <span className="eyebrow">Guia SEO</span>
-          <h2>Guias para fijar mejor tu cuota mensual</h2>
-          <p>
-            Si prefieres entender primero la logica y despues tocar numeros, aqui tienes dos guias
-            practicas para fijar mejor un mantenimiento web mensual y bajar WordPress a una cuota
-            mas defendible.
-          </p>
-          <div className="feature-grid" aria-label="Guias destacadas">
-            <article className="feature-card">
-              <h3>Que incluye un mantenimiento web</h3>
-              <p>
-                Separa tareas incluidas, soporte, incidencias, limites y extras antes de cerrar una
-                cuota mensual.
-              </p>
-              <div className="guide-cta">
-                <a href="/que-incluye-mantenimiento-web" className="primary-button">
-                  Ver alcance
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Mantenimiento web vs bolsa de horas</h3>
-              <p>
-                Decide cuándo vender una cuota mensual, una bolsa de horas o un proyecto cerrado
-                sin mezclar alcances.
-              </p>
-              <div className="guide-cta">
-                <a href="/mantenimiento-web-vs-bolsa-horas" className="primary-button">
-                  Comparar bolsas
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Cuanto cobrar mantenimiento web mensual</h3>
-              <p>
-                Entiende la logica general para fijar una cuota mensual sin cobrar el mantenimiento
-                a ojo.
-              </p>
-              <div className="guide-cta">
-                <a href="/cuanto-cobrar-mantenimiento-web-mensual" className="primary-button">
-                  Calcular cuota
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Precio de mantenimiento WordPress</h3>
-              <p>
-                Baja un servicio WordPress a horas reales, incidencias, herramientas y soporte
-                continuo antes de cerrar una cuota.
-              </p>
-              <div className="guide-cta">
-                <a href="/precio-mantenimiento-wordpress" className="primary-button">
-                  Precio WordPress
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Cuanto cobrar mantenimiento WordPress</h3>
-              <p>
-                Convierte soporte, actualizaciones, incidencias y margen en una cuota mensual
-                WordPress mas defendible.
-              </p>
-              <div className="guide-cta">
-                <a
-                  href="/cuanto-cobrar-mantenimiento-wordpress-mensual"
-                  className="primary-button"
-                >
-                  Cobrar WordPress
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Planes de mantenimiento WordPress</h3>
-              <p>
-                Separa un plan basico, profesional y avanzado sin convertir la cuota mensual en
-                soporte ilimitado.
-              </p>
-              <div className="guide-cta">
-                <a
-                  href="/mantenimiento-wordpress-basico-profesional-avanzado"
-                  className="primary-button"
-                >
-                  Ver planes
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Horas incluidas en mantenimiento web</h3>
-              <p>
-                Decide cuantas horas incluir, cuando caducan, que tareas consumen bolsa y como
-                cobrar extras sin convertir la cuota en soporte ilimitado.
-              </p>
-              <div className="guide-cta">
-                <a href="/horas-incluidas-mantenimiento-web" className="primary-button">
-                  Definir horas
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Mantenimiento web para pymes</h3>
-              <p>
-                Define que necesita una pyme, que tareas entran en la cuota, como separar urgencias
-                y que trabajos conviene presupuestar aparte.
-              </p>
-              <div className="guide-cta">
-                <a href="/mantenimiento-web-para-pymes" className="primary-button">
-                  Mantenimiento pyme
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Mantenimiento web para ecommerce</h3>
-              <p>
-                Ajusta una cuota mensual para tiendas online con mas riesgo, integraciones, soporte
-                y limites claros fuera del mantenimiento recurrente.
-              </p>
-              <div className="guide-cta">
-                <a href="/mantenimiento-web-para-ecommerce" className="primary-button">
-                  Mantenimiento ecommerce
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Paquetes de mantenimiento web</h3>
-              <p>
-                Estructura planes basico, profesional y avanzado con alcance claro, limites y
-                extras fuera de la cuota.
-              </p>
-              <div className="guide-cta">
-                <a href="/paquetes-mantenimiento-web" className="primary-button">
-                  Crear paquetes
-                </a>
-              </div>
-            </article>
-
-            <article className="feature-card">
-              <h3>Contrato de mantenimiento web</h3>
-              <p>
-                Ordena alcance, horas, soporte, urgencias, extras y cancelacion antes de activar
-                una cuota mensual.
-              </p>
-              <div className="guide-cta">
-                <a href="/contrato-mantenimiento-web-mensual" className="primary-button">
-                  Preparar contrato
-                </a>
-              </div>
-            </article>
-          </div>
-        </div>
-      </section>
-
-      <section className="section alt">
-        <div className="container">
-          <LeadMagnetForm
-            source="home"
-            title="Te enviamos el kit de mantenimiento web"
-            description="Accede al recurso gratuito con checklist de mantenimiento, ejemplo de alcance y estructura de cuota mensual para vender mejor un soporte recurrente."
-            buttonLabel="Quiero el kit"
+        <section className="maintenance-hero" aria-labelledby="maintenance-hero-title">
+          <Image
+            src="/images/maintenance-hero-v2.webp"
+            alt=""
+            fill
+            priority
+            sizes="100vw"
+            className="maintenance-hero-image"
           />
-        </div>
-      </section>
+          <div className="maintenance-hero-scrim" />
+          <div className="container maintenance-hero-content">
+            <span className="maintenance-hero-kicker">Calculadora de mantenimiento web</span>
+            <h1 id="maintenance-hero-title">El mantenimiento web no es un favor. Ponle precio.</h1>
+            <p>Convierte horas, incidencias y margen en una cuota mensual clara.</p>
 
-      <section className="section alt">
-        <div className="container text-block">
-          <span className="eyebrow">Otra herramienta</span>
-          <h2>Si antes necesitas aterrizar tu base mensual, usa Cuanto Facturar</h2>
-          <p>
-            Esta herramienta te ayuda a transformar tus numeros en una cuota mensual por cliente. Si
-            primero quieres aclarar cuanto necesitas facturar como autonomo o freelance, puedes
-            apoyarte tambien en <a href="https://www.cuantofacturar.es">Cuanto Facturar</a>.
-          </p>
-          <p>
-            Y si el cliente todavia esta en fase de captacion o lanzamiento, puedes contrastar ese
-            trabajo puntual con <a href="https://www.cuantocobrarlandingpage.es">Cuanto Cobrar
-            Landing Page</a> antes de pasar a una cuota mensual.
-          </p>
-          <p>
-            Para ver todas las herramientas conectadas entre si, tienes tambien{' '}
-            <a href="https://www.paneldeherramientas.es">Panel de Herramientas</a>.
-          </p>
-        </div>
-      </section>
+            <div className="maintenance-hero-actions">
+              <a href="#calculadora" className="primary-button">
+                Calcular mi cuota
+              </a>
+              <a href="#como-funciona" className="maintenance-ghost-button">
+                Ver qué obtengo
+              </a>
+            </div>
+          </div>
+        </section>
 
-      <FAQ />
+        <section
+          className="maintenance-calculator-band"
+          aria-labelledby="maintenance-calculator-heading"
+        >
+          <div className="container maintenance-calculator-shell">
+            <div className="maintenance-calculator-copy">
+              <span className="eyebrow">Calcula antes de ofrecer</span>
+              <h2 id="maintenance-calculator-heading">
+                Una cuota mensual tiene que proteger tu tiempo.
+              </h2>
+              <p>Introduce tus números. Obtendrás un mínimo y un precio recomendado.</p>
+            </div>
+
+            <CalculatorForm />
+          </div>
+        </section>
+
+        <section
+          className="maintenance-mini-strip"
+          id="como-funciona"
+          aria-label="Resultado de la calculadora"
+        >
+          <div className="container maintenance-mini-strip-inner">
+            <strong>Obtienes solo lo necesario:</strong>
+            <div>
+              {outcomeItems.map((item) => (
+                <span key={item}>{item}</span>
+              ))}
+            </div>
+          </div>
+        </section>
+
+        <section className="maintenance-checklist-band" id="kit-mantenimiento-form">
+          <div className="container maintenance-checklist-grid">
+            <div className="maintenance-checklist-copy">
+              <span className="eyebrow">Después del cálculo</span>
+              <h2>Define el alcance antes de enviar la cuota.</h2>
+              <p>Una checklist breve para separar tareas, urgencias y extras.</p>
+            </div>
+
+            <LeadMagnetForm
+              source="home"
+              title="Recibe la checklist de mantenimiento"
+              description="Comprueba que la mensualidad cubre el trabajo real antes de presentarla."
+              buttonLabel="Enviar checklist gratis"
+            />
+          </div>
+        </section>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }
