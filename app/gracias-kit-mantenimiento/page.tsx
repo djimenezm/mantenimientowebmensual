@@ -23,11 +23,11 @@ export default function GraciasKitMantenimientoPage() {
           <span className="eyebrow">Todo correcto</span>
           <h1>Gracias por apuntarte al kit de mantenimiento web</h1>
           <p className="lead">
-            Ya hemos recibido tu solicitud. Acabas de desbloquear el kit con checklist mensual,
+            Ya hemos recibido tu solicitud. Acabas de desbloquear el kit con lista de comprobación mensual,
             estructura de cuota y ejemplo de alcance para vender mejor mantenimiento recurrente.
           </p>
           <div className="disclaimer-box">
-            <strong>Nota:</strong> tambien deberias recibir un email con el acceso directo al kit.
+            <strong>Nota:</strong> también deberías recibir un email con el acceso directo al kit.
             Si no lo ves, revisa spam o promociones.
           </div>
           <div className="guide-cta">
@@ -38,10 +38,10 @@ export default function GraciasKitMantenimientoPage() {
               Volver a la calculadora
             </Link>
             <Link href="/recursos/kit-mantenimiento-web.txt" className="primary-button">
-              Descargar version en texto
+              Descargar versión en texto
             </Link>
             <Link href="/precio-mantenimiento-wordpress" className="primary-button">
-              Ver la guia de WordPress
+              Ver la guía de WordPress
             </Link>
           </div>
         </div>
@@ -55,7 +55,7 @@ export default function GraciasKitMantenimientoPage() {
             <article className="feature-card">
               <h3>Proyecto web completo</h3>
               <p>
-                Si el mantenimiento viene despues de una web nueva, revisa tambien como
+                Si el mantenimiento viene después de una web nueva, revisa también como
                 presupuestar el desarrollo inicial.
               </p>
               <div className="guide-cta">
@@ -72,7 +72,7 @@ export default function GraciasKitMantenimientoPage() {
               <h3>Landing page</h3>
               <p>
                 Si el cliente empieza por una landing, calcula primero el precio del proyecto
-                puntual y despues la cuota de soporte.
+                puntual y después la cuota de soporte.
               </p>
               <div className="guide-cta">
                 <a
@@ -87,7 +87,7 @@ export default function GraciasKitMantenimientoPage() {
             <article className="feature-card">
               <h3>Ver el ecosistema</h3>
               <p>
-                El panel central te ayuda a elegir la calculadora adecuada segun el tipo de precio
+                El panel central te ayuda a elegir la calculadora adecuada según el tipo de precio
                 que quieras defender.
               </p>
               <div className="guide-cta">

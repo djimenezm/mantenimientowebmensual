@@ -1,60 +1,28 @@
-# Cuanto Cobrar Mantenimiento Web
+# Cuánto Cobrar por Mantenimiento Web
 
-MVP en Next.js para calcular cuanto cobrar por mantenimiento web mensual a partir de un objetivo mensual, unos costes fijos, tus horas facturables, las horas incluidas por cliente, un buffer de incidencias y una reserva fiscal orientativa.
+Calculadora para estimar una cuota mensual de mantenimiento web. Incluye guías de alcance, paquetes, contrato y ejemplos de precio.
 
-## Requisitos
+## Empezar
 
-- Node.js 20.9 o superior
-- npm 10 o superior
-
-## Arranque en local
+Requiere Node.js 20.9 o superior y npm 10 o superior.
 
 ```bash
 npm install
 npm run dev
 ```
 
-Despues abre:
+La aplicación local se abre en <http://localhost:3003/>.
+
+## Comprobar cambios
 
 ```bash
-http://localhost:3003
+npm run lint
+npm test
+npm run build
 ```
 
-## Variable de entorno
+## Documentación
 
-Para produccion, configura:
+- [Estructura, configuración y revisión local](docs/desarrollo.md)
 
-```bash
-NEXT_PUBLIC_SITE_URL=https://www.mantenimientowebmensual.es
-```
-
-## Estructura
-
-```text
-mantenimiento-web-mensual/
-  app/
-    aviso-legal/page.tsx
-    cookies/page.tsx
-    privacidad/page.tsx
-    globals.css
-    layout.tsx
-    page.tsx
-  components/
-    CalculatorForm.tsx
-    FAQ.tsx
-    Footer.tsx
-    Header.tsx
-    ResultCard.tsx
-  lib/
-    calculator.ts
-    format.ts
-    site.ts
-  public/
-  .env.example
-  .gitignore
-  next-env.d.ts
-  next.config.ts
-  package.json
-  README.md
-  tsconfig.json
-```
+Los anuncios no se activan por defecto. Consulta la guía de desarrollo antes de cambiar su configuración.

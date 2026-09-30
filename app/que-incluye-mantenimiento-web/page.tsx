@@ -36,8 +36,8 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'que incluye mantenimiento web',
-    'mantenimiento web mensual que incluye',
+    'qué incluye mantenimiento web',
+    'mantenimiento web mensual qué incluye',
     'servicio mantenimiento web mensual',
     'soporte mantenimiento web',
     'alcance mantenimiento web',
@@ -297,7 +297,7 @@ export default function QueIncluyeMantenimientoWebPage() {
           <LeadMagnetForm
             source="que-incluye-mantenimiento-web"
             title="Llévate el kit para definir tu mantenimiento"
-            description="Recibe el checklist y la estructura base para separar tareas incluidas, límites, extras y cuota mensual antes de presentar el servicio."
+            description="Recibe la lista de comprobación y la estructura base para separar tareas incluidas, límites, extras y cuota mensual antes de presentar el servicio."
             buttonLabel="Quiero el kit"
           />
         </div>

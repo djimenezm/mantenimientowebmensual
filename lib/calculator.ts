@@ -28,6 +28,10 @@ export type CalculationResult = {
   vatAmount: number;
   totalWithVAT: number;
   effectiveHourlyRate: number;
+  clientsNeededForTarget: number;
+  maxClientsByHours: number;
+  hoursNeededForTarget: number;
+  hoursOverCapacity: number;
 };
 
 function roundToTwo(value: number) {
@@ -71,6 +75,12 @@ export function calculateMaintenanceRetainer({
   const vatAmount = hasIVA ? recommendedMonthlyRetainer * 0.21 : 0;
   const totalWithVAT = recommendedMonthlyRetainer + vatAmount;
   const effectiveHourlyRate = recommendedMonthlyRetainer / bufferedIncludedHours;
+  const revenueAfterClientCosts = recommendedMonthlyRetainer - safeDirectMonthlyClientCosts;
+  const clientsNeededForTarget = monthlyRevenueTarget > 0 && revenueAfterClientCosts > 0
+    ? Math.ceil(monthlyRevenueTarget / revenueAfterClientCosts)
+    : 0;
+  const maxClientsByHours = Math.floor(safeBillableHoursPerMonth / bufferedIncludedHours);
+  const hoursNeededForTarget = clientsNeededForTarget * bufferedIncludedHours;
 
   return {
     targetMonthlyNet: roundToTwo(safeTargetMonthlyNet),
@@ -90,5 +100,9 @@ export function calculateMaintenanceRetainer({
     vatAmount: roundToTwo(vatAmount),
     totalWithVAT: roundToTwo(totalWithVAT),
     effectiveHourlyRate: roundToTwo(effectiveHourlyRate),
+    clientsNeededForTarget,
+    maxClientsByHours,
+    hoursNeededForTarget: roundToTwo(hoursNeededForTarget),
+    hoursOverCapacity: roundToTwo(Math.max(0, hoursNeededForTarget - safeBillableHoursPerMonth)),
   };
 }

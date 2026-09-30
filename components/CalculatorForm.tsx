@@ -1,21 +1,18 @@
 'use client';
 
+import type { ClipboardEvent } from 'react';
 import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { calculateMaintenanceRetainer } from '@/lib/calculator';
+import {
+  DEFAULT_FORM_VALUES,
+  type FieldName,
+  getNormalizedPastedValue,
+  normalizeFieldValue,
+  validateForm,
+} from '@/lib/calculatorForm';
+import { parseSpanishNumber as parseNumericValue } from '@/lib/spanishNumber';
 
 const ResultCard = lazy(() => import('@/components/ResultCard'));
-
-type FieldName =
-  | 'targetMonthlyNet'
-  | 'monthlyFixedCosts'
-  | 'billableHoursPerMonth'
-  | 'includedHoursPerClient'
-  | 'incidentBufferPercent'
-  | 'directMonthlyClientCosts'
-  | 'taxReservePercent'
-  | 'profitMarginPercent';
-
-type FormErrors = Partial<Record<FieldName, string>>;
 
 function trackMaintenanceRetainerCalculated(data: Record<string, string>) {
   window.va?.('event', {
@@ -24,159 +21,53 @@ function trackMaintenanceRetainerCalculated(data: Record<string, string>) {
   });
 }
 
-function parseNumericValue(value: string) {
-  const normalizedValue = value.replace(',', '.').trim();
+function handleNumericPaste(
+  event: ClipboardEvent<HTMLInputElement>,
+  field: FieldName,
+  setValue: (value: string) => void,
+) {
+  const normalizedValue = getNormalizedPastedValue(field, event.clipboardData.getData('text'));
 
-  if (normalizedValue === '') {
-    return Number.NaN;
+  if (normalizedValue === null) {
+    return;
   }
 
-  return Number(normalizedValue);
-}
-
-function formatNormalizedNumber(value: number, maximumFractionDigits = 2) {
-  return value.toLocaleString('en-US', {
-    useGrouping: false,
-    maximumFractionDigits,
-  });
-}
-
-function normalizeFieldValue(field: FieldName, value: string) {
-  const parsedValue = parseNumericValue(value);
-
-  if (!Number.isFinite(parsedValue)) {
-    return value.trim() === '' ? '' : value;
-  }
-
-  switch (field) {
-    case 'targetMonthlyNet':
-    case 'monthlyFixedCosts':
-    case 'includedHoursPerClient':
-    case 'directMonthlyClientCosts':
-      return formatNormalizedNumber(Math.max(0, parsedValue));
-    case 'billableHoursPerMonth':
-      return formatNormalizedNumber(Math.max(0, Math.round(parsedValue)), 0);
-    case 'incidentBufferPercent':
-    case 'taxReservePercent':
-    case 'profitMarginPercent':
-      return formatNormalizedNumber(Math.min(100, Math.max(0, parsedValue)), 1);
-  }
-}
-
-function getFieldError(field: FieldName, value: string) {
-  const parsedValue = parseNumericValue(value);
-
-  if (value.trim() === '') {
-    switch (field) {
-      case 'targetMonthlyNet':
-        return 'Indica tu objetivo mensual.';
-      case 'monthlyFixedCosts':
-        return 'Indica tus costes fijos mensuales.';
-      case 'billableHoursPerMonth':
-        return 'Indica tus horas facturables al mes.';
-      case 'includedHoursPerClient':
-        return 'Indica las horas incluidas por cliente.';
-      case 'incidentBufferPercent':
-        return 'Indica un buffer de incidencias.';
-      case 'directMonthlyClientCosts':
-        return 'Indica los costes mensuales directos del cliente.';
-      case 'taxReservePercent':
-        return 'Indica una reserva fiscal orientativa.';
-      case 'profitMarginPercent':
-        return 'Indica el margen extra del servicio.';
-    }
-  }
-
-  if (!Number.isFinite(parsedValue)) {
-    switch (field) {
-      case 'billableHoursPerMonth':
-        return 'Introduce un numero valido de horas.';
-      case 'incidentBufferPercent':
-      case 'taxReservePercent':
-      case 'profitMarginPercent':
-        return 'Introduce un porcentaje valido.';
-      default:
-        return 'Introduce un importe valido.';
-    }
-  }
-
-  if (field === 'targetMonthlyNet' && parsedValue <= 0) {
-    return 'El objetivo mensual debe ser mayor que 0.';
-  }
-
-  if (field === 'billableHoursPerMonth' && parsedValue <= 0) {
-    return 'Las horas facturables deben ser mayores que 0.';
-  }
-
-  if (field === 'billableHoursPerMonth' && !Number.isInteger(parsedValue)) {
-    return 'Las horas facturables deben ser un numero entero.';
-  }
-
-  if (field === 'includedHoursPerClient' && parsedValue <= 0) {
-    return 'Las horas incluidas deben ser mayores que 0.';
-  }
-
-  if (
-    (field === 'incidentBufferPercent' ||
-      field === 'taxReservePercent' ||
-      field === 'profitMarginPercent') &&
-    parsedValue > 100
-  ) {
-    return 'El porcentaje debe ser como maximo 100.';
-  }
-
-  if (parsedValue < 0) {
-    switch (field) {
-      case 'targetMonthlyNet':
-        return 'El objetivo mensual no puede ser negativo.';
-      case 'monthlyFixedCosts':
-        return 'Los costes fijos no pueden ser negativos.';
-      case 'billableHoursPerMonth':
-        return 'Las horas facturables no pueden ser negativas.';
-      case 'includedHoursPerClient':
-        return 'Las horas incluidas no pueden ser negativas.';
-      case 'incidentBufferPercent':
-        return 'El buffer no puede ser negativo.';
-      case 'directMonthlyClientCosts':
-        return 'Los costes del cliente no pueden ser negativos.';
-      case 'taxReservePercent':
-        return 'La reserva fiscal no puede ser negativa.';
-      case 'profitMarginPercent':
-        return 'El margen no puede ser negativo.';
-    }
-  }
-
-  return '';
-}
-
-function validateForm(values: Record<FieldName, string>): FormErrors {
-  const nextErrors: FormErrors = {};
-
-  (Object.keys(values) as FieldName[]).forEach((field) => {
-    const error = getFieldError(field, values[field]);
-
-    if (error) {
-      nextErrors[field] = error;
-    }
-  });
-
-  return nextErrors;
+  event.preventDefault();
+  setValue(normalizedValue);
 }
 
 export default function CalculatorForm() {
-  const [targetMonthlyNet, setTargetMonthlyNet] = useState('1800');
-  const [monthlyFixedCosts, setMonthlyFixedCosts] = useState('300');
-  const [billableHoursPerMonth, setBillableHoursPerMonth] = useState('80');
-  const [includedHoursPerClient, setIncludedHoursPerClient] = useState('2');
-  const [incidentBufferPercent, setIncidentBufferPercent] = useState('25');
-  const [directMonthlyClientCosts, setDirectMonthlyClientCosts] = useState('15');
-  const [taxReservePercent, setTaxReservePercent] = useState('20');
-  const [profitMarginPercent, setProfitMarginPercent] = useState('15');
-  const [hasIVA, setHasIVA] = useState(true);
+  const [targetMonthlyNet, setTargetMonthlyNet] = useState(DEFAULT_FORM_VALUES.targetMonthlyNet);
+  const [monthlyFixedCosts, setMonthlyFixedCosts] = useState(DEFAULT_FORM_VALUES.monthlyFixedCosts);
+  const [billableHoursPerMonth, setBillableHoursPerMonth] = useState(
+    DEFAULT_FORM_VALUES.billableHoursPerMonth,
+  );
+  const [includedHoursPerClient, setIncludedHoursPerClient] = useState(
+    DEFAULT_FORM_VALUES.includedHoursPerClient,
+  );
+  const [incidentBufferPercent, setIncidentBufferPercent] = useState(
+    DEFAULT_FORM_VALUES.incidentBufferPercent,
+  );
+  const [directMonthlyClientCosts, setDirectMonthlyClientCosts] = useState(
+    DEFAULT_FORM_VALUES.directMonthlyClientCosts,
+  );
+  const [taxReservePercent, setTaxReservePercent] = useState(DEFAULT_FORM_VALUES.taxReservePercent);
+  const [profitMarginPercent, setProfitMarginPercent] = useState(
+    DEFAULT_FORM_VALUES.profitMarginPercent,
+  );
+  const [hasIVA, setHasIVA] = useState(DEFAULT_FORM_VALUES.hasIVA);
   const [submitted, setSubmitted] = useState(false);
+  const [invalidSubmissionCount, setInvalidSubmissionCount] = useState(0);
+  const formRef = useRef<HTMLFormElement | null>(null);
   const [hasTrackedConversion, setHasTrackedConversion] = useState(false);
   const [validSubmissionCount, setValidSubmissionCount] = useState(0);
   const resultRegionRef = useRef<HTMLElement | null>(null);
+
+  useEffect(() => {
+    if (invalidSubmissionCount > 0) {
+      formRef.current?.querySelector<HTMLInputElement>('[aria-invalid="true"]')?.focus();
+    }
+  }, [invalidSubmissionCount]);
 
   const validationErrors = useMemo(
     () =>
@@ -260,11 +151,16 @@ export default function CalculatorForm() {
       </p>
 
       <form
+        ref={formRef}
         noValidate
         aria-describedby="calculator-intro"
         onSubmit={(event) => {
           event.preventDefault();
           setSubmitted(true);
+
+          if (hasValidationErrors) {
+            setInvalidSubmissionCount((count) => count + 1);
+          }
 
           if (!hasValidationErrors) {
             setValidSubmissionCount((currentCount) => currentCount + 1);
@@ -288,6 +184,9 @@ export default function CalculatorForm() {
             step="0.01"
             value={targetMonthlyNet}
             onChange={(event) => setTargetMonthlyNet(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'targetMonthlyNet', setTargetMonthlyNet)
+            }
             onBlur={(event) =>
               setTargetMonthlyNet(normalizeFieldValue('targetMonthlyNet', event.target.value))
             }
@@ -311,6 +210,9 @@ export default function CalculatorForm() {
             step="0.01"
             value={monthlyFixedCosts}
             onChange={(event) => setMonthlyFixedCosts(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'monthlyFixedCosts', setMonthlyFixedCosts)
+            }
             onBlur={(event) =>
               setMonthlyFixedCosts(normalizeFieldValue('monthlyFixedCosts', event.target.value))
             }
@@ -336,6 +238,9 @@ export default function CalculatorForm() {
             step="1"
             value={billableHoursPerMonth}
             onChange={(event) => setBillableHoursPerMonth(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'billableHoursPerMonth', setBillableHoursPerMonth)
+            }
             onBlur={(event) =>
               setBillableHoursPerMonth(normalizeFieldValue('billableHoursPerMonth', event.target.value))
             }
@@ -357,6 +262,9 @@ export default function CalculatorForm() {
             step="0.5"
             value={includedHoursPerClient}
             onChange={(event) => setIncludedHoursPerClient(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'includedHoursPerClient', setIncludedHoursPerClient)
+            }
             onBlur={(event) =>
               setIncludedHoursPerClient(
                 normalizeFieldValue('includedHoursPerClient', event.target.value),
@@ -385,6 +293,9 @@ export default function CalculatorForm() {
             step="0.5"
             value={incidentBufferPercent}
             onChange={(event) => setIncidentBufferPercent(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'incidentBufferPercent', setIncidentBufferPercent)
+            }
             onBlur={(event) =>
               setIncidentBufferPercent(
                 normalizeFieldValue('incidentBufferPercent', event.target.value),
@@ -415,6 +326,9 @@ export default function CalculatorForm() {
             step="0.01"
             value={directMonthlyClientCosts}
             onChange={(event) => setDirectMonthlyClientCosts(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'directMonthlyClientCosts', setDirectMonthlyClientCosts)
+            }
             onBlur={(event) =>
               setDirectMonthlyClientCosts(
                 normalizeFieldValue('directMonthlyClientCosts', event.target.value),
@@ -442,10 +356,13 @@ export default function CalculatorForm() {
           <input
             type="number"
             min="0"
-            max="100"
+            max="99"
             step="0.5"
             value={taxReservePercent}
             onChange={(event) => setTaxReservePercent(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'taxReservePercent', setTaxReservePercent)
+            }
             onBlur={(event) =>
               setTaxReservePercent(normalizeFieldValue('taxReservePercent', event.target.value))
             }
@@ -475,6 +392,9 @@ export default function CalculatorForm() {
             step="0.5"
             value={profitMarginPercent}
             onChange={(event) => setProfitMarginPercent(event.target.value)}
+            onPaste={(event) =>
+              handleNumericPaste(event, 'profitMarginPercent', setProfitMarginPercent)
+            }
             onBlur={(event) =>
               setProfitMarginPercent(normalizeFieldValue('profitMarginPercent', event.target.value))
             }
@@ -493,10 +413,10 @@ export default function CalculatorForm() {
         </label>
 
         <fieldset className="radio-group">
-          <legend>¿Anadir IVA a la cuota?</legend>
+          <legend>¿Añadir IVA a la cuota?</legend>
           <label>
             <input type="radio" name="iva" checked={hasIVA} onChange={() => setHasIVA(true)} />
-            Si
+            Sí
           </label>
           <label>
             <input type="radio" name="iva" checked={!hasIVA} onChange={() => setHasIVA(false)} />

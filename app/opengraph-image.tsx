@@ -77,7 +77,7 @@ export default function OpenGraphImage() {
                   color: 'rgba(248,251,255,0.75)',
                 }}
               >
-                Calculadora para cobrar mantenimiento web mensual con mas criterio
+                Calculadora para cobrar mantenimiento web mensual con más criterio
               </div>
             </div>
           </div>
@@ -109,7 +109,7 @@ export default function OpenGraphImage() {
               }}
             >
               Referencia por hora, buffer de incidencias, costes mensuales, margen e IVA aparte en
-              una sola simulacion.
+              una sola simulación.
             </div>
           </div>
 

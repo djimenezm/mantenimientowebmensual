@@ -24,6 +24,29 @@ describe('calculateMaintenanceRetainer', () => {
     expect(result.vatAmount).toBe(22.87);
     expect(result.totalWithVAT).toBe(131.76);
     expect(result.effectiveHourlyRate).toBe(43.56);
+    expect(result.clientsNeededForTarget).toBe(28);
+    expect(result.maxClientsByHours).toBe(32);
+    expect(result.hoursNeededForTarget).toBe(70);
+    expect(result.hoursOverCapacity).toBe(0);
+  });
+
+  it('flags when whole clients cannot fit in the available hours', () => {
+    const result = calculateMaintenanceRetainer({
+      targetMonthlyNet: 1800,
+      monthlyFixedCosts: 300,
+      billableHoursPerMonth: 10,
+      includedHoursPerClient: 4,
+      incidentBufferPercent: 50,
+      directMonthlyClientCosts: 15,
+      taxReservePercent: 20,
+      profitMarginPercent: 15,
+      hasIVA: true,
+    });
+
+    expect(result.clientsNeededForTarget).toBe(2);
+    expect(result.maxClientsByHours).toBe(1);
+    expect(result.hoursNeededForTarget).toBe(12);
+    expect(result.hoursOverCapacity).toBe(2);
   });
 
   it('does not add IVA when the maintenance fee does not repercute it', () => {

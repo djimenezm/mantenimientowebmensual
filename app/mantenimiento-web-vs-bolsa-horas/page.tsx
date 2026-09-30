@@ -7,7 +7,7 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/mantenimiento-web-vs-bolsa-horas';
-const title = 'Mantenimiento web mensual vs bolsa de horas: cuándo vender cada opción';
+const title = 'Mantenimiento web mensual vs. bolsa de horas: cuándo vender cada opción';
 const description =
   'Guía para decidir si conviene vender mantenimiento web mensual, bolsa de horas o soporte puntual según recurrencia, urgencias, riesgo, alcance y margen.';
 
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'mantenimiento web vs bolsa de horas',
+    'mantenimiento web vs. bolsa de horas',
     'bolsa de horas mantenimiento web',
     'mantenimiento web mensual o bolsa de horas',
     'precio bolsa de horas web',
@@ -143,7 +143,7 @@ export default function MantenimientoVsBolsaHorasPage() {
         <div className="container article-layout">
           <div className="text-block">
             <span className="eyebrow">Decisión comercial</span>
-            <h1>Mantenimiento web mensual vs bolsa de horas: cuándo vender cada opción</h1>
+            <h1>Mantenimiento web mensual vs. bolsa de horas: cuándo vender cada opción</h1>
             <p className="lead">
               No todos los clientes necesitan una cuota mensual completa, pero tampoco todas las
               tareas encajan en una bolsa de horas. Elegir mal el formato puede dejarte sin margen,
@@ -244,7 +244,7 @@ export default function MantenimientoVsBolsaHorasPage() {
           <p>
             Una buena estrategia es ofrecer la bolsa de horas como opción puntual y el mantenimiento
             mensual como opción de continuidad. Así el cliente entiende que no son lo mismo y que la
-            cuota mensual cubre algo más que tareas sueltas.
+            cuota mensual cubre algo más qué tareas sueltas.
           </p>
           <div className="feature-grid" aria-label="Formas de presentar opciones">
             <article className="feature-card">
@@ -305,7 +305,7 @@ export default function MantenimientoVsBolsaHorasPage() {
           <LeadMagnetForm
             source="mantenimiento-vs-bolsa-horas"
             title="Llévate el kit para decidir mejor tu mantenimiento"
-            description="Recibe el checklist y la estructura base para separar cuota mensual, bolsa de horas, límites, extras y tareas fuera de alcance."
+            description="Recibe la lista de comprobación y la estructura base para separar cuota mensual, bolsa de horas, límites, extras y tareas fuera de alcance."
             buttonLabel="Quiero el kit"
           />
         </div>

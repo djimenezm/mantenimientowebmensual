@@ -9,5 +9,10 @@ describe('LeadMagnetForm', () => {
     expect(screen.getByRole('textbox', { name: /email/i })).toBeInTheDocument();
     expect(screen.getByRole('button', { name: /quiero el kit/i })).toBeInTheDocument();
     expect(screen.getByText(/privacidad/i)).toBeInTheDocument();
+    expect(screen.getByRole('textbox', { name: /email/i })).toHaveAttribute('name', 'EMAIL');
+    expect(screen.getByRole('button', { name: /quiero el kit/i }).closest('form')).toHaveAttribute(
+      'action',
+      expect.stringContaining('2caafd8d.sibforms.com/serve/'),
+    );
   });
 });

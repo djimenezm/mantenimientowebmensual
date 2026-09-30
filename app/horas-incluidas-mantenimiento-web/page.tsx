@@ -7,23 +7,23 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/horas-incluidas-mantenimiento-web';
-const title = 'Horas incluidas en mantenimiento web: como definir una cuota mensual sana';
+const title = 'Horas incluidas en mantenimiento web: cómo definir una cuota mensual sana';
 const description =
-  'Guia practica para decidir cuantas horas incluir en un mantenimiento web mensual, como limitar tareas, urgencias, extras y soporte sin perder margen.';
+  'Guía práctica para decidir cuántas horas incluir en un mantenimiento web mensual, cómo limitar tareas, urgencias, extras y soporte sin perder margen.';
 
 const pageFaqItems = [
   {
-    question: 'Cuantas horas deberia incluir un mantenimiento web mensual?',
+    question: '¿Cuántas horas debería incluir un mantenimiento web mensual?',
     answer:
-      'Depende del tipo de web, riesgo, frecuencia de cambios y nivel de soporte. Para planes pequenos puede bastar 1 o 2 horas; para planes profesionales suele tener sentido definir 3 a 6 horas con limites claros.',
+      'Depende del tipo de web, riesgo, frecuencia de cambios y nivel de soporte. Para planes pequeños puede bastar 1 o 2 horas; para planes profesionales suele tener sentido definir 3 a 6 horas con límites claros.',
   },
   {
-    question: 'Las horas no usadas se acumulan para el mes siguiente?',
+    question: '¿Las horas no usadas se acumulan para el mes siguiente?',
     answer:
       'No conviene hacerlo por defecto. Si las horas se acumulan, la cuota puede convertirse en una deuda de trabajo. Es mejor definir una caducidad o vender una bolsa de horas aparte.',
   },
   {
-    question: 'Que pasa si el cliente supera las horas incluidas?',
+    question: '¿Qué pasa si el cliente supera las horas incluidas?',
     answer:
       'Debe estar previsto antes de empezar: puedes cobrar horas extra, pasar tareas a una bolsa aparte o proponer un plan superior si el consumo se repite varios meses.',
   },
@@ -37,9 +37,9 @@ export const metadata: Metadata = {
   },
   keywords: [
     'horas incluidas mantenimiento web',
-    'cuantas horas incluir mantenimiento web',
+    'cuántas horas incluir mantenimiento web',
     'horas mantenimiento web mensual',
-    'limites mantenimiento web',
+    'límites mantenimiento web',
     'plan mantenimiento web horas incluidas',
   ],
   openGraph: {
@@ -142,14 +142,14 @@ export default function HorasIncluidasMantenimientoWebPage() {
       <section className="hero">
         <div className="container article-layout">
           <div className="text-block">
-            <span className="eyebrow">Limites de soporte</span>
-            <h1>Horas incluidas en mantenimiento web: como definir una cuota mensual sana</h1>
+            <span className="eyebrow">Límites de soporte</span>
+            <h1>Horas incluidas en mantenimiento web: cómo definir una cuota mensual sana</h1>
             <p className="lead">
-              La cuota mensual no deberia ser una barra libre de cambios pequenos. Definir bien las
+              La cuota mensual no debería ser una barra libre de cambios pequeños. Definir bien las
               horas incluidas te ayuda a vender continuidad, proteger agenda y evitar que el
               mantenimiento se convierta en soporte ilimitado con sonrisa cansada.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Horas mensuales</span>
               <span className="hero-badge">Urgencias y extras</span>
               <span className="hero-badge">Planes escalables</span>
@@ -165,7 +165,7 @@ export default function HorasIncluidasMantenimientoWebPage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Resumen rapido</h2>
+            <h2>Resumen rápido</h2>
             <ul className="article-list">
               <li>Incluye horas suficientes para tareas normales, no para cualquier cosa.</li>
               <li>Define si las horas caducan, se acumulan o se facturan como extra.</li>
@@ -178,20 +178,20 @@ export default function HorasIncluidasMantenimientoWebPage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Por que las horas incluidas importan tanto</h2>
+          <h2>Por qué las horas incluidas importan tanto</h2>
           <p>
             En mantenimiento web, el problema no suele ser una tarea aislada. Es la suma silenciosa:
-            una actualizacion pequena, una consulta rapida, una revision, una urgencia leve, un
-            cambio de texto y esa llamada que iba a durar cinco minutos. Sin limites, la cuota se
-            vuelve elastica y tu margen se encoge.
+            una actualización pequeña, una consulta rápida, una revisión, una urgencia leve, un
+            cambio de texto y esa llamada que iba a durar cinco minutos. Sin límites, la cuota se
+            vuelve elástica y tu margen se encoge.
           </p>
           <p>
-            Las horas incluidas no son solo un numero. Son una forma de explicar que compra el
-            cliente, que ritmo de soporte puede esperar y donde empieza el trabajo adicional.
+            Las horas incluidas no son solo un número. Son una forma de explicar qué compra el
+            cliente, qué ritmo de soporte puede esperar y dónde empieza el trabajo adicional.
           </p>
           <div className="disclaimer-box">
             <strong>Idea clave:</strong> una cuota sana combina tareas recurrentes, disponibilidad
-            razonable y limites claros para cambios fuera de alcance.
+            razonable y límites claros para cambios fuera de alcance.
           </div>
         </div>
       </section>
@@ -199,23 +199,23 @@ export default function HorasIncluidasMantenimientoWebPage() {
       <section className="section alt">
         <div className="container feature-grid" aria-label="Rangos de horas recomendados">
           <article className="feature-card">
-            <h2>Plan basico: 1 a 2 horas</h2>
+            <h2>Plan básico: 1 a 2 horas</h2>
             <p>
               Para webs sencillas con pocos cambios, actualizaciones controladas y soporte puntual.
-              Encaja si el cliente solo necesita tranquilidad minima.
+              Encaja si el cliente solo necesita tranquilidad mínima.
             </p>
           </article>
 
           <article className="feature-card">
             <h2>Plan profesional: 3 a 6 horas</h2>
             <p>
-              Para webs con cambios frecuentes, pequenas mejoras, soporte mensual y seguimiento mas
-              cercano. Aqui ya necesitas reglas claras sobre prioridad.
+              Para webs con cambios frecuentes, pequeñas mejoras, soporte mensual y seguimiento más
+              cercano. Aquí ya necesitas reglas claras sobre prioridad.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>Plan avanzado: 8 horas o mas</h2>
+            <h2>Plan avanzado: 8 horas o más</h2>
             <p>
               Para webs con dependencia comercial, contenido frecuente, mejoras continuas o varios
               interlocutores. Conviene separar roadmap, urgencias y tareas de proyecto.
@@ -227,27 +227,27 @@ export default function HorasIncluidasMantenimientoWebPage() {
       <section className="section">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Como definir las horas incluidas sin quedarte corto</h2>
+            <h2>Cómo definir las horas incluidas sin quedarte corto</h2>
             <ol className="article-list article-list-ordered">
-              <li>Lista tareas recurrentes: actualizaciones, copias, revision y pequenos ajustes.</li>
-              <li>Estima consumo mensual normal segun historial o tipo de web.</li>
-              <li>Anade buffer para incidencias pequenas, no para proyectos nuevos.</li>
+              <li>Lista tareas recurrentes: actualizaciones, copias, revisión y pequeños ajustes.</li>
+              <li>Estima consumo mensual normal según historial o tipo de web.</li>
+              <li>Añade buffer para incidencias pequeñas, no para proyectos nuevos.</li>
               <li>Decide si las horas caducan o si pasan a una bolsa aparte.</li>
               <li>Define precio de hora extra y plazo de respuesta.</li>
-              <li>Revisa el plan si el consumo real supera el limite durante varios meses.</li>
+              <li>Revisa el plan si el consumo real supera el límite durante varios meses.</li>
             </ol>
             <p>
               La clave es que el cliente vea el mantenimiento como un acuerdo de continuidad, no
-              como una cuenta corriente de horas infinitas. Si necesita mas ritmo, sube de plan; si
+              como una cuenta corriente de horas infinitas. Si necesita más ritmo, sube de plan; si
               necesita un cambio grande, se presupuesta aparte.
             </p>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Checklist rapido</h2>
+            <h2>Lista de comprobación rápida</h2>
             <ul className="article-list">
               <li>Horas incluidas al mes.</li>
-              <li>Caducidad o no acumulacion.</li>
+              <li>Caducidad o no acumulación.</li>
               <li>Precio de hora extra.</li>
               <li>Tareas excluidas.</li>
               <li>Tiempo de respuesta normal y urgente.</li>
@@ -258,26 +258,26 @@ export default function HorasIncluidasMantenimientoWebPage() {
 
       <section className="section alt">
         <div className="container text-block">
-          <h2>Que tareas no deberian consumir la misma bolsa</h2>
+          <h2>Qué tareas no deberían consumir la misma bolsa</h2>
           <p>
-            No todo lo que ocurre en una web deberia salir de las mismas horas. Actualizar plugins,
+            No todo lo que ocurre en una web debería salir de las mismas horas. Actualizar plugins,
             cambiar un texto o revisar una copia no tiene el mismo impacto que crear una nueva
-            seccion, resolver una caida grave o integrar una herramienta externa.
+            sección, resolver una caída grave o integrar una herramienta externa.
           </p>
           <div className="feature-grid" aria-label="Tipos de trabajo">
             <article className="feature-card">
               <h3>Incluido normalmente</h3>
-              <p>Actualizaciones, copias, ajustes pequenos, revision visual y soporte ordinario.</p>
+              <p>Actualizaciones, copias, ajustes pequeños, revisión visual y soporte ordinario.</p>
             </article>
 
             <article className="feature-card">
               <h3>Extra o bolsa aparte</h3>
-              <p>Nuevas secciones, formularios complejos, integraciones, copy o cambios de diseno.</p>
+              <p>Nuevas secciones, formularios complejos, integraciones, copy o cambios de diseño.</p>
             </article>
 
             <article className="feature-card">
               <h3>Urgencia con condiciones</h3>
-              <p>Caidas, errores criticos, malware o incidencias fuera de horario pactado.</p>
+              <p>Caídas, errores críticos, malware o incidencias fuera de horario pactado.</p>
             </article>
           </div>
         </div>
@@ -288,23 +288,23 @@ export default function HorasIncluidasMantenimientoWebPage() {
           <h2>Texto de ejemplo para tu contrato o propuesta</h2>
           <div className="disclaimer-box">
             <p>
-              La cuota mensual incluye hasta 3 horas de soporte ordinario para tareas de
-              mantenimiento, pequenos ajustes y revisiones tecnicas. Las horas no consumidas no son
-              acumulables. Cualquier tarea que supere el alcance incluido se presupuestara aparte o
-              se facturara segun la tarifa de hora adicional acordada.
+              La cuota mensual incluye hasta 4 horas de soporte ordinario para tareas de
+              mantenimiento, pequeños ajustes y revisiones técnicas. Las horas no consumidas no son
+              acumulables. Cualquier tarea que supere el alcance incluido se presupuestará aparte o
+              se facturará según la tarifa de hora adicional acordada.
             </p>
           </div>
           <p>
-            Puedes ajustar este texto segun tus planes y despues bajarlo a un documento mas completo
-            con la guia de{' '}
+            Puedes ajustar este texto según tus planes y después bajarlo a un documento más completo
+            con la guía de{' '}
             <Link href="/contrato-mantenimiento-web-mensual">
               contrato de mantenimiento web mensual
-            </Link>
-            . Si estas comparando modelos, revisa tambien{' '}
+            </Link>. Si estás comparando modelos, revisa también{' '}
             <Link href="/mantenimiento-web-vs-bolsa-horas">
-              mantenimiento web vs bolsa de horas
-            </Link>
-            .
+              mantenimiento web vs. bolsa de horas
+            </Link>.
+            {' '}Puedes ver una cuota calculada con este límite en los{' '}
+            <Link href="/paquetes-mantenimiento-web">ejemplos de paquetes mensuales</Link>.
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
@@ -321,8 +321,8 @@ export default function HorasIncluidasMantenimientoWebPage() {
         <div className="container">
           <LeadMagnetForm
             source="horas-incluidas-mantenimiento-web"
-            title="Llevate el kit para definir mejor tus horas incluidas"
-            description="Recibe el checklist para separar horas incluidas, extras, urgencias y tareas fuera de alcance antes de vender una cuota mensual."
+            title="Llévate el kit para definir mejor tus horas incluidas"
+            description="Recibe la lista de comprobación para separar horas incluidas, extras, urgencias y tareas fuera de alcance antes de vender una cuota mensual."
             buttonLabel="Quiero el kit"
           />
         </div>

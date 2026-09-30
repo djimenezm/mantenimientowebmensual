@@ -1,6 +1,6 @@
 KIT DE MANTENIMIENTO WEB
 
-1. CHECKLIST MENSUAL
+1. LISTA DE COMPROBACIÓN MENSUAL
 
 - Revisar copias y confirmar que el sitio puede restaurarse.
 - Aplicar actualizaciones del core, temas y plugins dentro del alcance pactado.
@@ -44,7 +44,7 @@ KIT DE MANTENIMIENTO WEB
 - IVA aparte
 - forma de pago clara
 
-4. CHECKLIST ANTES DE ENVIAR LA PROPUESTA
+4. LISTA DE COMPROBACIÓN ANTES DE ENVIAR LA PROPUESTA
 
 - La cuota parte de una base economica sana.
 - El cliente entiende que entra y que no entra.

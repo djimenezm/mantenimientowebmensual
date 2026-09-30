@@ -1,6 +1,10 @@
 import sitemap from '@/app/sitemap';
 
 describe('sitemap', () => {
+  it('does not invent last modification dates', () => {
+    expect(sitemap().every((entry) => entry.lastModified === undefined)).toBe(true);
+  });
+
   it('includes the main indexable routes and excludes conversion-only pages', () => {
     const urls = sitemap().map((entry) => new URL(entry.url));
     const paths = urls.map((url) => url.pathname);

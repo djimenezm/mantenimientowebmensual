@@ -4,28 +4,30 @@ import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import { packageExampleInputs, packageExampleQuotes } from '@/lib/packageExamples';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/paquetes-mantenimiento-web';
-const title = 'Paquetes de mantenimiento web: como crear planes mensuales rentables';
+const title = 'Paquetes de mantenimiento web: cómo crear planes mensuales rentables';
 const description =
-  'Guia para estructurar paquetes de mantenimiento web mensual con alcance claro, horas incluidas, soporte, extras, limites e IVA aparte.';
+  'Guía para estructurar paquetes de mantenimiento web mensual con alcance claro, horas incluidas, soporte, extras, límites e IVA aparte.';
 
 const pageFaqItems = [
   {
-    question: 'Cuantos paquetes de mantenimiento web conviene ofrecer?',
+    question: '¿Cuántos paquetes de mantenimiento web conviene ofrecer?',
     answer:
-      'Normalmente funcionan bien tres paquetes: basico, profesional y avanzado. Asi el cliente puede comparar alcance sin convertir cada propuesta en una negociacion desde cero.',
+      'Normalmente funcionan bien tres paquetes: básico, profesional y avanzado. Así el cliente puede comparar alcance sin convertir cada propuesta en una negociación desde cero.',
   },
   {
-    question: 'Que debe incluir un paquete basico?',
+    question: '¿Qué debe incluir un paquete básico?',
     answer:
-      'Un paquete basico deberia incluir tareas recurrentes concretas, supervision minima, copias, actualizaciones y un limite claro de soporte. Lo importante es que no se convierta en soporte ilimitado barato.',
+      'Un paquete básico debería incluir tareas recurrentes concretas, supervisión mínima, copias, actualizaciones y un límite claro de soporte. Lo importante es que no se convierta en soporte ilimitado barato.',
   },
   {
-    question: 'Como evitar que el cliente pida tareas fuera del plan?',
+    question: '¿Cómo evitar que el cliente pida tareas fuera del plan?',
     answer:
-      'Debes definir por escrito que entra, que no entra, cuantas horas incluye el plan, como se valoran las tareas extra y que ocurre con urgencias o cambios de alcance.',
+      'Debes definir por escrito qué entra, qué no entra, cuántas horas incluye el plan, cómo se valoran las tareas extra y qué ocurre con urgencias o cambios de alcance.',
   },
 ] as const;
 
@@ -143,14 +145,14 @@ export default function PaquetesMantenimientoWebPage() {
         <div className="container article-layout">
           <div className="text-block">
             <span className="eyebrow">Planes mensuales</span>
-            <h1>Paquetes de mantenimiento web: como crear planes que no se coman tu margen</h1>
+            <h1>Paquetes de mantenimiento web: cómo crear planes que no se coman tu margen</h1>
             <p className="lead">
               Vender mantenimiento web como una cuota recurrente puede ser una gran fuente de
-              estabilidad, pero solo si el paquete tiene limites claros. Si prometes soporte amplio
+              estabilidad, pero solo si el paquete tiene límites claros. Si prometes soporte amplio
               por una cuota baja, el retainer deja de ser ingreso recurrente y se convierte en
               deuda de tiempo.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Planes mensuales</span>
               <span className="hero-badge">Alcance claro</span>
               <span className="hero-badge">Extras aparte</span>
@@ -168,9 +170,9 @@ export default function PaquetesMantenimientoWebPage() {
           <aside className="feature-card article-summary">
             <h2>Estructura recomendada</h2>
             <ul className="article-list">
-              <li>Un plan basico para webs simples y soporte limitado.</li>
+              <li>Un plan básico para webs simples y soporte limitado.</li>
               <li>Un plan profesional para clientes que necesitan seguimiento real.</li>
-              <li>Un plan avanzado para webs con mas riesgo, urgencia o dependencia comercial.</li>
+              <li>Un plan avanzado para webs con más riesgo, urgencia o dependencia comercial.</li>
               <li>Extras siempre definidos fuera de la cuota mensual.</li>
             </ul>
           </aside>
@@ -178,62 +180,101 @@ export default function PaquetesMantenimientoWebPage() {
       </section>
 
       <section className="section">
+        <div className="container text-block">
+          <h2>Tres planes calculados con la misma base</h2>
+          <p>
+            Ejemplo para un profesional con {formatCurrency(packageExampleInputs.basic.targetMonthlyNet)}
+            {' '}de objetivo neto mensual, {formatCurrency(packageExampleInputs.basic.monthlyFixedCosts)}
+            {' '}de costes fijos y {packageExampleInputs.basic.billableHoursPerMonth} horas
+            {' '}facturables. La tarifa interna resultante es de
+            {' '}{formatCurrency(packageExampleQuotes.basic.baseHourlyRate)} por hora. La reserva fiscal
+            {' '}del {packageExampleInputs.basic.taxReservePercent}% es orientativa; las cuotas se
+            muestran sin IVA.
+          </p>
+        </div>
         <div className="container feature-grid" aria-label="Tipos de paquete">
           <article className="feature-card">
-            <h2>Plan basico</h2>
+            <h2>Plan básico</h2>
             <p>
-              Para webs con poco movimiento. Puede cubrir actualizaciones, copias, revision ligera y
-              una pequena franja de soporte. Debe tener pocas horas incluidas y limites visibles.
+              {formatNumber(packageExampleInputs.basic.includedHoursPerClient)} horas de soporte al mes para una web
+              con pocos cambios: actualizaciones, revisión de copias y pequeños ajustes. Se estiman
+              {' '}{formatCurrency(packageExampleInputs.basic.directMonthlyClientCosts)} de costes
+              directos y un {packageExampleInputs.basic.incidentBufferPercent}% de reserva interna.
             </p>
+            <p className="scenario-price">{formatCurrency(packageExampleQuotes.basic.recommendedMonthlyRetainer)} al mes sin IVA</p>
           </article>
 
           <article className="feature-card">
             <h2>Plan profesional</h2>
             <p>
-              Para clientes que necesitan continuidad. Incluye mas seguimiento, pequenas tareas,
-              control de incidencias y un margen de soporte mensual que puedas sostener.
+              {packageExampleInputs.professional.includedHoursPerClient} horas al mes para seguimiento,
+              pruebas de formularios, actualizaciones y ajustes acotados. Se estiman
+              {' '}{formatCurrency(packageExampleInputs.professional.directMonthlyClientCosts)} de
+              costes directos y un {packageExampleInputs.professional.incidentBufferPercent}% de
+              reserva interna para incidencias.
             </p>
+            <p className="scenario-price">{formatCurrency(packageExampleQuotes.professional.recommendedMonthlyRetainer)} al mes sin IVA</p>
           </article>
 
           <article className="feature-card">
             <h2>Plan avanzado</h2>
             <p>
-              Para webs que venden, captan leads o dependen de integraciones. Debe contemplar
-              prioridad, mas control tecnico, reporting o condiciones de respuesta mas exigentes.
+              {packageExampleInputs.advanced.includedHoursPerClient} horas al mes para una web con
+              más cambios, integraciones y revisión técnica. Se estiman
+              {' '}{formatCurrency(packageExampleInputs.advanced.directMonthlyClientCosts)} de costes
+              directos y un {packageExampleInputs.advanced.incidentBufferPercent}% de reserva
+              interna. La prioridad de respuesta debe pactarse por escrito.
             </p>
+            <p className="scenario-price">{formatCurrency(packageExampleQuotes.advanced.recommendedMonthlyRetainer)} al mes sin IVA</p>
           </article>
+        </div>
+        <div className="container text-block plan-scenario">
+          <h2>Si una incidencia consume más horas</h2>
+          <p>
+            En el plan profesional, el cliente tiene {packageExampleInputs.professional.includedHoursPerClient}
+            {' '}horas incluidas. La calculadora reserva internamente
+            {' '}{formatNumber(packageExampleQuotes.professional.bufferedIncludedHours)} horas para proteger tu
+            precio ante imprevistos, pero eso no amplía el derecho del cliente a pedir trabajo.
+            Si las tareas solicitadas suman 6 horas en un mes, las 2 horas que superan el alcance
+            pactado requieren aprobación y presupuesto aparte.
+          </p>
+          <p>
+            Son escenarios orientativos, no tarifas de mercado: cambia tus costes, horas y nivel de
+            servicio en la <Link href="/#calculadora">calculadora de mantenimiento</Link> antes de
+            enviar una propuesta.
+          </p>
         </div>
       </section>
 
       <section className="section alt">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Que debe quedar por escrito en cada paquete</h2>
+            <h2>Qué debe quedar por escrito en cada paquete</h2>
             <p>
-              El objetivo de un paquete no es sonar completo, sino evitar ambiguedad. Cada plan debe
-              decir que tareas incluye, cuantas horas cubre, como se tratan incidencias, que no esta
-              incluido y que pasa si el cliente pide cambios fuera del alcance.
+              El objetivo de un paquete no es sonar completo, sino evitar ambigüedad. Cada plan debe
+              decir qué tareas incluye, cuántas horas cubre, cómo se tratan incidencias, qué no está
+              incluido y qué pasa si el cliente pide cambios fuera del alcance.
             </p>
             <ol className="article-list article-list-ordered">
               <li>Horas incluidas y si son acumulables o no.</li>
               <li>Canal de soporte y tiempo de respuesta orientativo.</li>
-              <li>Actualizaciones, copias, seguridad y supervision incluidas.</li>
-              <li>Pequenas tareas permitidas y ejemplos de tareas excluidas.</li>
+              <li>Actualizaciones, copias, seguridad y supervisión incluidas.</li>
+              <li>Pequeñas tareas permitidas y ejemplos de tareas excluidas.</li>
               <li>Precio de horas extra, urgencias o trabajos puntuales.</li>
             </ol>
             <div className="disclaimer-box">
-              <strong>Regla practica:</strong> si una tarea puede consumir varias horas o cambiar el
-              alcance de la web, no deberia ir escondida dentro de una cuota mensual barata.
+              <strong>Regla práctica:</strong> si una tarea puede consumir varias horas o cambiar el
+              alcance de la web, no debería ir escondida dentro de una cuota mensual barata.
             </div>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Extras que conviene separar</h2>
+            <h2>Extras qué conviene separar</h2>
             <ul className="article-list">
-              <li>Nuevas paginas o redisenos.</li>
+              <li>Nuevas páginas o rediseños.</li>
               <li>Copywriting, SEO profundo o estrategia.</li>
               <li>Integraciones nuevas con CRM, pagos o automatizaciones.</li>
-              <li>Recuperacion de hackeos o incidencias graves previas.</li>
+              <li>Recuperación de hackeos o incidencias graves previas.</li>
               <li>Urgencias fuera de horario o con SLA especial.</li>
             </ul>
           </aside>
@@ -242,16 +283,16 @@ export default function PaquetesMantenimientoWebPage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Como usar la calculadora para fijar cada plan</h2>
+          <h2>Cómo usar la calculadora para fijar cada plan</h2>
           <p>
-            Puedes usar la calculadora una vez por cada paquete. En el plan basico introduce pocas
+            Puedes usar la calculadora una vez por cada paquete. En el plan básico introduce pocas
             horas y poco buffer. En el profesional aumenta horas, incidencias y costes directos. En
-            el avanzado suma mas margen porque hay mas responsabilidad y mas interrupciones.
+            el avanzado suma más margen porque hay más responsabilidad y más interrupciones.
           </p>
           <p>
-            Despues redondea los resultados para que sean faciles de presentar, pero no bajes de tu
-            cuota minima defendible. Si quieres vender tres planes, el intermedio deberia ser el que
-            quieres que el cliente elija con mas frecuencia.
+            Después redondea los resultados para que sean fáciles de presentar, pero no bajes de tu
+            cuota mínima defendible. Si quieres vender tres planes, el intermedio debería ser el que
+            quieres que el cliente elija con más frecuencia.
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
@@ -268,8 +309,8 @@ export default function PaquetesMantenimientoWebPage() {
         <div className="container">
           <LeadMagnetForm
             source="paquetes-mantenimiento-web"
-            title="Llevate el kit para estructurar tu mantenimiento"
-            description="Recibe el checklist y la estructura base para definir alcance, horas incluidas, limites y extras antes de presentar una cuota mensual."
+            title="Llévate el kit para estructurar tu mantenimiento"
+            description="Recibe la lista de comprobación y la estructura base para definir alcance, horas incluidas, límites y extras antes de presentar una cuota mensual."
             buttonLabel="Quiero el kit"
           />
         </div>

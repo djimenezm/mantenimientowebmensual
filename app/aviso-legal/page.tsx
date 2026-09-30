@@ -1,4 +1,5 @@
 import type { Metadata } from 'next';
+import LegalShell from '@/components/LegalShell';
 import { siteConfig } from '@/lib/site';
 
 export const metadata: Metadata = {
@@ -11,7 +12,7 @@ export const metadata: Metadata = {
 
 export default function AvisoLegalPage() {
   return (
-    <main className="legal-page container">
+    <LegalShell>
       <h1>Aviso legal</h1>
       <div className="legal-card">
         <p>
@@ -20,15 +21,15 @@ export default function AvisoLegalPage() {
         <p>
           Contacto: <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>
         </p>
-        <p>Ambito de actividad: {siteConfig.country}</p>
+        <p>Ámbito de actividad: {siteConfig.country}</p>
       </div>
 
       <section className="legal-section">
         <h2>Objeto del sitio</h2>
         <p>
-          Este sitio ofrece una calculadora orientativa para saber cuanto cobrar por mantenimiento
+          Este sitio ofrece una calculadora orientativa para saber cuánto cobrar por mantenimiento
           web mensual a partir de un objetivo mensual, unos costes fijos, unas horas incluidas, un
-          buffer de incidencias y distintas variables economicas del servicio. La informacion se
+          buffer de incidencias y distintas variables económicas del servicio. La información se
           facilita con fines informativos y no sustituye el asesoramiento profesional fiscal,
           contable, comercial, contractual o legal.
         </p>
@@ -38,17 +39,17 @@ export default function AvisoLegalPage() {
         <h2>Condiciones de uso</h2>
         <p>
           Al utilizar esta web aceptas hacer un uso adecuado de sus contenidos y no emplearla para
-          actividades ilicitas, fraudulentas o que puedan afectar al funcionamiento del servicio.
+          actividades ilícitas, fraudulentas o que puedan afectar al funcionamiento del servicio.
         </p>
       </section>
 
       <section className="legal-section">
-        <h2>Limitacion de responsabilidad</h2>
+        <h2>Limitación de responsabilidad</h2>
         <p>
-          Los resultados mostrados son estimaciones basadas en la informacion que introduces y en
-          criterios simplificados de calculo. El titular no garantiza la ausencia de errores,
+          Los resultados mostrados son estimaciones basadas en la información que introduces y en
+          criterios simplificados de cálculo. El titular no garantiza la ausencia de errores,
           desviaciones respecto a tu servicio real o diferencias frente a tus condiciones fiscales,
-          tecnicas o contractuales concretas, y no asume responsabilidad por decisiones tomadas a
+          técnicas o contractuales concretas, y no asume responsabilidad por decisiones tomadas a
           partir de estas simulaciones.
         </p>
       </section>
@@ -57,10 +58,10 @@ export default function AvisoLegalPage() {
         <h2>Propiedad intelectual</h2>
         <p>
           Los textos, la estructura de la web y los elementos propios de esta herramienta pertenecen
-          a su titular o se usan con autorizacion. No se permite su reproduccion total o parcial con
+          a su titular o se usan con autorización. No se permite su reproducción total o parcial con
           fines comerciales sin permiso previo.
         </p>
       </section>
-    </main>
+    </LegalShell>
   );
 }

@@ -1,11 +1,11 @@
 import type { NextConfig } from 'next';
 
-export const contentSecurityPolicy = [
+const baseContentSecurityPolicy = [
   "default-src 'self'",
   "base-uri 'self'",
   "object-src 'none'",
   "frame-ancestors 'none'",
-  "form-action 'self' https://formsubmit.co",
+  "form-action 'self' https://2caafd8d.sibforms.com",
   "script-src 'self' 'unsafe-inline' https://va.vercel-scripts.com https://pagead2.googlesyndication.com https://securepubads.g.doubleclick.net",
   "style-src 'self' 'unsafe-inline'",
   "img-src 'self' data: blob: https://*.googlesyndication.com https://*.doubleclick.net",
@@ -15,7 +15,17 @@ export const contentSecurityPolicy = [
   "worker-src 'self' blob:",
   "frame-src https://*.googlesyndication.com https://*.doubleclick.net",
   'upgrade-insecure-requests',
-].join('; ');
+];
+
+export function getContentSecurityPolicy(environment = process.env.NODE_ENV) {
+  return baseContentSecurityPolicy.map((directive) =>
+    environment === 'development' && directive.startsWith('script-src ')
+      ? `${directive} 'unsafe-eval'`
+      : directive,
+  ).join('; ');
+}
+
+export const contentSecurityPolicy = getContentSecurityPolicy('production');
 
 export const securityHeaders = [
   {
@@ -51,10 +61,15 @@ export const securityHeaders = [
 const nextConfig: NextConfig = {
   reactStrictMode: true,
   async headers() {
+    const activeContentSecurityPolicy = getContentSecurityPolicy();
     return [
       {
         source: '/:path*',
-        headers: securityHeaders,
+        headers: securityHeaders.map((header) =>
+          header.key === 'Content-Security-Policy'
+            ? { ...header, value: activeContentSecurityPolicy }
+            : header,
+        ),
       },
     ];
   },

@@ -1,33 +1,33 @@
 export const faqItems = [
   {
-    question: 'Como saber cuanto cobrar por mantenimiento web mensual?',
+    question: '¿Cómo saber cuánto cobrar por mantenimiento web mensual?',
     answer:
-      'Empieza por tu objetivo mensual, suma tus costes fijos y calcula una referencia por hora a partir de tus horas facturables reales. Despues lleva esa base a cada cliente con las horas incluidas, un buffer de incidencias, costes mensuales directos y margen.',
+      'Empieza por tu objetivo mensual, suma tus costes fijos y calcula una referencia por hora a partir de tus horas facturables reales. Después lleva esa base a cada cliente con las horas incluidas, un buffer de incidencias, costes mensuales directos y margen.',
   },
   {
-    question: 'Que deberia incluir un plan de mantenimiento web?',
+    question: '¿Qué debería incluir un plan de mantenimiento web?',
     answer:
-      'Depende del servicio, pero suele incluir actualizaciones, pequenas tareas, soporte, supervision basica, revisiones tecnicas y un limite claro de horas o alcance mensual.',
+      'Depende del servicio, pero suele incluir actualizaciones, pequeñas tareas, soporte, supervisión básica, revisiones técnicas y un límite claro de horas o alcance mensual.',
   },
   {
-    question: 'Por que hace falta un buffer de incidencias?',
+    question: '¿Por qué hace falta un buffer de incidencias?',
     answer:
       'Porque el mantenimiento real rara vez consume exactamente las horas pactadas. El buffer sirve para cubrir picos de soporte, pequeños imprevistos y tareas no tan visibles sin regalar tiempo todos los meses.',
   },
   {
-    question: 'El IVA cuenta como ingreso real del mantenimiento?',
+    question: '¿El IVA cuenta como ingreso real del mantenimiento?',
     answer:
       'No. Si tu actividad lleva IVA, ese importe normalmente se repercute al cliente y luego se liquida. Por eso la herramienta lo muestra aparte para no confundirlo con lo que realmente conservas.',
   },
   {
-    question: 'Sirve para mantenimiento de WordPress, webs corporativas o landing pages?',
+    question: '¿Sirve para mantenimiento de WordPress, webs corporativas o landing pages?',
     answer:
-      'Si. La logica es util para cualquier servicio recurrente de mantenimiento o soporte web donde necesites fijar una cuota mensual con una base economica mas clara.',
+      'Sí. La lógica es útil para cualquier servicio recurrente de mantenimiento o soporte web donde necesites fijar una cuota mensual con una base económica más clara.',
   },
   {
-    question: 'La calculadora sustituye a una gestoria o a un asesor fiscal?',
+    question: '¿La calculadora sustituye a una gestoría o a un asesor fiscal?',
     answer:
-      'No. Sirve para orientarte y evitar cobrar la cuota mensual a ojo, pero no reemplaza una revision profesional si necesitas un encaje fiscal o contractual exacto.',
+      'No. Sirve para orientarte y evitar cobrar la cuota mensual a ojo, pero no reemplaza una revisión profesional si necesitas un encaje fiscal o contractual exacto.',
   },
 ] as const;
 

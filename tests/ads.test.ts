@@ -7,6 +7,11 @@ describe('display advertising', () => {
     expect(createAdsConfig({})).toMatchObject({ enabled: false });
     expect(createAdsConfig({
       NEXT_PUBLIC_ADSENSE_ENABLED: 'true',
+      NEXT_PUBLIC_ADSENSE_CLIENT: 'ca-pub-1234567890123456',
+      NEXT_PUBLIC_ADSENSE_SLOT_PRIMARY: '1234567890',
+    })).toMatchObject({ enabled: false, consentManaged: false });
+    expect(createAdsConfig({
+      NEXT_PUBLIC_ADSENSE_ENABLED: 'true',
       NEXT_PUBLIC_ADSENSE_CLIENT: 'invalid',
       NEXT_PUBLIC_ADSENSE_SLOT_PRIMARY: '1234567890',
     })).toMatchObject({ enabled: false, client: '' });
@@ -15,6 +20,7 @@ describe('display advertising', () => {
   it('accepts valid manual placements and generates ads.txt', () => {
     expect(createAdsConfig({
       NEXT_PUBLIC_ADSENSE_ENABLED: 'true',
+      NEXT_PUBLIC_ADSENSE_CONSENT_MANAGED: 'true',
       NEXT_PUBLIC_ADSENSE_CLIENT: 'ca-pub-1234567890123456',
       NEXT_PUBLIC_ADSENSE_SLOT_PRIMARY: '1234567890',
     })).toMatchObject({ enabled: true });

@@ -7,25 +7,25 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/cuanto-cobrar-mantenimiento-wordpress-mensual';
-const title = 'Cuanto cobrar mantenimiento WordPress mensual como freelance';
+const title = 'Cuánto cobrar mantenimiento WordPress mensual como freelance';
 const description =
-  'Guia practica para calcular cuanto cobrar por mantenimiento WordPress mensual con horas incluidas, soporte, incidencias, herramientas, margen e IVA aparte.';
+  'Guía práctica para calcular cuánto cobrar por mantenimiento WordPress mensual con horas incluidas, soporte, incidencias, herramientas, margen e IVA aparte.';
 
 const pageFaqItems = [
   {
-    question: 'Cuanto cobrar por mantenimiento WordPress mensual?',
+    question: '¿Cuánto cobrar por mantenimiento WordPress mensual?',
     answer:
-      'Depende de las horas incluidas, el tipo de web, la frecuencia de soporte, las incidencias esperables, las herramientas usadas y el margen que necesitas conservar. La cuota no deberia salir solo de una tarifa de mercado.',
+      'Depende de las horas incluidas, el tipo de web, la frecuencia de soporte, las incidencias esperables, las herramientas usadas y el margen qué necesitas conservar. La cuota no debería salir solo de una tarifa de mercado.',
   },
   {
-    question: 'Que deberia incluir una cuota WordPress mensual?',
+    question: '¿Qué debería incluir una cuota WordPress mensual?',
     answer:
-      'Puede incluir actualizaciones, copias, supervision, soporte limitado, pequenas tareas y revision tecnica, pero cada elemento necesita limites claros para no convertirse en soporte ilimitado.',
+      'Puede incluir actualizaciones, copias, supervisión, soporte limitado, pequeñas tareas y revisión técnica, pero cada elemento necesita límites claros para no convertirse en soporte ilimitado.',
   },
   {
-    question: 'Como subo el precio si el cliente pide mas soporte?',
+    question: '¿Cómo subo el precio si el cliente pide más soporte?',
     answer:
-      'No subas solo por sensacion. Aumenta horas incluidas, prioridad, revisiones o alcance y refleja ese cambio en una cuota superior, dejando fuera extras y urgencias no pactadas.',
+      'No subas solo por sensación. Aumenta horas incluidas, prioridad, revisiones o alcance y refleja ese cambio en una cuota superior, dejando fuera extras y urgencias no pactadas.',
   },
 ] as const;
 
@@ -36,11 +36,11 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'cuanto cobrar mantenimiento wordpress mensual',
+    'cuánto cobrar mantenimiento wordpress mensual',
     'mantenimiento wordpress mensual freelance',
     'cuota mantenimiento wordpress',
     'precio soporte wordpress mensual',
-    'cuanto cobrar soporte wordpress',
+    'cuánto cobrar soporte wordpress',
   ],
   openGraph: {
     title: `${title} | ${siteConfig.name}`,
@@ -143,13 +143,13 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
         <div className="container article-layout">
           <div className="text-block">
             <span className="eyebrow">WordPress mensual</span>
-            <h1>Cuanto cobrar mantenimiento WordPress mensual como freelance</h1>
+            <h1>Cuánto cobrar mantenimiento WordPress mensual como freelance</h1>
             <p className="lead">
               Cobrar mantenimiento WordPress no es poner una cuota bonita y esperar que el mes sea
               tranquilo. Para que sea rentable necesitas convertir soporte, actualizaciones,
               incidencias, herramientas y margen en una mensualidad que puedas defender.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Cuota WordPress</span>
               <span className="hero-badge">Soporte incluido</span>
               <span className="hero-badge">Margen mensual</span>
@@ -164,8 +164,8 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
           <aside className="feature-card article-summary">
             <h2>Antes de poner precio</h2>
             <ul className="article-list">
-              <li>Define que tareas WordPress entran cada mes.</li>
-              <li>Calcula horas incluidas y friccion de soporte.</li>
+              <li>Define qué tareas WordPress entran cada mes.</li>
+              <li>Calcula horas incluidas y fricción de soporte.</li>
               <li>Suma herramientas, licencias y costes por cliente.</li>
               <li>Protege margen antes de ofrecer descuentos.</li>
             </ul>
@@ -177,19 +177,19 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
         <div className="container text-block">
           <h2>La cuota WordPress se rompe cuando no mide soporte</h2>
           <p>
-            Muchos mantenimientos WordPress empiezan como una tarea tecnica pequena: actualizar,
+            Muchos mantenimientos WordPress empiezan como una tarea técnica pequeña: actualizar,
             revisar copias y comprobar que todo sigue funcionando. El problema aparece cuando el
-            cliente tambien espera consultas, pequenos cambios, urgencias suaves, seguimiento y
+            cliente también espera consultas, pequeños cambios, urgencias suaves, seguimiento y
             disponibilidad mental todos los meses.
           </p>
           <p>
-            Si esa friccion no esta incluida en el calculo, la cuota puede parecer rentable al
+            Si esa fricción no está incluida en el cálculo, la cuota puede parecer rentable al
             venderla y quedarse corta al tercer mes. Por eso conviene separar tarea visible,
             soporte real y margen antes de hablar de precio.
           </p>
           <div className="disclaimer-box">
             <strong>Idea clave:</strong> no cobras solo por actualizar WordPress. Cobras por sostener
-            una web viva con limites, responsabilidad y tiempo recurrente.
+            una web viva con límites, responsabilidad y tiempo recurrente.
           </div>
         </div>
       </section>
@@ -197,9 +197,9 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
       <section className="section alt">
         <div className="container feature-grid" aria-label="Variables de una cuota WordPress">
           <article className="feature-card">
-            <h2>1. Base tecnica</h2>
+            <h2>1. Base técnica</h2>
             <p>
-              Actualizaciones, copias, monitorizacion, seguridad y revisiones forman el suelo del
+              Actualizaciones, copias, monitorización, seguridad y revisiones forman el suelo del
               servicio. Si el sitio tiene muchos plugins o integraciones, el riesgo sube.
             </p>
           </article>
@@ -207,8 +207,8 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
           <article className="feature-card">
             <h2>2. Soporte y cambios</h2>
             <p>
-              Define si entran cambios de textos, maquetacion, formularios, dudas del cliente o
-              pequenas incidencias. Lo que no se limite acaba consumiendo margen.
+              Define si entran cambios de textos, maquetación, formularios, dudas del cliente o
+              pequeñas incidencias. Lo que no se limite acaba consumiendo margen.
             </p>
           </article>
 
@@ -225,25 +225,23 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
       <section className="section">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Formula practica para calcular tu cuota mensual</h2>
+            <h2>Fórmula práctica para calcular tu cuota mensual</h2>
             <ol className="article-list article-list-ordered">
               <li>Parte de tu referencia por hora o de tu objetivo mensual.</li>
-              <li>Define cuantas horas incluye el plan WordPress.</li>
-              <li>Anade un buffer de incidencias y soporte recurrente.</li>
+              <li>Define cuántas horas incluye el plan WordPress.</li>
+              <li>Añade un buffer de incidencias y soporte recurrente.</li>
               <li>Suma costes directos por cliente: herramientas, licencias o servicios.</li>
-              <li>Aplica margen extra para que la cuota no sea solo coste de produccion.</li>
+              <li>Aplica margen extra para que la cuota no sea solo coste de producción.</li>
               <li>Presenta el IVA aparte y deja extras fuera de alcance por escrito.</li>
             </ol>
             <p>
-              Si necesitas decidir primero que tareas entran, revisa la guia sobre{' '}
+              Si necesitas decidir primero qué tareas entran, revisa la guía sobre{' '}
               <Link href="/que-incluye-mantenimiento-web">
-                que incluye un mantenimiento web mensual
-              </Link>
-              . Si ya tienes planes, contrasta tambien el enfoque de{' '}
+                qué incluye un mantenimiento web mensual
+              </Link>. Si ya tienes planes, contrasta también el enfoque de{' '}
               <Link href="/mantenimiento-wordpress-basico-profesional-avanzado">
-                mantenimiento WordPress basico, profesional y avanzado
-              </Link>
-              .
+                mantenimiento WordPress básico, profesional y avanzado
+              </Link>.
             </p>
           </div>
 
@@ -251,10 +249,10 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
             <h2>No lo metas gratis</h2>
             <ul className="article-list">
               <li>Cambios grandes de plantilla.</li>
-              <li>Nuevas paginas o funcionalidades.</li>
+              <li>Nuevas páginas o funcionalidades.</li>
               <li>SEO, copy o estrategia de contenidos.</li>
               <li>Urgencias fuera de horario.</li>
-              <li>Horas acumulables sin limite.</li>
+              <li>Horas acumulables sin límite.</li>
             </ul>
           </aside>
         </div>
@@ -262,22 +260,22 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
 
       <section className="section alt">
         <div className="container text-block">
-          <h2>Como defender el precio delante del cliente</h2>
+          <h2>Cómo defender el precio delante del cliente</h2>
           <p>
-            El argumento no deberia ser solo &quot;esto cuesta X&quot;. Es mas facil defender la
-            cuota cuando explicas que incluye supervision, actualizaciones, soporte limitado, una
-            bolsa de tiempo mensual, respuesta ante incidencias normales y continuidad tecnica.
+            El argumento no debería ser solo &quot;esto cuesta X&quot;. Es más fácil defender la
+            cuota cuando explicas qué incluye supervisión, actualizaciones, soporte limitado, una
+            bolsa de tiempo mensual, respuesta ante incidencias normales y continuidad técnica.
           </p>
           <p>
-            Tambien ayuda separar tres niveles: un plan minimo muy acotado, un plan recomendado con
-            margen sano y un plan superior para clientes que necesitan prioridad o mas soporte.
+            También ayuda separar tres niveles: un plan mínimo muy acotado, un plan recomendado con
+            margen sano y un plan superior para clientes que necesitan prioridad o más soporte.
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
               Probar mi cuota
             </Link>
             <Link href="/precio-mantenimiento-wordpress" className="primary-button">
-              Ver guia de precio WordPress
+              Ver guía de precio WordPress
             </Link>
           </div>
         </div>
@@ -289,11 +287,11 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
           <p>
             Introduce tu objetivo mensual, costes fijos, horas facturables, horas incluidas por
             cliente, buffer de incidencias, costes directos y margen. El resultado te ayuda a ver si
-            tu cuota WordPress es una entrada razonable o si estas vendiendo soporte demasiado
+            tu cuota WordPress es una entrada razonable o si estás vendiendo soporte demasiado
             barato.
           </p>
           <p>
-            Si el numero final se aleja mucho de lo que el cliente quiere pagar, no bajes la cuota
+            Si el número final se aleja mucho de lo que el cliente quiere pagar, no bajes la cuota
             sin tocar alcance. Reduce horas, limita soporte, separa urgencias o deja ciertas tareas
             como presupuesto aparte.
           </p>
@@ -319,7 +317,7 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
       <section className="section alt" aria-labelledby="cobrar-wordpress-faq-title">
         <div className="container text-block">
           <h2 id="cobrar-wordpress-faq-title">
-            Preguntas frecuentes sobre cuanto cobrar mantenimiento WordPress
+            Preguntas frecuentes sobre cuánto cobrar mantenimiento WordPress
           </h2>
 
           <div className="faq-list">
@@ -338,8 +336,8 @@ export default function CuantoCobrarMantenimientoWordPressMensualPage() {
           <span className="eyebrow">Siguiente paso</span>
           <h2>Convierte una cuota intuitiva en un precio defendible</h2>
           <p>
-            Si ya tienes una cuota WordPress en mente, no la envies todavia. Pasala por la
-            calculadora, revisa margen, ajusta limites y prepara una propuesta que explique que
+            Si ya tienes una cuota WordPress en mente, no la envíes todavía. Pásala por la
+            calculadora, revisa margen, ajusta límites y prepara una propuesta que explique que
             entra y que queda fuera.
           </p>
           <div className="guide-cta">

@@ -4,7 +4,7 @@ import { join } from 'node:path';
 describe('homepage accessibility', () => {
   it('keeps the main navigation concise and destinations unique', () => {
     const header = readFileSync(join(process.cwd(), 'components/Header.tsx'), 'utf8');
-    const hrefs = Array.from(header.matchAll(/<a href="([^"]+)"/g)).map(([, href]) => href);
+    const hrefs = Array.from(header.matchAll(/<a\b[^>]*\bhref="([^"]+)"/g)).map(([, href]) => href);
 
     expect(header).toContain('aria-label="Navegación principal"');
     expect(hrefs).toHaveLength(5);

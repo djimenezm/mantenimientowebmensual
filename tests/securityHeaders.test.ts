@@ -1,4 +1,4 @@
-import nextConfig, { contentSecurityPolicy, securityHeaders } from '../next.config';
+import nextConfig, { contentSecurityPolicy, getContentSecurityPolicy, securityHeaders } from '../next.config';
 
 describe('security headers', () => {
   it('serves a Content Security Policy in enforcement mode', async () => {
@@ -10,12 +10,17 @@ describe('security headers', () => {
     expect(headerMap.has('Content-Security-Policy-Report-Only')).toBe(false);
   });
 
+  it('allows React debugging eval only in development', () => {
+    expect(getContentSecurityPolicy('development')).toContain("'unsafe-eval'");
+    expect(getContentSecurityPolicy('production')).not.toContain("'unsafe-eval'");
+  });
+
   it('keeps the CSP focused on same-origin assets and allowed form delivery', () => {
     expect(contentSecurityPolicy).toContain("default-src 'self'");
     expect(contentSecurityPolicy).toContain("base-uri 'self'");
     expect(contentSecurityPolicy).toContain("object-src 'none'");
     expect(contentSecurityPolicy).toContain("frame-ancestors 'none'");
-    expect(contentSecurityPolicy).toContain("form-action 'self' https://formsubmit.co");
+    expect(contentSecurityPolicy).toContain("form-action 'self' https://2caafd8d.sibforms.com");
     expect(contentSecurityPolicy).toContain("script-src 'self'");
     expect(contentSecurityPolicy).not.toContain("require-trusted-types-for 'script'");
     expect(contentSecurityPolicy).toContain("style-src 'self'");

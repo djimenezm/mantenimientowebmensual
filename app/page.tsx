@@ -102,19 +102,42 @@ export default function HomePage() {
 
         <AdSlot placement="primary" />
 
+        <section className="maintenance-method-band" aria-labelledby="maintenance-method-heading">
+          <div className="container maintenance-method-grid">
+            <div>
+              <span className="eyebrow">Cómo se calcula</span>
+              <h2 id="maintenance-method-heading">Una cuota que incluye el trabajo real.</h2>
+            </div>
+            <div className="maintenance-method-detail">
+              <p>
+                Tu objetivo mensual y horas facturables fijan una tarifa base. La cuota suma las
+                horas incluidas, una reserva para incidencias, costes directos por cliente y margen.
+              </p>
+              <p>
+                El IVA se muestra aparte. Define qué tareas y tiempos de respuesta cubre la cuota;
+                el trabajo fuera de alcance necesita otro precio.
+              </p>
+              <nav aria-label="Profundiza en la cuota de mantenimiento web">
+                <a href="/horas-incluidas-mantenimiento-web">Cómo fijar las horas incluidas</a>
+                <a href="/paquetes-mantenimiento-web">Cómo estructurar tus paquetes</a>
+              </nav>
+            </div>
+          </div>
+        </section>
+
         <section className="maintenance-checklist-band" id="kit-mantenimiento-form">
           <div className="container maintenance-checklist-grid">
             <div className="maintenance-checklist-copy">
               <span className="eyebrow">Después del cálculo</span>
               <h2>Define el alcance antes de enviar la cuota.</h2>
-              <p>Una checklist breve para separar tareas, urgencias y extras.</p>
+              <p>Una lista de comprobación breve para separar tareas, urgencias y extras.</p>
             </div>
 
             <LeadMagnetForm
               source="home"
-              title="Recibe la checklist de mantenimiento"
+              title="Recibe la lista de comprobación de mantenimiento"
               description="Comprueba que la mensualidad cubre el trabajo real antes de presentarla."
-              buttonLabel="Enviar checklist gratis"
+              buttonLabel="Enviar lista de comprobación gratis"
             />
           </div>
         </section>

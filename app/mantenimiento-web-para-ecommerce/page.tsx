@@ -7,25 +7,25 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/mantenimiento-web-para-ecommerce';
-const title = 'Mantenimiento web para ecommerce: como fijar una cuota mensual';
+const title = 'Mantenimiento web para ecommerce: cómo fijar una cuota mensual';
 const description =
-  'Guia para definir el precio de mantenimiento web para ecommerce con soporte, seguridad, actualizaciones, incidencias, horas incluidas y extras fuera de cuota.';
+  'Guía para definir el precio de mantenimiento web para ecommerce con soporte, seguridad, actualizaciones, incidencias, horas incluidas y extras fuera de cuota.';
 
 const pageFaqItems = [
   {
-    question: 'Cuanto cobrar por mantenimiento web para ecommerce?',
+    question: '¿Cuánto cobrar por mantenimiento web para ecommerce?',
     answer:
-      'Depende del volumen de cambios, la criticidad de la tienda, las horas incluidas, las integraciones y el nivel de soporte. Un ecommerce suele requerir mas margen que una web corporativa porque una incidencia puede afectar ventas, pedidos o pagos.',
+      'Depende del volumen de cambios, la criticidad de la tienda, las horas incluidas, las integraciones y el nivel de soporte. Un ecommerce suele requerir más margen que una web corporativa porque una incidencia puede afectar ventas, pedidos o pagos.',
   },
   {
-    question: 'Que debe incluir una cuota de mantenimiento para tienda online?',
+    question: '¿Qué debe incluir una cuota de mantenimiento para tienda online?',
     answer:
-      'Debe separar tareas recurrentes, actualizaciones, copias, revision de errores, soporte funcional, pequenas mejoras y urgencias. Tambien conviene dejar por escrito que integraciones, cambios de catalogo o trabajos de conversion se presupuestan aparte.',
+      'Debe separar tareas recurrentes, actualizaciones, copias, revisión de errores, soporte funcional, pequeñas mejoras y urgencias. También conviene dejar por escrito que integraciones, cambios de catálogo o trabajos de conversión se presupuestan aparte.',
   },
   {
-    question: 'Conviene vender mantenimiento ecommerce como soporte ilimitado?',
+    question: '¿Conviene vender mantenimiento ecommerce como soporte ilimitado?',
     answer:
-      'No suele ser buena idea. En ecommerce hay mas peticiones, urgencias e impacto comercial. Es mejor incluir horas, prioridad y condiciones claras, y valorar por separado cambios grandes, integraciones o incidencias de terceros.',
+      'No suele ser buena idea. En ecommerce hay más peticiones, urgencias e impacto comercial. Es mejor incluir horas, prioridad y condiciones claras, y valorar por separado cambios grandes, integraciones o incidencias de terceros.',
   },
 ] as const;
 
@@ -39,7 +39,7 @@ export const metadata: Metadata = {
     'mantenimiento web ecommerce',
     'mantenimiento tienda online mensual',
     'precio mantenimiento ecommerce',
-    'cuanto cobrar mantenimiento ecommerce',
+    'cuánto cobrar mantenimiento ecommerce',
     'mantenimiento woocommerce mensual',
   ],
   openGraph: {
@@ -143,13 +143,13 @@ export default function MantenimientoWebParaEcommercePage() {
         <div className="container article-layout">
           <div className="text-block">
             <span className="eyebrow">Tiendas online</span>
-            <h1>Mantenimiento web para ecommerce: como fijar una cuota mensual sostenible</h1>
+            <h1>Mantenimiento web para ecommerce: cómo fijar una cuota mensual sostenible</h1>
             <p className="lead">
               Un ecommerce no se mantiene igual que una web informativa. Hay pedidos, pagos,
-              catalogo, plugins, integraciones y una dependencia directa de las ventas. Por eso la
-              cuota mensual necesita mas margen, mas claridad y menos promesas abiertas.
+              catálogo, plugins, integraciones y una dependencia directa de las ventas. Por eso la
+              cuota mensual necesita más margen, más claridad y menos promesas abiertas.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Ecommerce</span>
               <span className="hero-badge">Horas incluidas</span>
               <span className="hero-badge">Urgencias aparte</span>
@@ -165,11 +165,11 @@ export default function MantenimientoWebParaEcommercePage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Resumen rapido</h2>
+            <h2>Resumen rápido</h2>
             <ul className="article-list">
               <li>Sube el margen si la tienda vende a diario o depende de integraciones.</li>
               <li>Define horas incluidas, prioridad, canal de soporte y extras.</li>
-              <li>No metas cambios de catalogo, CRO o nuevas integraciones sin limite.</li>
+              <li>No metas cambios de catálogo, CRO o nuevas integraciones sin límite.</li>
               <li>Separa mantenimiento preventivo, soporte y mejoras comerciales.</li>
             </ul>
           </aside>
@@ -182,7 +182,7 @@ export default function MantenimientoWebParaEcommercePage() {
             <h2>Riesgo comercial</h2>
             <p>
               Si una incidencia puede frenar pedidos, pagos o formularios, la cuota debe contemplar
-              mas responsabilidad. No es solo tiempo tecnico: tambien es disponibilidad mental y
+              más responsabilidad. No es solo tiempo técnico: también es disponibilidad mental y
               prioridad frente a otros trabajos.
             </p>
           </article>
@@ -190,8 +190,8 @@ export default function MantenimientoWebParaEcommercePage() {
           <article className="feature-card">
             <h2>Integraciones</h2>
             <p>
-              Pasarelas de pago, envios, ERP, CRM, analytics o marketplaces aumentan el riesgo.
-              Conviene indicar que fallos de terceros, nuevas conexiones o cambios de configuracion
+              Pasarelas de pago, envíos, ERP, CRM, analytics o marketplaces aumentan el riesgo.
+              Conviene indicar qué fallos de terceros, nuevas conexiones o cambios de configuración
               se valoran aparte.
             </p>
           </article>
@@ -200,7 +200,7 @@ export default function MantenimientoWebParaEcommercePage() {
             <h2>Volumen de cambios</h2>
             <p>
               Productos, banners, promociones, cupones y landings internas pueden consumir la cuota
-              muy rapido. Define si entran, cuantas horas cubren y que ocurre cuando se agotan.
+              muy rápido. Define si entran, cuántas horas cubren y qué ocurre cuando se agotan.
             </p>
           </article>
         </div>
@@ -209,33 +209,33 @@ export default function MantenimientoWebParaEcommercePage() {
       <section className="section alt">
         <div className="container article-layout">
           <div className="text-block">
-            <h2>Que incluir en un mantenimiento ecommerce</h2>
+            <h2>Qué incluir en un mantenimiento ecommerce</h2>
             <p>
-              La cuota deberia proteger la continuidad de la tienda sin convertirse en un servicio
+              La cuota debería proteger la continuidad de la tienda sin convertirse en un servicio
               ilimitado de mejoras. Para eso necesitas separar tareas recurrentes, soporte,
               incidencias y trabajos de crecimiento.
             </p>
             <ol className="article-list article-list-ordered">
               <li>Actualizaciones controladas de CMS, tema, plugins o dependencias.</li>
-              <li>Copias, revision de errores y supervision basica de disponibilidad.</li>
+              <li>Copias, revisión de errores y supervisión básica de disponibilidad.</li>
               <li>Soporte funcional para incidencias menores de compra, pago o carrito.</li>
-              <li>Horas mensuales para pequenos ajustes, siempre con limite visible.</li>
+              <li>Horas mensuales para pequeños ajustes, siempre con límite visible.</li>
               <li>Informe o resumen simple de tareas realizadas y pendientes relevantes.</li>
             </ol>
             <div className="disclaimer-box">
-              <strong>Filtro practico:</strong> si una tarea cambia la venta, la conversion o una
-              integracion critica, probablemente merece presupuesto aparte o una bolsa de horas
+              <strong>Filtro práctico:</strong> si una tarea cambia la venta, la conversión o una
+              integración crítica, probablemente merece presupuesto aparte o una bolsa de horas
               adicional.
             </div>
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>No lo incluyas sin limite</h2>
+            <h2>No lo incluyas sin límite</h2>
             <ul className="article-list">
-              <li>Subida masiva de productos o cambios de catalogo.</li>
+              <li>Subida masiva de productos o cambios de catálogo.</li>
               <li>Nuevas pasarelas, automatizaciones o integraciones.</li>
-              <li>Optimizacion SEO, CRO o analitica avanzada.</li>
-              <li>Recuperacion de hackeos o incidencias graves previas.</li>
+              <li>Optimización SEO, CRO o analítica avanzada.</li>
+              <li>Recuperación de hackeos o incidencias graves previas.</li>
               <li>Urgencias fuera de horario o con SLA estricto.</li>
             </ul>
           </aside>
@@ -244,17 +244,17 @@ export default function MantenimientoWebParaEcommercePage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>Como usar la calculadora para una tienda online</h2>
+          <h2>Cómo usar la calculadora para una tienda online</h2>
           <p>
-            Empieza con tu coste por hora real y despues ajusta el mantenimiento del cliente. Para
-            ecommerce, evita partir de las mismas horas que usarias en una web corporativa sencilla:
-            suma buffer por incidencias, mas costes directos si usas herramientas de monitorizacion
+            Empieza con tu coste por hora real y después ajusta el mantenimiento del cliente. Para
+            ecommerce, evita partir de las mismas horas que usarías en una web corporativa sencilla:
+            suma buffer por incidencias, más costes directos si usas herramientas de monitorización
             y un margen mayor si el cliente espera prioridad.
           </p>
           <p>
-            Si ofreces WooCommerce, Shopify o una tienda a medida, el criterio economico es
-            parecido: cuanto mas impacta la web en ventas y mas piezas dependen de terceros, mas
-            clara debe ser la cuota y mas estrictos deben ser los limites.
+            Si ofreces WooCommerce, Shopify o una tienda a medida, el criterio económico es
+            parecido: cuanto más impacta la web en ventas y más piezas dependen de terceros, más
+            clara debe ser la cuota y más estrictos deben ser los límites.
           </p>
           <div className="guide-cta">
             <Link href="/#calculadora" className="primary-button">
@@ -271,8 +271,8 @@ export default function MantenimientoWebParaEcommercePage() {
         <div className="container">
           <LeadMagnetForm
             source="mantenimiento-web-para-ecommerce"
-            title="Llevate el kit para estructurar tu mantenimiento"
-            description="Recibe el checklist y la estructura base para definir alcance, horas incluidas, limites y extras antes de presentar una cuota mensual."
+            title="Llévate el kit para estructurar tu mantenimiento"
+            description="Recibe la lista de comprobación y la estructura base para definir alcance, horas incluidas, límites y extras antes de presentar una cuota mensual."
             buttonLabel="Quiero el kit"
           />
         </div>
@@ -281,26 +281,23 @@ export default function MantenimientoWebParaEcommercePage() {
       <section className="section">
         <div className="container text-block">
           <span className="eyebrow">Conecta el ecosistema</span>
-          <h2>Si el ecommerce nace de un proyecto cerrado, separa construccion y soporte</h2>
+          <h2>Si el ecommerce nace de un proyecto cerrado, separa construcción y soporte</h2>
           <p>
-            Cuando primero presupuestas la tienda o una landing de captacion, conviene separar el
-            precio de construccion de la cuota mensual posterior. Para aterrizar el proyecto cerrado
+            Cuando primero presupuestas la tienda o una landing de captación, conviene separar el
+            precio de construcción de la cuota mensual posterior. Para aterrizar el proyecto cerrado
             puedes apoyarte en{' '}
             <a href="https://www.cuantopresupuestar.es?utm_source=mantenimientowebmensual&utm_medium=article-link&utm_campaign=ecommerce_maintenance">
-              Cuanto Presupuestar
-            </a>
-            . Si el trabajo previo es una landing para captar leads, revisa tambien{' '}
+              Cuánto Presupuestar
+            </a>. Si el trabajo previo es una landing para captar leads, revisa también{' '}
             <a href="https://www.cuantocobrarlandingpage.es?utm_source=mantenimientowebmensual&utm_medium=article-link&utm_campaign=ecommerce_maintenance">
-              Cuanto Cobrar Landing Page
-            </a>
-            .
+              Cuánto Cobrar Landing Page
+            </a>.
           </p>
           <p>
-            Para moverte entre todas las calculadoras y guias del ecosistema, puedes volver al{' '}
+            Para moverte entre todas las calculadoras y guías del ecosistema, puedes volver al{' '}
             <a href="https://www.paneldeherramientas.es?utm_source=mantenimientowebmensual&utm_medium=article-link&utm_campaign=ecommerce_maintenance">
               Panel de Herramientas
-            </a>
-            .
+            </a>.
           </p>
         </div>
       </section>

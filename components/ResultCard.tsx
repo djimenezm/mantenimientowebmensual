@@ -1,8 +1,8 @@
 'use client';
 
-import { forwardRef, useState } from 'react';
+import { forwardRef, useEffect, useRef, useState } from 'react';
 import { type CalculationResult } from '@/lib/calculator';
-import { formatCurrency } from '@/lib/format';
+import { formatCurrency, formatNumber } from '@/lib/format';
 
 type ResultCardProps = {
   result: CalculationResult;
@@ -40,10 +40,37 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
   ref,
 ) {
   const [copyStatus, setCopyStatus] = useState<CopyStatus>('idle');
+  const capacityRef = useRef<HTMLDivElement>(null);
+  const hasTrackedCapacityView = useRef(false);
+  const exceedsCapacity = result.clientsNeededForTarget > result.maxClientsByHours;
+
+  useEffect(() => {
+    if (!capacityRef.current || typeof IntersectionObserver === 'undefined') return;
+
+    const observer = new IntersectionObserver(([entry]) => {
+      if (!entry.isIntersecting || hasTrackedCapacityView.current) return;
+
+      hasTrackedCapacityView.current = true;
+      window.va?.('event', {
+        name: 'maintenance_capacity_viewed',
+        data: { outcome: exceedsCapacity ? 'over_capacity' : 'within_capacity' },
+      });
+      observer.disconnect();
+    }, { threshold: 0.5 });
+
+    observer.observe(capacityRef.current);
+    return () => observer.disconnect();
+  }, [exceedsCapacity]);
   const pricingBuffer = Math.max(
     0,
     result.recommendedMonthlyRetainer - result.maintenanceFloorRetainer,
   );
+  const hoursNeeded = result.hoursNeededForTarget.toLocaleString('es-ES', {
+    maximumFractionDigits: 2,
+  });
+  const hoursOverCapacity = result.hoursOverCapacity.toLocaleString('es-ES', {
+    maximumFractionDigits: 2,
+  });
   const maintenanceSummary = [
     'Resumen de mantenimiento web mensual',
     `Cuota mínima defendible: ${formatCurrency(result.maintenanceFloorRetainer)} sin IVA`,
@@ -51,13 +78,15 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
     hasIVA
       ? `Total mensual con IVA: ${formatCurrency(result.totalWithVAT)}`
       : 'IVA: no añadido en esta simulación',
-    `Horas incluidas al mes: ${result.includedHoursPerClient} h`,
-    `Horas con buffer: ${result.bufferedIncludedHours} h`,
-    `Buffer de incidencias y soporte: ${result.incidentBufferPercent}%`,
+    `Horas incluidas al mes: ${formatNumber(result.includedHoursPerClient, 2)} h`,
+    `Horas con buffer: ${formatNumber(result.bufferedIncludedHours, 2)} h`,
+    `Buffer de incidencias y soporte: ${formatNumber(result.incidentBufferPercent, 2)}%`,
     `Referencia base: ${formatCurrency(result.baseHourlyRate)}/h`,
     `Tarifa efectiva del servicio: ${formatCurrency(result.effectiveHourlyRate)}/h`,
     `Costes mensuales directos: ${formatCurrency(result.directMonthlyClientCosts)}`,
     `Colchón de negociación: ${formatCurrency(pricingBuffer)}`,
+    `Clientes similares necesarios para el objetivo: ${result.clientsNeededForTarget}`,
+    `Clientes que caben en las horas disponibles: ${result.maxClientsByHours}`,
     'Nota: si el cliente pide bajar la cuota, conviene reducir horas, alcance o tiempos de respuesta antes de bajar del mínimo defendible.',
   ].join('\n');
 
@@ -82,12 +111,12 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
       <h3 id="result-card-title">Tu cuota mensual recomendada para mantenimiento web</h3>
 
       <p className="result-lead">
-        Con esta simulacion, una cuota mensual razonable quedaria en{' '}
+        Con esta simulación, una cuota mensual razonable quedaría en{' '}
         <strong>{formatCurrency(result.recommendedMonthlyRetainer)}</strong> sin IVA. Tu suelo para
-        no quedarte corto con este servicio estaria alrededor de{' '}
-        <strong>{formatCurrency(result.maintenanceFloorRetainer)}</strong>, asi que la diferencia
+        no quedarte corto con este servicio estaría alrededor de{' '}
+        <strong>{formatCurrency(result.maintenanceFloorRetainer)}</strong>, así que la diferencia
         entre ambas cifras es el margen real que te das para absorber incidencias, pequeñas
-        desviaciones y negociacion.
+        desviaciones y negociación.
       </p>
 
       <div className="result-grid">
@@ -98,7 +127,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
 
         <div className="result-item">
           <span>Horas mensuales con buffer</span>
-          <strong>{result.bufferedIncludedHours} h</strong>
+          <strong>{formatNumber(result.bufferedIncludedHours, 2)} h</strong>
         </div>
 
         <div className="result-item">
@@ -107,7 +136,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         </div>
 
         <div className="result-item">
-          <span>Cuota minima defendible</span>
+          <span>Cuota mínima defendible</span>
           <strong>{formatCurrency(result.maintenanceFloorRetainer)}</strong>
         </div>
 
@@ -117,7 +146,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         </div>
 
         <div className="result-item">
-          <span>Colchon entre minimo y recomendado</span>
+          <span>Colchón entre mínimo y recomendado</span>
           <strong>{formatCurrency(pricingBuffer)}</strong>
         </div>
 
@@ -127,13 +156,48 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         </div>
       </div>
 
+      <div className="capacity-check" ref={capacityRef}>
+        <h4>¿Cuántos clientes como este necesitas?</h4>
+        <dl className="capacity-metrics">
+          <div>
+            <dt>Para alcanzar tu objetivo</dt>
+            <dd>
+              {result.clientsNeededForTarget}{' '}
+              {result.clientsNeededForTarget === 1 ? 'cliente' : 'clientes'}
+            </dd>
+          </div>
+          <div>
+            <dt>Caben en tus horas</dt>
+            <dd>
+              {result.maxClientsByHours} {result.maxClientsByHours === 1 ? 'cliente' : 'clientes'}
+            </dd>
+          </div>
+        </dl>
+        {exceedsCapacity ? (
+          <p>
+            A esta cuota y con estas horas incluidas, el objetivo supera tu capacidad en{' '}
+            <strong>{hoursOverCapacity} h al mes</strong>. Revisa la cuota o el alcance antes de
+            añadir más clientes.
+          </p>
+        ) : (
+          <p>
+            Esos clientes ocuparían <strong>{hoursNeeded} h</strong> de tus{' '}
+            <strong>{formatNumber(result.billableHoursPerMonth, 2)} h</strong> facturables al mes.
+          </p>
+        )}
+        <small>
+          Referencia orientativa: supone que todos pagan esta cuota y consumen las mismas horas y
+          costes mensuales.
+        </small>
+      </div>
+
       <div className="result-next-step">
-        <strong>Lectura rapida para defender la cuota</strong>
+        <strong>Lectura rápida para defender la cuota</strong>
         <p>
           Si el cliente intenta bajar la mensualidad, toma{' '}
           <strong>{formatCurrency(result.maintenanceFloorRetainer)}</strong> como referencia de
           suelo: por debajo de esa cifra empiezas a comerte tu parte del soporte, las incidencias o
-          el margen del servicio. La zona mas comoda para presentar propuesta esta mas cerca de{' '}
+          el margen del servicio. La zona más cómoda para presentar propuesta está más cerca de{' '}
           <strong>{formatCurrency(result.recommendedMonthlyRetainer)}</strong>.
         </p>
       </div>
@@ -167,34 +231,34 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
       <p className="result-summary">
         Para sostener un objetivo mensual de <strong>{formatCurrency(result.targetMonthlyNet)}</strong>
         , con unos costes fijos de <strong>{formatCurrency(result.monthlyFixedCosts)}</strong> y{' '}
-        <strong>{result.billableHoursPerMonth}</strong> horas facturables al mes, tu referencia
-        mensual se situa en <strong>{formatCurrency(result.monthlyRevenueTarget)}</strong> antes de
+        <strong>{formatNumber(result.billableHoursPerMonth, 2)}</strong> horas facturables al mes, tu referencia
+        mensual se sitúa en <strong>{formatCurrency(result.monthlyRevenueTarget)}</strong> antes de
         repartirla entre clientes recurrentes.
       </p>
 
       <p className="result-summary">
-        En este caso hemos partido de <strong>{result.includedHoursPerClient} horas incluidas</strong>{' '}
-        al mes y les hemos aplicado un buffer del <strong>{result.incidentBufferPercent}%</strong>,
-        lo que deja el servicio en <strong>{result.bufferedIncludedHours} horas</strong> razonables
-        para soportar incidencias y pequenas tareas sin improvisar la cuota.
+        En este caso hemos partido de <strong>{formatNumber(result.includedHoursPerClient, 2)} horas incluidas</strong>{' '}
+        al mes y les hemos aplicado un buffer del <strong>{formatNumber(result.incidentBufferPercent, 2)}%</strong>,
+        lo que deja el servicio en <strong>{formatNumber(result.bufferedIncludedHours, 2)} horas</strong> razonables
+        para soportar incidencias y pequeñas tareas sin improvisar la cuota.
       </p>
 
       <p className="result-summary">
-        Ademas, has dejado una reserva fiscal orientativa del{' '}
-        <strong>{result.taxReservePercent}%</strong> y un margen extra del{' '}
-        <strong>{result.profitMarginPercent}%</strong>. Eso situa el servicio en una referencia
+        Además, has dejado una reserva fiscal orientativa del{' '}
+        <strong>{formatNumber(result.taxReservePercent, 2)}%</strong> y un margen extra del{' '}
+        <strong>{formatNumber(result.profitMarginPercent, 2)}%</strong>. Eso sitúa el servicio en una referencia
         efectiva de <strong>{formatCurrency(result.effectiveHourlyRate)}/h</strong> sobre las horas
-        ya amortiguadas por buffer, con un colchon de{' '}
-        <strong>{formatCurrency(pricingBuffer)}</strong> frente al minimo.
+        ya amortiguadas por buffer, con un colchón de{' '}
+        <strong>{formatCurrency(pricingBuffer)}</strong> frente al mínimo.
         {hasIVA ? (
           <>
             {' '}
-            Si repercutes IVA, tendrias que anadir aproximadamente{' '}
+            Si repercutes IVA, tendrías que añadir aproximadamente{' '}
             <strong>{formatCurrency(result.vatAmount)}</strong>, dejando la cuota final en{' '}
             <strong>{formatCurrency(result.totalWithVAT)}</strong>.
           </>
         ) : (
-          <> En esta simulacion no se anade IVA al total.</>
+          <> En esta simulación no se añade IVA al total.</>
         )}
       </p>
 
@@ -203,7 +267,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
         <p>
           Usa la cuota recomendada como base para definir tu plan mensual. Si el cliente aprieta
           precio, intenta tocar antes alcance, horas incluidas o tiempos de respuesta: bajar por
-          debajo del minimo defendible significa asumir tu parte del coste del mantenimiento.
+          debajo del mínimo defendible significa asumir tu parte del coste del mantenimiento.
         </p>
       </div>
     </section>

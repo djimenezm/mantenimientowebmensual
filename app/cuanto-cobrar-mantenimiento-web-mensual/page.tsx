@@ -7,23 +7,23 @@ import LeadMagnetForm from '@/components/LeadMagnetForm';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/cuanto-cobrar-mantenimiento-web-mensual';
-const title = 'Cuanto cobrar mantenimiento web mensual sin poner la cuota a ojo';
+const title = 'Cuánto cobrar mantenimiento web mensual sin poner la cuota a ojo';
 const description =
-  'Guia practica para calcular cuanto cobrar por mantenimiento web mensual segun horas incluidas, buffer de incidencias, costes por cliente, margen e IVA aparte.';
+  'Guía práctica para calcular cuánto cobrar por mantenimiento web mensual según horas incluidas, buffer de incidencias, costes por cliente, margen e IVA aparte.';
 
 const pageFaqItems = [
   {
-    question: 'Cuanto cobrar por mantenimiento web mensual?',
+    question: '¿Cuánto cobrar por mantenimiento web mensual?',
     answer:
-      'No hay una cuota unica. Depende de las horas incluidas, el tipo de soporte, el buffer de incidencias, los costes mensuales por cliente y el margen que necesitas proteger.',
+      'No hay una cuota única. Depende de las horas incluidas, el tipo de soporte, el buffer de incidencias, los costes mensuales por cliente y el margen qué necesitas proteger.',
   },
   {
-    question: 'Que deberia incluir un plan de mantenimiento web?',
+    question: '¿Qué debería incluir un plan de mantenimiento web?',
     answer:
-      'Suele incluir actualizaciones, supervision basica, pequenas tareas, soporte, revisiones tecnicas y un alcance claro. Lo importante es que la cuota refleje tanto las horas visibles como la friccion real del servicio.',
+      'Suele incluir actualizaciones, supervisión básica, pequeñas tareas, soporte, revisiones técnicas y un alcance claro. Lo importante es que la cuota refleje tanto las horas visibles como la fricción real del servicio.',
   },
   {
-    question: 'Es mejor cobrar mantenimiento por bolsa de horas o por cuota fija?',
+    question: '¿Es mejor cobrar mantenimiento por bolsa de horas o por cuota fija?',
     answer:
       'Las dos opciones pueden funcionar. La cuota fija suele venderse mejor, pero solo es sana si conoces tu referencia por hora y el coste real de absorber incidencias y soporte recurrente.',
   },
@@ -36,7 +36,7 @@ export const metadata: Metadata = {
     canonical: route,
   },
   keywords: [
-    'cuanto cobrar mantenimiento web mensual',
+    'cuánto cobrar mantenimiento web mensual',
     'precio mantenimiento web mensual',
     'cuota mantenimiento web',
     'mantenimiento web mensual freelance',
@@ -142,15 +142,15 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
       <section className="hero">
         <div className="container article-layout">
           <div className="text-block">
-            <span className="eyebrow">Guia practica</span>
-            <h1>Cuanto cobrar mantenimiento web mensual sin poner la cuota a ojo</h1>
+            <span className="eyebrow">Guía práctica</span>
+            <h1>Cuánto cobrar mantenimiento web mensual sin poner la cuota a ojo</h1>
             <p className="lead">
-              Una cuota de mantenimiento no deberia salir de lo que te parece razonable ni de lo
+              Una cuota de mantenimiento no debería salir de lo que te parece razonable ni de lo
               que cobra otra persona por internet. Si quieres que el servicio sea sostenible,
               necesitas bajar el mantenimiento a horas reales, incidencias, costes por cliente y
               margen.
             </p>
-            <div className="hero-badges" aria-label="Que cubre esta guia">
+            <div className="hero-badges" aria-label="Qué cubre esta guía">
               <span className="hero-badge">Cuota mensual</span>
               <span className="hero-badge">Buffer de incidencias</span>
               <span className="hero-badge">Margen defendible</span>
@@ -163,12 +163,12 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Que vas a aterrizar aqui</h2>
+            <h2>Qué vas a aterrizar aquí</h2>
             <ul className="article-list">
-              <li>Que variables cambian de verdad el precio del mantenimiento web.</li>
-              <li>Como usar horas incluidas y buffer sin regalar soporte todos los meses.</li>
-              <li>Que diferencia hay entre cuota minima y cuota recomendada.</li>
-              <li>Como presentar una mensualidad mas sana al cliente.</li>
+              <li>Qué variables cambian de verdad el precio del mantenimiento web.</li>
+              <li>Cómo usar horas incluidas y buffer sin regalar soporte todos los meses.</li>
+              <li>Qué diferencia hay entre cuota mínima y cuota recomendada.</li>
+              <li>Cómo presentar una mensualidad más sana al cliente.</li>
             </ul>
           </aside>
         </div>
@@ -179,17 +179,17 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
           <h2>El mantenimiento web no es solo &quot;unas horitas al mes&quot;</h2>
           <p>
             Muchas cuotas se quedan cortas porque se calculan solo con las tareas visibles:
-            actualizar plugins, revisar copias o hacer pequenos cambios. Pero el servicio real suele
-            incluir tambien supervision, contexto, soporte, friccion, seguimiento e incidencias que
+            actualizar plugins, revisar copias o hacer pequeños cambios. Pero el servicio real suele
+            incluir también supervisión, contexto, soporte, fricción, seguimiento e incidencias que
             no siempre aparecen en el mejor escenario.
           </p>
           <p>
-            Por eso una cuota mensual sana no se deberia fijar a ojo. Se deberia construir desde tu
-            base economica y desde el tiempo real que ese cliente puede consumir.
+            Por eso una cuota mensual sana no se debería fijar a ojo. Se debería construir desde tu
+            base económica y desde el tiempo real que ese cliente puede consumir.
           </p>
           <div className="disclaimer-box">
             <strong>Idea clave:</strong> un mantenimiento mensual rentable no depende solo de las
-            horas incluidas. Depende tambien del soporte que terminas absorbiendo y del margen que
+            horas incluidas. Depende también del soporte que terminas absorbiendo y del margen que
             necesitas proteger.
           </div>
         </div>
@@ -200,7 +200,7 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
           <article className="feature-card">
             <h2>1. Horas incluidas y horas reales</h2>
             <p>
-              No basta con definir una bolsa teórica. Necesitas comprobar cuantas horas puede
+              No basta con definir una bolsa teórica. Necesitas comprobar cuántas horas puede
               consumir de verdad ese cliente entre tareas, soporte y pequeñas incidencias.
             </p>
           </article>
@@ -208,15 +208,15 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
           <article className="feature-card">
             <h2>2. Buffer de incidencias</h2>
             <p>
-              Parte del precio deberia cubrir el desgaste normal del servicio: imprevistos,
-              urgencias suaves, revisiones o tareas pequenas que se repiten sin avisar.
+              Parte del precio debería cubrir el desgaste normal del servicio: imprevistos,
+              urgencias suaves, revisiones o tareas pequeñas que se repiten sin avisar.
             </p>
           </article>
 
           <article className="feature-card">
             <h2>3. Costes y margen</h2>
             <p>
-              Herramientas, monitorizacion, terceros, compras y margen comercial tambien forman
+              Herramientas, monitorización, terceros, compras y margen comercial también forman
               parte de una cuota mensual sostenible.
             </p>
           </article>
@@ -230,30 +230,30 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
             <li>Poner una cuota copiando el mercado sin conocer tu propio suelo.</li>
             <li>Contar solo horas visibles y no el soporte real que absorbes.</li>
             <li>No dejar buffer para incidencias y pequeñas tareas recurrentes.</li>
-            <li>Olvidar costes directos del cliente o herramientas especificas.</li>
-            <li>Negociar a la baja sin tocar alcance, tiempos o limites del servicio.</li>
+            <li>Olvidar costes directos del cliente o herramientas específicas.</li>
+            <li>Negociar a la baja sin tocar alcance, tiempos o límites del servicio.</li>
           </ol>
           <p>
             El resultado suele ser el mismo: clientes que parecen buenos sobre el papel pero que,
-            mes a mes, erosionan margen y tiempo util.
+            mes a mes, erosionan margen y tiempo útil.
           </p>
         </div>
       </section>
 
       <section className="section alt">
-        <div className="container feature-grid" aria-label="Como usar la calculadora">
+        <div className="container feature-grid" aria-label="Cómo usar la calculadora">
           <article className="feature-card">
             <h2>Referencia base por hora</h2>
             <p>
-              Te da una base economica para no improvisar. Sirve para validar si tu cuota actual
-              cubre de verdad el tiempo y el negocio que hay detras.
+              Te da una base económica para no improvisar. Sirve para validar si tu cuota actual
+              cubre de verdad el tiempo y el negocio que hay detrás.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>Cuota minima defendible</h2>
+            <h2>Cuota mínima defendible</h2>
             <p>
-              Marca el suelo del servicio antes de regalar margen. Si el cliente quiere bajar mas,
+              Marca el suelo del servicio antes de regalar margen. Si el cliente quiere bajar más,
               probablemente haya que tocar horas incluidas, alcance o tiempos de respuesta.
             </p>
           </article>
@@ -261,8 +261,8 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
           <article className="feature-card">
             <h2>Cuota recomendada</h2>
             <p>
-              Es la zona donde puedes presentar una mensualidad mas sana, con espacio para negociar
-              y absorber mejor la friccion normal del soporte recurrente.
+              Es la zona donde puedes presentar una mensualidad más sana, con espacio para negociar
+              y absorber mejor la fricción normal del soporte recurrente.
             </p>
           </article>
         </div>
@@ -272,13 +272,13 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
         <div className="container text-block">
           <h2>Usa la calculadora para aterrizar tu caso</h2>
           <p>
-            Esta guia te da el marco. La calculadora te ayuda a probar tu caso real con objetivo
+            Esta guía te da el marco. La calculadora te ayuda a probar tu caso real con objetivo
             mensual, costes fijos, horas incluidas, buffer, costes por cliente, margen e IVA para
-            obtener una cuota mensual mucho mas util que una cifra improvisada.
+            obtener una cuota mensual mucho más útil que una cifra improvisada.
           </p>
           <p>
-            Si tu caso gira especificamente alrededor de WordPress, puedes apoyarte tambien en la
-            guia sobre <Link href="/precio-mantenimiento-wordpress">precio de mantenimiento
+            Si tu caso gira específicamente alrededor de WordPress, puedes apoyarte también en la
+            guía sobre <Link href="/precio-mantenimiento-wordpress">precio de mantenimiento
             WordPress</Link> para separar mejor soporte, incidencias y coste del servicio.
           </p>
           <div className="guide-cta">
@@ -294,7 +294,7 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
           <LeadMagnetForm
             source="cuanto-cobrar-mantenimiento-web-mensual"
             title="Te enviamos el kit de mantenimiento"
-            description="Si esta guia te resulta util, deja tu email y te damos acceso al kit gratuito con checklist de mantenimiento, estructura de cuota mensual y ejemplo de alcance."
+            description="Si esta guía te resulta útil, deja tu email y te damos acceso al kit gratuito con lista de comprobación de mantenimiento, estructura de cuota mensual y ejemplo de alcance."
             buttonLabel="Quiero el kit"
           />
         </div>
@@ -303,7 +303,7 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
       <section className="section alt" aria-labelledby="mantenimiento-web-faq-title">
         <div className="container text-block">
           <h2 id="mantenimiento-web-faq-title">
-            Preguntas frecuentes sobre cuanto cobrar mantenimiento web mensual
+            Preguntas frecuentes sobre cuánto cobrar mantenimiento web mensual
           </h2>
 
           <div className="faq-list">
@@ -320,10 +320,10 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
       <section className="section">
         <div className="container text-block">
           <span className="eyebrow">Siguiente paso</span>
-          <h2>Lleva la teoria a una cuota concreta</h2>
+          <h2>Lleva la teoría a una cuota concreta</h2>
           <p>
-            Si ya tienes claro que el mantenimiento no se deberia cobrar a ojo, el siguiente paso
-            util es probar un caso real en la calculadora y ver donde queda tu cuota minima y tu
+            Si ya tienes claro que el mantenimiento no se debería cobrar a ojo, el siguiente paso
+            útil es probar un caso real en la calculadora y ver dónde queda tu cuota mínima y tu
             zona recomendada.
           </p>
           <div className="guide-cta">

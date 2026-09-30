@@ -8,23 +8,23 @@ import { getSiteUrl, siteConfig } from '@/lib/site';
 const route = '/kit-mantenimiento-web';
 const title = 'Kit de mantenimiento web';
 const description =
-  'Recurso practico con checklist mensual, ejemplo de alcance y estructura de cuota para vender mejor mantenimiento web recurrente.';
+  'Recurso práctico con lista de comprobación mensual, ejemplo de alcance y estructura de cuota para vender mejor mantenimiento web recurrente.';
 
 const faqItems = [
   {
-    question: 'Que incluye este kit de mantenimiento web?',
+    question: '¿Qué incluye este kit de mantenimiento web?',
     answer:
-      'Incluye una checklist mensual de revisiones, una estructura base de alcance para presentar el servicio y una guia breve para ordenar una cuota mensual defendible.',
+      'Incluye una lista de comprobación mensual de revisiones, una estructura base de alcance para presentar el servicio y una guía breve para ordenar una cuota mensual defendible.',
   },
   {
-    question: 'Este kit sustituye la calculadora?',
+    question: '¿Este kit sustituye la calculadora?',
     answer:
-      'No. El kit te ayuda a presentar mejor el servicio. La calculadora sigue siendo la herramienta para aterrizar una cuota minima y una zona recomendada a partir de tus numeros.',
+      'No. El kit te ayuda a presentar mejor el servicio. La calculadora sigue siendo la herramienta para aterrizar una cuota mínima y una zona recomendada a partir de tus números.',
   },
   {
-    question: 'Puedo descargarlo y adaptarlo?',
+    question: '¿Puedo descargarlo y adaptarlo?',
     answer:
-      'Si. Hay una version descargable en texto para que la adaptes a tus propios planes, limites de soporte y forma de trabajar.',
+      'Sí. Hay una versión descargable en texto para que la adaptes a tus propios planes, límites de soporte y forma de trabajar.',
   },
 ] as const;
 
@@ -146,17 +146,17 @@ export default function KitMantenimientoWebPage() {
             <h1>Kit de mantenimiento web</h1>
             <p className="lead">
               Un recurso simple para pasar de una cuota intuitiva a un plan de mantenimiento mejor
-              explicado. Incluye checklist mensual, ejemplo de alcance y una estructura basica para
-              presentar una cuota recurrente con mas criterio.
+              explicado. Incluye una lista de comprobación mensual, un ejemplo de alcance y una estructura básica para
+              presentar una cuota recurrente con más criterio.
             </p>
-            <div className="hero-badges" aria-label="Que incluye el kit">
-              <span className="hero-badge">Checklist mensual</span>
+            <div className="hero-badges" aria-label="Qué incluye el kit">
+              <span className="hero-badge">Lista de comprobación mensual</span>
               <span className="hero-badge">Ejemplo de alcance</span>
               <span className="hero-badge">Cuota defendible</span>
             </div>
             <div className="guide-cta">
               <a href={downloadUrl} className="primary-button" download>
-                Descargar version en texto
+                Descargar versión en texto
               </a>
               <Link href="/#calculadora" className="primary-button">
                 Ir a la calculadora
@@ -165,12 +165,12 @@ export default function KitMantenimientoWebPage() {
           </div>
 
           <aside className="feature-card article-summary">
-            <h2>Que te llevas</h2>
+            <h2>Qué te llevas</h2>
             <ul className="article-list">
-              <li>Una checklist mensual para ordenar revisiones y tareas.</li>
+              <li>Una lista de comprobación mensual para ordenar revisiones y tareas.</li>
               <li>Un ejemplo corto de alcance para presentar el servicio.</li>
               <li>Una estructura de cuota para no vender el mantenimiento a ojo.</li>
-              <li>Una version descargable para adaptarla a tus propios planes.</li>
+              <li>Una versión descargable para adaptarla a tus propios planes.</li>
             </ul>
           </aside>
         </div>
@@ -178,13 +178,13 @@ export default function KitMantenimientoWebPage() {
 
       <section className="section">
         <div className="container text-block">
-          <h2>1. Checklist mensual de mantenimiento</h2>
+          <h2>1. Lista de comprobación mensual de mantenimiento</h2>
           <ol className="article-list article-list-ordered">
-            <li>Revisar copias y confirmar que la restauracion seria viable.</li>
+            <li>Revisar copias y confirmar que la restauración sería viable.</li>
             <li>Aplicar actualizaciones del core, temas y plugins dentro del alcance pactado.</li>
-            <li>Comprobar que formularios, avisos y puntos criticos siguen funcionando.</li>
-            <li>Revisar errores visibles, seguridad basica y alertas del sitio.</li>
-            <li>Registrar incidencias, tareas pequenas y tiempo consumido.</li>
+            <li>Comprobar que formularios, avisos y puntos críticos siguen funcionando.</li>
+            <li>Revisar errores visibles, seguridad básica y alertas del sitio.</li>
+            <li>Registrar incidencias, tareas pequeñas y tiempo consumido.</li>
             <li>Preparar observaciones o recomendaciones para el cliente si hace falta.</li>
           </ol>
         </div>
@@ -194,33 +194,33 @@ export default function KitMantenimientoWebPage() {
         <div className="container text-block">
           <h2>2. Estructura corta de alcance</h2>
           <ol className="article-list article-list-ordered">
-            <li>Que incluye el plan: actualizaciones, supervision, soporte y pequenas tareas.</li>
-            <li>Limites: horas incluidas, revisiones o tareas fuera de cuota.</li>
+            <li>Qué incluye el plan: actualizaciones, supervisión, soporte y pequeñas tareas.</li>
+            <li>Límites: horas incluidas, revisiones o tareas fuera de cuota.</li>
             <li>Tiempo de respuesta orientativo.</li>
-            <li>Que no entra: redisenos, nuevas paginas, cambios grandes o terceros complejos.</li>
-            <li>Como se gestionan extras, urgencias y compras de herramientas.</li>
+            <li>Qué no entra: rediseños, nuevas páginas, cambios grandes o terceros complejos.</li>
+            <li>Cómo se gestionan extras, urgencias y compras de herramientas.</li>
           </ol>
           <p>
             La clave no es escribir un contrato enorme. Es que el cliente entienda donde empieza el
-            mantenimiento, donde termina y cuando tocaria presupuestar algo aparte.
+            mantenimiento, donde termina y cuando tocaría presupuestar algo aparte.
           </p>
         </div>
       </section>
 
       <section className="section">
         <div className="container text-block">
-          <h2>3. Estructura basica de cuota mensual</h2>
+          <h2>3. Estructura básica de cuota mensual</h2>
           <ol className="article-list article-list-ordered">
-            <li>Referencia interna por hora segun tu objetivo mensual y tus costes.</li>
+            <li>Referencia interna por hora según tu objetivo mensual y tus costes.</li>
             <li>Horas incluidas realistas para el plan.</li>
-            <li>Buffer para incidencias normales y friccion de soporte.</li>
+            <li>Buffer para incidencias normales y fricción de soporte.</li>
             <li>Costes mensuales por cliente: herramientas, licencias o terceros.</li>
-            <li>Margen para proteger el servicio y no venderlo al limite.</li>
-            <li>IVA aparte y forma de pago claras.</li>
+            <li>Margen para proteger el servicio y no venderlo al límite.</li>
+            <li>IVA aparte y forma de pago clara.</li>
           </ol>
           <div className="disclaimer-box">
             <strong>Recuerda:</strong> este kit te ayuda a presentar mejor el servicio, pero la
-            calculadora sigue siendo la mejor pieza para aterrizar una cuota minima y una zona
+            calculadora sigue siendo la mejor pieza para aterrizar una cuota mínima y una zona
             recomendada antes de ofrecer nada.
           </div>
         </div>
@@ -231,26 +231,25 @@ export default function KitMantenimientoWebPage() {
           <article className="feature-card">
             <h2>Mantenimiento mensual</h2>
             <p>
-              Si quieres el marco general antes de poner numeros, revisa{' '}
+              Si quieres el marco general antes de poner números, revisa{' '}
               <Link href="/cuanto-cobrar-mantenimiento-web-mensual">
-                cuanto cobrar mantenimiento web mensual
-              </Link>
-              .
+                cuánto cobrar mantenimiento web mensual
+              </Link>.
             </p>
           </article>
 
           <article className="feature-card">
             <h2>WordPress</h2>
             <p>
-              Si la mayor parte de tu soporte es WordPress, complementa este kit con la guia sobre{' '}
+              Si la mayor parte de tu soporte es WordPress, complementa este kit con la guía sobre{' '}
               <Link href="/precio-mantenimiento-wordpress">precio de mantenimiento WordPress</Link>.
             </p>
           </article>
 
           <article className="feature-card">
-            <h2>Numero base</h2>
+            <h2>Número base</h2>
             <p>
-              Si aun no tienes clara la cuota, vuelve antes a la calculadora y separa tu minimo de
+              Si aún no tienes clara la cuota, vuelve antes a la calculadora y separa tu mínimo de
               tu zona recomendada.
             </p>
           </article>
@@ -277,7 +276,7 @@ export default function KitMantenimientoWebPage() {
           <span className="eyebrow">Siguiente paso</span>
           <h2>Descarga el kit o vuelve a calcular tu cuota</h2>
           <p>
-            Si ya tienes clientes en mantenimiento, puedes descargar la version en texto y adaptarla
+            Si ya tienes clientes en mantenimiento, puedes descargar la versión en texto y adaptarla
             a tus planes. Si sigues afinando la cifra, vuelve antes a la calculadora.
           </p>
           <div className="guide-cta">

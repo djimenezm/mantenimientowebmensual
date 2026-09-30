@@ -1,3 +1,4 @@
+import { readStyles } from './readStyles';
 import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 import nextConfig from '@/next.config';
@@ -21,7 +22,7 @@ describe('performance config', () => {
 
   it('keeps the homepage message compact for mobile LCP', () => {
     const homePage = readFileSync(join(process.cwd(), 'app/page.tsx'), 'utf8');
-    const globalStyles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const globalStyles = readStyles();
 
     expect(homePage).toContain('Convierte horas, incidencias y margen en una cuota mensual clara.');
     expect(homePage).toContain('priority');
@@ -42,7 +43,7 @@ describe('performance config', () => {
   });
 
   it('provides a visible focus state for generated calculator results', () => {
-    const globalStyles = readFileSync(join(process.cwd(), 'app/globals.css'), 'utf8');
+    const globalStyles = readStyles();
 
     expect(globalStyles).toMatch(/\.result-card:focus\s*{[^}]*outline:\s*3px solid var\(--accent\)/s);
     expect(globalStyles).toMatch(/\.result-card:focus\s*{[^}]*outline-offset:\s*4px/s);
