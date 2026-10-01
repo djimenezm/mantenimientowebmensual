@@ -28,10 +28,18 @@ export const packageExampleInputs = {
     incidentBufferPercent: 30,
     directMonthlyClientCosts: 35,
   },
+  ecommerce: {
+    ...sharedInputs,
+    includedHoursPerClient: 6,
+    incidentBufferPercent: 40,
+    directMonthlyClientCosts: 35,
+    profitMarginPercent: 25,
+  },
 } satisfies Record<string, CalculatorInput>;
 
 export const packageExampleQuotes = {
   basic: calculateMaintenanceRetainer(packageExampleInputs.basic),
   professional: calculateMaintenanceRetainer(packageExampleInputs.professional),
   advanced: calculateMaintenanceRetainer(packageExampleInputs.advanced),
+  ecommerce: calculateMaintenanceRetainer(packageExampleInputs.ecommerce),
 };

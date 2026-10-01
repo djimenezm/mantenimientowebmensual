@@ -4,6 +4,8 @@ import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import { packageExampleInputs, packageExampleQuotes } from '@/lib/packageExamples';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/mantenimiento-web-para-ecommerce';
@@ -84,7 +86,7 @@ export default function MantenimientoWebParaEcommercePage() {
       name: siteConfig.name,
     },
     datePublished: '2026-05-10',
-    dateModified: '2026-05-10',
+    dateModified: '2026-10-02',
   };
 
   const breadcrumbSchema = {
@@ -264,6 +266,62 @@ export default function MantenimientoWebParaEcommercePage() {
               Definir horas incluidas
             </Link>
           </div>
+        </div>
+      </section>
+
+      <section className="section alt" aria-labelledby="ejemplo-cuota-ecommerce">
+        <div className="container text-block">
+          <span className="eyebrow">Ejemplo calculado</span>
+          <h2 id="ejemplo-cuota-ecommerce">Una cuota mensual para una tienda con cambios regulares</h2>
+          <p>
+            Imagina una tienda que necesita actualizaciones, revisión de copias, pruebas de compra
+            y pequeños ajustes. Se pactan {packageExampleInputs.ecommerce.includedHoursPerClient}
+            {' '}horas de trabajo al mes y se estiman
+            {' '}{formatCurrency(packageExampleInputs.ecommerce.directMonthlyClientCosts)} de
+            herramientas por cliente. La reserva interna del
+            {' '}{packageExampleInputs.ecommerce.incidentBufferPercent}% protege el precio ante
+            incidencias; no añade horas gratuitas al contrato.
+          </p>
+        </div>
+        <div className="container feature-grid" aria-label="Desglose del ejemplo ecommerce">
+          <article className="feature-card">
+            <h3>Base de cálculo</h3>
+            <p>
+              Con {formatCurrency(packageExampleInputs.ecommerce.targetMonthlyNet)} de objetivo
+              neto, {formatCurrency(packageExampleInputs.ecommerce.monthlyFixedCosts)} de costes
+              fijos y {packageExampleInputs.ecommerce.billableHoursPerMonth} horas vendibles, la
+              tarifa interna es {formatCurrency(packageExampleQuotes.ecommerce.baseHourlyRate)}/h.
+            </p>
+          </article>
+          <article className="feature-card">
+            <h3>Reserva y cuota</h3>
+            <p>
+              Se presupuestan internamente
+              {' '}{formatNumber(packageExampleQuotes.ecommerce.bufferedIncludedHours)} horas.
+              El suelo es {formatCurrency(packageExampleQuotes.ecommerce.maintenanceFloorRetainer)}
+              {' '}y el precio recomendado aplica un margen del
+              {' '}{packageExampleInputs.ecommerce.profitMarginPercent}%.
+            </p>
+            <p className="scenario-price">
+              {formatCurrency(packageExampleQuotes.ecommerce.recommendedMonthlyRetainer)} al mes sin IVA
+            </p>
+          </article>
+          <article className="feature-card">
+            <h3>Fuera de la cuota</h3>
+            <p>
+              Si el cliente solicita ocho horas de tareas, dos superan las seis contratadas y
+              requieren aprobación aparte. Nuevas integraciones, urgencias fuera de horario y
+              recuperación de incidentes graves también se acuerdan por separado.
+            </p>
+          </article>
+        </div>
+        <div className="container text-block plan-scenario">
+          <p>
+            La reserva fiscal del {packageExampleInputs.ecommerce.taxReservePercent}% es solo una
+            hipótesis para obtener la tarifa interna. Esta cifra no es un precio de mercado ni
+            incluye un compromiso de respuesta 24/7. Ajusta tus horas y condiciones en la
+            {' '}<Link href="/#calculadora">calculadora de mantenimiento web</Link>.
+          </p>
         </div>
       </section>
 

@@ -4,7 +4,7 @@ import { packageExampleInputs, packageExampleQuotes } from '../lib/packageExampl
 
 describe('editorial maintenance packages', () => {
   it('uses the same calculation as the interactive form', () => {
-    for (const plan of ['basic', 'professional', 'advanced'] as const) {
+    for (const plan of ['basic', 'professional', 'advanced', 'ecommerce'] as const) {
       expect(packageExampleQuotes[plan]).toEqual(calculateMaintenanceRetainer(packageExampleInputs[plan]));
       expect(packageExampleQuotes[plan].bufferedIncludedHours)
         .toBeGreaterThan(packageExampleInputs[plan].includedHoursPerClient);
@@ -16,5 +16,7 @@ describe('editorial maintenance packages', () => {
       .toBeLessThan(packageExampleQuotes.professional.recommendedMonthlyRetainer);
     expect(packageExampleQuotes.professional.recommendedMonthlyRetainer)
       .toBeLessThan(packageExampleQuotes.advanced.recommendedMonthlyRetainer);
+    expect(packageExampleQuotes.ecommerce.recommendedMonthlyRetainer)
+      .toBeGreaterThan(packageExampleQuotes.professional.recommendedMonthlyRetainer);
   });
 });

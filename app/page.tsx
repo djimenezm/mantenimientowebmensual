@@ -54,7 +54,7 @@ export default function HomePage() {
           <div className="maintenance-hero-scrim" />
           <div className="container maintenance-hero-content">
             <span className="maintenance-hero-kicker">Calculadora de mantenimiento web</span>
-            <h1 id="maintenance-hero-title">El mantenimiento web no es un favor. Ponle precio.</h1>
+            <h1 id="maintenance-hero-title">Mantenimiento web mensual, sin regalar tu tiempo.</h1>
             <p>Convierte horas, incidencias y margen en una cuota mensual clara.</p>
 
             <div className="maintenance-hero-actions">
@@ -120,6 +120,7 @@ export default function HomePage() {
               <nav aria-label="Profundiza en la cuota de mantenimiento web">
                 <a href="/horas-incluidas-mantenimiento-web">Cómo fijar las horas incluidas</a>
                 <a href="/paquetes-mantenimiento-web">Cómo estructurar tus paquetes</a>
+                <a href="/mantenimiento-web-para-ecommerce">Calcular una cuota para ecommerce</a>
               </nav>
             </div>
           </div>

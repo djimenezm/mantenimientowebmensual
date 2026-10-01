@@ -1,11 +1,11 @@
 const productionUrl = 'https://www.mantenimientowebmensual.es';
 
 export const siteConfig = {
-  name: 'Cuanto Cobrar Mantenimiento Web',
+  name: 'Cuánto Cobrar Mantenimiento Web',
   shortName: 'Mantenimiento Web',
   title: 'Calculadora para cobrar mantenimiento web mensual',
   description:
-    'Calcula cuanto cobrar por mantenimiento web mensual a partir de tu objetivo neto, tus costes fijos, las horas incluidas, el buffer de incidencias y una reserva fiscal orientativa.',
+    'Calcula el precio de mantenimiento web mensual según tus horas, costes e incidencias. Obtén una cuota mínima y otra recomendada, con el IVA separado.',
   locale: 'es_ES',
   keywords: [
     'cuanto cobrar mantenimiento web mensual',
