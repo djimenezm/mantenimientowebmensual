@@ -12,6 +12,7 @@ describe('homepage visual structure', () => {
     expect(homePage).toContain('maintenance-calculator-shell');
     expect(homePage).toContain('maintenance-mini-strip');
     expect(homePage).toContain('maintenance-checklist-band');
+    expect(homePage).toContain('href="/cuanto-cobrar-mantenimiento-web-mensual"');
     expect(styles).toMatch(/\.maintenance-hero\s*{[^}]*min-height:\s*\d+svh/s);
   });
 });

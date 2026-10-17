@@ -118,6 +118,7 @@ export default function HomePage() {
                 el trabajo fuera de alcance necesita otro precio.
               </p>
               <nav aria-label="Profundiza en la cuota de mantenimiento web">
+                <a href="/cuanto-cobrar-mantenimiento-web-mensual">Ver cómo calcular el precio mensual</a>
                 <a href="/horas-incluidas-mantenimiento-web">Cómo fijar las horas incluidas</a>
                 <a href="/paquetes-mantenimiento-web">Cómo estructurar tus paquetes</a>
                 <a href="/mantenimiento-web-para-ecommerce">Calcular una cuota para ecommerce</a>

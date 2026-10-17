@@ -30,6 +30,16 @@ Los espacios publicitarios están preparados, pero `lib/ads.ts` exige `NEXT_PUBL
 
 ## Revisión local antes de publicar
 
+La revisión local del 17 de octubre de 2026 unifica la titularidad en
+`lib/site.ts` y añade desde el bloque de método de la portada un enlace HTML a
+`/cuanto-cobrar-mantenimiento-web-mensual`. La auditoría pública detectó que
+esa guía estaba en el sitemap, pero no enlazada desde la portada.
+`siteIdentity.test.tsx` comprueba el responsable en pie, aviso legal y privacidad;
+`homeVisualStructure.test.ts` conserva el enlace de descubrimiento.
+
+La corrección se validó con pruebas, compilación y navegación en móvil. No
+cambia las fórmulas, anuncios, URLs canónicas ni solicitudes a Google.
+
 1. Ejecutar `npm run lint`, `npm test` y `npm run build`.
 2. Probar un cálculo y un valor inválido.
 3. Recorrer las guías y el formulario del recurso.
