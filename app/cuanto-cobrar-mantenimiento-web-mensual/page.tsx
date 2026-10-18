@@ -1,64 +1,55 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
-import Script from 'next/script';
 import Footer from '@/components/Footer';
 import Header from '@/components/Header';
-import LeadMagnetForm from '@/components/LeadMagnetForm';
+import JsonLd from '@/components/JsonLd';
+import { calculateMaintenanceRetainer } from '@/lib/calculator';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import { packageExampleInputs, packageExampleQuotes } from '@/lib/packageExamples';
 import { getSiteUrl, siteConfig } from '@/lib/site';
 
 const route = '/cuanto-cobrar-mantenimiento-web-mensual';
-const title = 'Cuánto cobrar mantenimiento web mensual sin poner la cuota a ojo';
+const title = 'Cuánto cobrar mantenimiento web mensual: ejemplo y cálculo paso a paso';
 const description =
-  'Guía práctica para calcular cuánto cobrar por mantenimiento web mensual según horas incluidas, buffer de incidencias, costes por cliente, margen e IVA aparte.';
+  'Calcula una cuota de mantenimiento con un ejemplo reproducible: horas, incidencias, costes, recargo e IVA. Comprueba también la capacidad y los límites del servicio.';
+const updatedAt = '2026-10-18';
+const example = packageExampleInputs.professional;
+const quote = packageExampleQuotes.professional;
+const largerScope = calculateMaintenanceRetainer({ ...example, includedHoursPerClient: 6 });
 
 const pageFaqItems = [
   {
     question: '¿Cuánto cobrar por mantenimiento web mensual?',
     answer:
-      'No hay una cuota única. Depende de las horas incluidas, el tipo de soporte, el buffer de incidencias, los costes mensuales por cliente y el margen qué necesitas proteger.',
+      `Depende de tus costes y del alcance. En el ejemplo hipotético de esta guía, ${example.includedHoursPerClient} horas pactadas, un ${example.incidentBufferPercent}% de reserva interna de tiempo y ${formatCurrency(example.directMonthlyClientCosts)} de costes directos dan una cuota mínima de ${formatCurrency(quote.maintenanceFloorRetainer)} y una recomendada de ${formatCurrency(quote.recommendedMonthlyRetainer)}, ambas sin IVA. No son precios de mercado ni una oferta de servicio.`,
   },
   {
-    question: '¿Qué debería incluir un plan de mantenimiento web?',
+    question: '¿El buffer da derecho a más horas de soporte?',
     answer:
-      'Suele incluir actualizaciones, supervisión básica, pequeñas tareas, soporte, revisiones técnicas y un alcance claro. Lo importante es que la cuota refleje tanto las horas visibles como la fricción real del servicio.',
+      `No. Es una reserva interna de tiempo para calcular el coste. En este ejemplo se reservan ${formatNumber(quote.bufferedIncludedHours)} horas de capacidad, pero el alcance que se ofrece al cliente sigue siendo de ${example.includedHoursPerClient} horas. Las tareas y los extras deben pactarse por separado.`,
   },
   {
-    question: '¿Es mejor cobrar mantenimiento por bolsa de horas o por cuota fija?',
+    question: '¿La cuota recomendada garantiza beneficio o un neto concreto?',
     answer:
-      'Las dos opciones pueden funcionar. La cuota fija suele venderse mejor, pero solo es sana si conoces tu referencia por hora y el coste real de absorber incidencias y soporte recurrente.',
+      'No. Es una simulación que depende de que se cumplan los costes, horas y clientes previstos. La reserva fiscal es una hipótesis simplificada, y el porcentaje extra es un recargo sobre el coste, no un margen de beneficio garantizado sobre las ventas.',
   },
 ] as const;
 
 export const metadata: Metadata = {
   title,
   description,
-  alternates: {
-    canonical: route,
-  },
-  keywords: [
-    'cuánto cobrar mantenimiento web mensual',
-    'precio mantenimiento web mensual',
-    'cuota mantenimiento web',
-    'mantenimiento web mensual freelance',
-    'soporte web mensual precio',
-  ],
+  alternates: { canonical: route },
   openGraph: {
     title: `${title} | ${siteConfig.name}`,
     description,
     url: route,
     type: 'article',
-    images: [
-      {
-        url: '/opengraph-image',
-        width: 1200,
-        height: 630,
-        alt: `${siteConfig.name} - ${title}`,
-      },
-    ],
+    modifiedTime: updatedAt,
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: title }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `${title} | ${siteConfig.name}`,
+    title,
     description,
     images: ['/opengraph-image'],
   },
@@ -67,274 +58,221 @@ export const metadata: Metadata = {
 export default function CuantoCobrarMantenimientoWebMensualPage() {
   const siteUrl = getSiteUrl();
   const pageUrl = new URL(route, siteUrl).toString();
-
-  const articleSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: title,
-    description,
-    inLanguage: 'es',
-    mainEntityOfPage: pageUrl,
-    author: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-    },
-    publisher: {
-      '@type': 'Organization',
-      name: siteConfig.name,
-    },
-    datePublished: '2026-04-24',
-    dateModified: '2026-04-24',
-  };
-
-  const breadcrumbSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'BreadcrumbList',
-    itemListElement: [
-      {
-        '@type': 'ListItem',
-        position: 1,
-        name: 'Inicio',
-        item: new URL('/', siteUrl).toString(),
-      },
-      {
-        '@type': 'ListItem',
-        position: 2,
-        name: title,
-        item: pageUrl,
-      },
-    ],
-  };
-
-  const faqSchema = {
-    '@context': 'https://schema.org',
-    '@type': 'FAQPage',
-    mainEntity: pageFaqItems.map((item) => ({
-      '@type': 'Question',
-      name: item.question,
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: item.answer,
-      },
-    })),
-  };
+  const inputs = [
+    ['Objetivo mensual después de la reserva', formatCurrency(example.targetMonthlyNet)],
+    ['Costes fijos mensuales', formatCurrency(example.monthlyFixedCosts)],
+    ['Horas facturables mensuales', `${example.billableHoursPerMonth} h`],
+    ['Horas pactadas por cliente', `${example.includedHoursPerClient} h`],
+    ['Reserva interna de tiempo', `${example.incidentBufferPercent}%`],
+    ['Costes directos por cliente', formatCurrency(example.directMonthlyClientCosts)],
+    ['Reserva fiscal hipotética', `${example.taxReservePercent}%`],
+    ['Recargo sobre el coste', `${example.profitMarginPercent}%`],
+  ];
 
   return (
-    <main>
-      <Script
-        id="mantenimiento-web-article-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }}
-      />
-      <Script
-        id="mantenimiento-web-breadcrumb-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
-      />
-      <Script
-        id="mantenimiento-web-faq-schema"
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
-      />
-
+    <>
       <Header />
+      <main id="contenido-principal">
+        <JsonLd id="mantenimiento-web-article-schema" data={{
+          '@context': 'https://schema.org',
+          '@type': 'Article',
+          headline: title,
+          description,
+          inLanguage: 'es',
+          mainEntityOfPage: pageUrl,
+          author: { '@type': 'Person', name: siteConfig.ownerName },
+          publisher: { '@type': 'Organization', name: siteConfig.name },
+          datePublished: '2026-04-24',
+          dateModified: updatedAt,
+        }} />
+        <JsonLd id="mantenimiento-web-breadcrumb-schema" data={{
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Inicio', item: new URL('/', siteUrl).toString() },
+            { '@type': 'ListItem', position: 2, name: title, item: pageUrl },
+          ],
+        }} />
+        <JsonLd id="mantenimiento-web-faq-schema" data={{
+          '@context': 'https://schema.org',
+          '@type': 'FAQPage',
+          mainEntity: pageFaqItems.map((item) => ({
+            '@type': 'Question', name: item.question,
+            acceptedAnswer: { '@type': 'Answer', text: item.answer },
+          })),
+        }} />
 
-      <section className="hero">
-        <div className="container article-layout">
-          <div className="text-block">
-            <span className="eyebrow">Guía práctica</span>
-            <h1>Cuánto cobrar mantenimiento web mensual sin poner la cuota a ojo</h1>
-            <p className="lead">
-              Una cuota de mantenimiento no debería salir de lo que te parece razonable ni de lo
-              que cobra otra persona por internet. Si quieres que el servicio sea sostenible,
-              necesitas bajar el mantenimiento a horas reales, incidencias, costes por cliente y
-              margen.
-            </p>
-            <div className="hero-badges" aria-label="Qué cubre esta guía">
-              <span className="hero-badge">Cuota mensual</span>
-              <span className="hero-badge">Buffer de incidencias</span>
-              <span className="hero-badge">Margen defendible</span>
+        <section className="hero" aria-labelledby="maintenance-guide-title">
+          <div className="container article-layout">
+            <div className="text-block">
+              <span className="eyebrow">Guía con un ejemplo calculado</span>
+              <h1 id="maintenance-guide-title">Cuánto cobrar por mantenimiento web mensual</h1>
+              <p className="lead">
+                Sigue una cuota desde los costes hasta el total con IVA. Después comprueba cuántos
+                clientes caben en tu agenda y qué cambia si el soporte se amplía.
+              </p>
+              <p className="guide-byline">
+                Responsable: {siteConfig.ownerName}. Actualizada el <time dateTime={updatedAt}>18 de octubre de 2026</time>.
+              </p>
+              <div className="guide-cta"><Link href="/#calculadora" className="primary-button">Calcular mi cuota</Link></div>
             </div>
-            <div className="guide-cta">
-              <Link href="/#calculadora" className="primary-button">
-                Ir a la calculadora
-              </Link>
-            </div>
+            <aside className="article-summary">
+              <h2>El resultado del ejemplo</h2>
+              <p>{example.includedHoursPerClient} horas pactadas al mes.</p>
+              <p><strong>{formatCurrency(quote.recommendedMonthlyRetainer)} sin IVA.</strong></p>
+              <p>Escenario hipotético, no una tarifa de mercado ni una oferta comercial.</p>
+            </aside>
           </div>
+        </section>
 
-          <aside className="feature-card article-summary">
-            <h2>Qué vas a aterrizar aquí</h2>
+        <section className="section" id="ejemplo-calculado" aria-labelledby="example-title">
+          <div className="container text-block">
+            <nav className="guide-jump-links" aria-label="Contenido de la guía">
+              <a href="#ejemplo-calculado">Datos del ejemplo</a>
+              <a href="#metodo">Cálculo paso a paso</a>
+              <a href="#capacidad">Clientes y capacidad</a>
+              <a href="#limites">Límites del modelo</a>
+            </nav>
+            <h2 id="example-title">Un plan de 4 horas con todos sus datos</h2>
+            <p>
+              Usamos el mismo motor que la calculadora, sin una tabla de precios oculta. Los datos
+              son ficticios y sirven para reproducir el resultado, no proceden de clientes ni de un estudio de mercado.
+            </p>
+            <dl className="guide-example-inputs">
+              {inputs.map(([label, value]) => <div key={label}><dt>{label}</dt><dd>{value}</dd></div>)}
+            </dl>
+            <p>
+              El ejemplo añade un 21% de IVA únicamente como simulación. Para repetirlo, introduce
+              estos ocho valores y marca «Sí» en IVA en la <Link href="/#calculadora">calculadora</Link>.
+            </p>
+          </div>
+        </section>
+
+        <section className="section alt" id="metodo" aria-labelledby="method-title">
+          <div className="container text-block">
+            <h2 id="method-title">De tus costes a la cuota mensual</h2>
+            <ol className="article-list guide-calculation-steps">
+              <li>
+                <strong>Objetivo de facturación: {formatCurrency(quote.monthlyRevenueTarget)} al mes.</strong>
+                {formatCurrency(example.targetMonthlyNet)} / (1 − {example.taxReservePercent} / 100)
+                {' '}+ {formatCurrency(example.monthlyFixedCosts)} de costes fijos. La reserva es una hipótesis, no un cálculo de impuestos.
+              </li>
+              <li>
+                <strong>Tarifa interna: {formatCurrency(quote.baseHourlyRate)} por hora.</strong>
+                Divide ese objetivo entre {example.billableHoursPerMonth} horas facturables.
+                Las horas de ventas, administración o formación deben quedar fuera de esas horas.
+              </li>
+              <li>
+                <strong>Tiempo reservado: {formatNumber(quote.bufferedIncludedHours)} horas por cliente.</strong>
+                {example.includedHoursPerClient} h × (1 + {example.incidentBufferPercent} / 100).
+                La hora adicional es reserva interna: no convierte un plan de 4 horas en uno de 5.
+              </li>
+              <li>
+                <strong>Cuota mínima: {formatCurrency(quote.maintenanceFloorRetainer)} sin IVA.</strong>
+                Multiplica el tiempo reservado por la tarifa interna y suma los
+                {' '}{formatCurrency(example.directMonthlyClientCosts)} de costes directos del cliente.
+              </li>
+              <li>
+                <strong>Cuota recomendada: {formatCurrency(quote.recommendedMonthlyRetainer)} sin IVA.</strong>
+                Aplica un recargo del {example.profitMarginPercent}% al coste anterior. No es un
+                {' '}{example.profitMarginPercent}% de beneficio garantizado sobre las ventas.
+              </li>
+            </ol>
+            <dl className="maintenance-example-metrics">
+              <div><dt>Cuota sin IVA</dt><dd>{formatCurrency(quote.recommendedMonthlyRetainer)}</dd></div>
+              <div><dt>IVA simulado, 21%</dt><dd>{formatCurrency(quote.vatAmount)}</dd></div>
+              <div><dt>Total mensual con IVA</dt><dd>{formatCurrency(quote.totalWithVAT)}</dd></div>
+            </dl>
+            <p>
+              Se conserva la precisión interna durante el cálculo; los importes mostrados se redondean
+              a dos decimales. Por eso, recalcular a mano con la tarifa por hora ya redondeada puede variar unos céntimos.
+            </p>
+          </div>
+        </section>
+
+        <section className="section" id="capacidad" aria-labelledby="capacity-title">
+          <div className="container text-block">
+            <h2 id="capacity-title">¿Cuántos clientes caben de verdad?</h2>
+            <p>
+              A esta cuota necesitas {quote.clientsNeededForTarget} clientes similares para cubrir
+              el objetivo, descontando primero el coste directo de cada uno. Consumen
+              {' '}{formatNumber(quote.hoursNeededForTarget)} de tus {example.billableHoursPerMonth} horas
+              facturables. El máximo por horas es de {quote.maxClientsByHours} clientes.
+            </p>
+            <p>
+              No es una previsión de ventas. Supone clientes con la misma cuota, horas y costes,
+              sin impagos ni bajas. Si ya dedicas parte de tu jornada a proyectos, reduce las horas
+              disponibles para mantenimiento antes de calcular.
+            </p>
+            <h3>Si las tareas pasan de 4 a 6 horas todos los meses</h3>
+            <p>
+              Mantener el precio no mantiene el alcance. Con 6 horas pactadas y los demás datos
+              iguales, el motor calcula {formatNumber(largerScope.bufferedIncludedHours)} horas internas
+              y recomienda <strong>{formatCurrency(largerScope.recommendedMonthlyRetainer)} sin IVA</strong>.
+              Solo cabrían {largerScope.maxClientsByHours} clientes, frente a los {quote.maxClientsByHours} del plan inicial.
+            </p>
+            <p>
+              Una petición puntual fuera de las 4 horas exige acordar un extra; si se repite,
+              conviene revisar el plan. El buffer interno no sustituye ese acuerdo.
+            </p>
+          </div>
+        </section>
+
+        <section className="section alt" id="limites" aria-labelledby="limits-title">
+          <div className="container text-block">
+            <h2 id="limits-title">Qué no resuelve esta cifra</h2>
             <ul className="article-list">
-              <li>Qué variables cambian de verdad el precio del mantenimiento web.</li>
-              <li>Cómo usar horas incluidas y buffer sin regalar soporte todos los meses.</li>
-              <li>Qué diferencia hay entre cuota mínima y cuota recomendada.</li>
-              <li>Cómo presentar una mensualidad más sana al cliente.</li>
+              <li>La reserva fiscal no calcula tramos, deducciones, cuota de autónomos ni obligaciones personales. Incluye tus gastos profesionales en los costes sin duplicarlos.</li>
+              <li>El IVA del ejemplo no determina si debes repercutirlo ni qué tipo corresponde a tu operación. El IVA cobrado no es ingreso disponible.</li>
+              <li>El buffer estima tiempo, no la probabilidad ni el coste de una emergencia grave. No presupone disponibilidad 24/7.</li>
+              <li>La cuota mínima depende de que tus horas y costes sean realistas. Un resultado matemático no garantiza rentabilidad.</li>
             </ul>
-          </aside>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container text-block">
-          <h2>El mantenimiento web no es solo &quot;unas horitas al mes&quot;</h2>
-          <p>
-            Muchas cuotas se quedan cortas porque se calculan solo con las tareas visibles:
-            actualizar plugins, revisar copias o hacer pequeños cambios. Pero el servicio real suele
-            incluir también supervisión, contexto, soporte, fricción, seguimiento e incidencias que
-            no siempre aparecen en el mejor escenario.
-          </p>
-          <p>
-            Por eso una cuota mensual sana no se debería fijar a ojo. Se debería construir desde tu
-            base económica y desde el tiempo real que ese cliente puede consumir.
-          </p>
-          <div className="disclaimer-box">
-            <strong>Idea clave:</strong> un mantenimiento mensual rentable no depende solo de las
-            horas incluidas. Depende también del soporte que terminas absorbiendo y del margen que
-            necesitas proteger.
+            <p>
+              Antes de ofrecer el servicio, deja por escrito tareas, horas, respuesta inicial,
+              exclusiones y aprobación de extras. Responder a una incidencia no equivale a prometer
+              su resolución en ese mismo plazo.
+            </p>
+            <p>
+              Para comprobar el tratamiento de tu operación, utiliza la información oficial de
+              {' '}<a href="https://sede.agenciatributaria.gob.es/Sede/iva/calculo-iva-repercutido-clientes.html">IVA repercutido de la Agencia Tributaria</a>
+              {' '}o consulta a tu asesoría.
+            </p>
+            <div className="guide-cta">
+              <Link href="/que-incluye-mantenimiento-web">Definir tareas y exclusiones</Link>
+              <Link href="/paquetes-mantenimiento-web">Comparar los ejemplos de paquetes</Link>
+            </div>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section alt">
-        <div className="container feature-grid" aria-label="Factores que cambian la cuota">
-          <article className="feature-card">
-            <h2>1. Horas incluidas y horas reales</h2>
+        <section className="section" aria-labelledby="resources-title">
+          <div className="container text-block">
+            <h2 id="resources-title">Comprueba el servicio, no solo el precio</h2>
             <p>
-              No basta con definir una bolsa teórica. Necesitas comprobar cuántas horas puede
-              consumir de verdad ese cliente entre tareas, soporte y pequeñas incidencias.
+              El <Link href="/kit-mantenimiento-web">kit de mantenimiento</Link> incluye una ficha
+              editable, registro de tareas y control de extras. Puedes consultarlo y descargarlo
+              gratis sin dejar tu email. Es una ayuda operativa, no un contrato jurídico.
             </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>2. Buffer de incidencias</h2>
             <p>
-              Parte del precio debería cubrir el desgaste normal del servicio: imprevistos,
-              urgencias suaves, revisiones o tareas pequeñas que se repiten sin avisar.
+              Para las tareas técnicas, consulta las recomendaciones de
+              {' '}<a href="https://developer.wordpress.org/advanced-administration/security/backup/">copias de seguridad de WordPress</a>
+              {' '}y <a href="https://wordpress.org/documentation/article/updating-wordpress/">actualización de WordPress</a>.
+              Son referencias técnicas: no son la fuente de los precios de esta simulación.
             </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>3. Costes y margen</h2>
-            <p>
-              Herramientas, monitorización, terceros, compras y margen comercial también forman
-              parte de una cuota mensual sostenible.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container text-block">
-          <h2>Errores habituales al cobrar mantenimiento web</h2>
-          <ol className="article-list article-list-ordered">
-            <li>Poner una cuota copiando el mercado sin conocer tu propio suelo.</li>
-            <li>Contar solo horas visibles y no el soporte real que absorbes.</li>
-            <li>No dejar buffer para incidencias y pequeñas tareas recurrentes.</li>
-            <li>Olvidar costes directos del cliente o herramientas específicas.</li>
-            <li>Negociar a la baja sin tocar alcance, tiempos o límites del servicio.</li>
-          </ol>
-          <p>
-            El resultado suele ser el mismo: clientes que parecen buenos sobre el papel pero que,
-            mes a mes, erosionan margen y tiempo útil.
-          </p>
-        </div>
-      </section>
-
-      <section className="section alt">
-        <div className="container feature-grid" aria-label="Cómo usar la calculadora">
-          <article className="feature-card">
-            <h2>Referencia base por hora</h2>
-            <p>
-              Te da una base económica para no improvisar. Sirve para validar si tu cuota actual
-              cubre de verdad el tiempo y el negocio que hay detrás.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Cuota mínima defendible</h2>
-            <p>
-              Marca el suelo del servicio antes de regalar margen. Si el cliente quiere bajar más,
-              probablemente haya que tocar horas incluidas, alcance o tiempos de respuesta.
-            </p>
-          </article>
-
-          <article className="feature-card">
-            <h2>Cuota recomendada</h2>
-            <p>
-              Es la zona donde puedes presentar una mensualidad más sana, con espacio para negociar
-              y absorber mejor la fricción normal del soporte recurrente.
-            </p>
-          </article>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container text-block">
-          <h2>Usa la calculadora para aterrizar tu caso</h2>
-          <p>
-            Esta guía te da el marco. La calculadora te ayuda a probar tu caso real con objetivo
-            mensual, costes fijos, horas incluidas, buffer, costes por cliente, margen e IVA para
-            obtener una cuota mensual mucho más útil que una cifra improvisada.
-          </p>
-          <p>
-            Si tu caso gira específicamente alrededor de WordPress, puedes apoyarte también en la
-            guía sobre <Link href="/precio-mantenimiento-wordpress">precio de mantenimiento
-            WordPress</Link> para separar mejor soporte, incidencias y coste del servicio.
-          </p>
-          <div className="guide-cta">
-            <Link href="/#calculadora" className="primary-button">
-              Calcular mi cuota mensual
-            </Link>
+            <p>Para señalar un error del modelo o del ejemplo, contacta con <a href={`mailto:${siteConfig.contactEmail}`}>{siteConfig.contactEmail}</a>.</p>
           </div>
-        </div>
-      </section>
+        </section>
 
-      <section className="section">
-        <div className="container">
-          <LeadMagnetForm
-            source="cuanto-cobrar-mantenimiento-web-mensual"
-            title="Te enviamos el kit de mantenimiento"
-            description="Si esta guía te resulta útil, deja tu email y te damos acceso al kit gratuito con lista de comprobación de mantenimiento, estructura de cuota mensual y ejemplo de alcance."
-            buttonLabel="Quiero el kit"
-          />
-        </div>
-      </section>
-
-      <section className="section alt" aria-labelledby="mantenimiento-web-faq-title">
-        <div className="container text-block">
-          <h2 id="mantenimiento-web-faq-title">
-            Preguntas frecuentes sobre cuánto cobrar mantenimiento web mensual
-          </h2>
-
-          <div className="faq-list">
+        <section className="section alt" aria-labelledby="mantenimiento-web-faq-title">
+          <div className="container text-block">
+            <h2 id="mantenimiento-web-faq-title">Preguntas frecuentes</h2>
             {pageFaqItems.map((item) => (
-              <article className="faq-item" key={item.question}>
-                <h3>{item.question}</h3>
-                <p>{item.answer}</p>
-              </article>
+              <article className="faq-item" key={item.question}><h3>{item.question}</h3><p>{item.answer}</p></article>
             ))}
+            <div className="guide-cta"><Link href="/#calculadora" className="primary-button">Calcular mi caso</Link></div>
           </div>
-        </div>
-      </section>
-
-      <section className="section">
-        <div className="container text-block">
-          <span className="eyebrow">Siguiente paso</span>
-          <h2>Lleva la teoría a una cuota concreta</h2>
-          <p>
-            Si ya tienes claro que el mantenimiento no se debería cobrar a ojo, el siguiente paso
-            útil es probar un caso real en la calculadora y ver dónde queda tu cuota mínima y tu
-            zona recomendada.
-          </p>
-          <div className="guide-cta">
-            <Link href="/#calculadora" className="primary-button">
-              Probar la calculadora
-            </Link>
-          </div>
-        </div>
-      </section>
-
+        </section>
+      </main>
       <Footer />
-    </main>
+    </>
   );
 }

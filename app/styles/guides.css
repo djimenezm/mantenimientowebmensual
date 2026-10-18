@@ -219,6 +219,90 @@
   margin-top: 2.5rem;
 }
 
+.maintenance-example-metrics {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 11rem), 1fr));
+  gap: 1.25rem;
+  margin: 1.5rem 0;
+}
+
+.maintenance-example-metrics > div {
+  min-width: 0;
+  border-top: 2px solid #0e6d54;
+  padding-top: 0.8rem;
+}
+
+.maintenance-example-metrics dt {
+  font-size: 0.9rem;
+  line-height: 1.5;
+}
+
+.maintenance-example-metrics dd {
+  margin: 0.4rem 0 0;
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  overflow-wrap: anywhere;
+}
+
+.guide-byline {
+  margin: 1rem 0 0;
+  font-size: 0.88rem;
+}
+
+.hero .guide-byline {
+  color: rgba(255, 255, 255, 0.82);
+}
+
+.guide-jump-links {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.guide-jump-links a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+}
+
+.guide-calculation-steps > li + li {
+  margin-top: 1.25rem;
+}
+
+.guide-calculation-steps strong {
+  display: block;
+}
+
+.guide-example-inputs {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 0 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.guide-example-inputs > div {
+  min-width: 0;
+  border-bottom: 1px solid var(--line);
+  padding: 0.8rem 0;
+}
+
+.guide-example-inputs dt {
+  font-size: 0.9rem;
+}
+
+.guide-example-inputs dd {
+  margin: 0.35rem 0 0;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+}
+
+.guide-example-inputs dd,
+.guide-calculation-steps {
+  overflow-wrap: anywhere;
+}
+
 .faq-item {
   border-radius: 8px;
   padding: 1.25rem 1.35rem;

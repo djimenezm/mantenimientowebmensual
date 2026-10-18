@@ -76,15 +76,15 @@ export default function KitMantenimientoWebPage() {
     inLanguage: 'es',
     mainEntityOfPage: pageUrl,
     author: {
-      '@type': 'Organization',
-      name: siteConfig.name,
+      '@type': 'Person',
+      name: siteConfig.ownerName,
     },
     publisher: {
       '@type': 'Organization',
       name: siteConfig.name,
     },
     datePublished: '2026-04-25',
-    dateModified: '2026-04-25',
+    dateModified: '2026-10-18',
   };
 
   const breadcrumbSchema = {
@@ -149,6 +149,7 @@ export default function KitMantenimientoWebPage() {
               explicado. Incluye una lista de comprobación mensual, un ejemplo de alcance y una estructura básica para
               presentar una cuota recurrente con más criterio.
             </p>
+            <p className="guide-byline">Descarga directa, sin registro ni email. Actualizado el <time dateTime="2026-10-18">18 de octubre de 2026</time>.</p>
             <div className="hero-badges" aria-label="Qué incluye el kit">
               <span className="hero-badge">Lista de comprobación mensual</span>
               <span className="hero-badge">Ejemplo de alcance</span>
@@ -223,6 +224,28 @@ export default function KitMantenimientoWebPage() {
             calculadora sigue siendo la mejor pieza para aterrizar una cuota mínima y una zona
             recomendada antes de ofrecer nada.
           </div>
+        </div>
+      </section>
+
+      <section className="section alt">
+        <div className="container text-block">
+          <h2>4. Registro mensual y aprobación de extras</h2>
+          <p>
+            El archivo incluye campos para identificar el periodo, anotar la cuota sin IVA,
+            las horas pactadas y la reserva interna de tiempo. Registra para cada tarea la fecha,
+            duración, resultado y comprobación realizada; no basta con marcar «actualizado».
+          </p>
+          <p>
+            Si una tarea supera el alcance, anota la estimación, el importe sin IVA y quién la
+            aprobó antes de ejecutarla. Al cierre del mes, suma el tiempo consumido, separa los
+            extras y decide si necesitas ajustar el plan. No guardes contraseñas ni datos personales
+            de los visitantes en esta ficha.
+          </p>
+          <p>
+            Para revisar copias, documenta una prueba de restauración en un entorno aislado, no
+            sobre la web en producción. Una copia completada no demuestra por sí sola que pueda restaurarse.
+          </p>
+          <p>Plantilla operativa: no sustituye un contrato ni una revisión de seguridad.</p>
         </div>
       </section>
 

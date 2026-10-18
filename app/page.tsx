@@ -5,6 +5,8 @@ import Footer from '@/components/Footer';
 import Header from '@/components/Header';
 import JsonLd from '@/components/JsonLd';
 import LeadMagnetForm from '@/components/LeadMagnetForm';
+import { formatCurrency, formatNumber } from '@/lib/format';
+import { packageExampleInputs, packageExampleQuotes } from '@/lib/packageExamples';
 import { siteConfig } from '@/lib/site';
 
 const outcomeItems = [
@@ -14,6 +16,8 @@ const outcomeItems = [
 ] as const;
 
 export default function HomePage() {
+  const example = packageExampleInputs.professional;
+  const quote = packageExampleQuotes.professional;
   const webAppSchema = {
     '@context': 'https://schema.org',
     '@type': 'WebApplication',
@@ -117,8 +121,33 @@ export default function HomePage() {
                 El IVA se muestra aparte. Define qué tareas y tiempos de respuesta cubre la cuota;
                 el trabajo fuera de alcance necesita otro precio.
               </p>
+              <p>
+                <strong>Ejemplo hipotético:</strong> {example.includedHoursPerClient} horas pactadas,
+                {' '}un {example.incidentBufferPercent}% de reserva de tiempo y
+                {' '}{formatCurrency(example.directMonthlyClientCosts)} de costes por cliente.
+              </p>
+              <dl className="maintenance-example-metrics">
+                <div>
+                  <dt>Horas que reservas internamente</dt>
+                  <dd>{formatNumber(quote.bufferedIncludedHours)} h</dd>
+                </div>
+                <div>
+                  <dt>Cuota mínima sin IVA</dt>
+                  <dd>{formatCurrency(quote.maintenanceFloorRetainer)}</dd>
+                </div>
+                <div>
+                  <dt>Cuota recomendada sin IVA</dt>
+                  <dd>{formatCurrency(quote.recommendedMonthlyRetainer)}</dd>
+                </div>
+              </dl>
+              <p>
+                No es una tarifa de mercado. El ejemplo parte de un objetivo mensual de
+                {' '}{formatCurrency(example.targetMonthlyNet)} y
+                {' '}{example.billableHoursPerMonth} horas facturables.
+              </p>
               <nav aria-label="Profundiza en la cuota de mantenimiento web">
                 <a href="/cuanto-cobrar-mantenimiento-web-mensual">Ver cómo calcular el precio mensual</a>
+                <a href="/cuanto-cobrar-mantenimiento-web-mensual#ejemplo-calculado">Comprobar todos los datos del ejemplo</a>
                 <a href="/horas-incluidas-mantenimiento-web">Cómo fijar las horas incluidas</a>
                 <a href="/paquetes-mantenimiento-web">Cómo estructurar tus paquetes</a>
                 <a href="/mantenimiento-web-para-ecommerce">Calcular una cuota para ecommerce</a>
@@ -133,6 +162,7 @@ export default function HomePage() {
               <span className="eyebrow">Después del cálculo</span>
               <h2>Define el alcance antes de enviar la cuota.</h2>
               <p>Una lista de comprobación breve para separar tareas, urgencias y extras.</p>
+              <a href="/kit-mantenimiento-web">Consultar y descargar el kit sin dejar tu email</a>
             </div>
 
             <LeadMagnetForm

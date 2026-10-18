@@ -1,8 +1,33 @@
 KIT DE MANTENIMIENTO WEB
 
+Plantilla operativa editable. Actualizada: 18 de octubre de 2026.
+Responsable del sitio: Diego Antonio Jiménez Moreno.
+https://www.mantenimientowebmensual.es/kit-mantenimiento-web
+No sustituye un contrato, asesoramiento fiscal ni una auditoría de seguridad.
+No anotes contraseñas, claves de API ni datos de visitantes en esta ficha.
+
+FICHA DEL SERVICIO (completar antes de comenzar)
+
+Referencia interna de la web: ____________________
+Periodo: ____________________
+Responsable técnico y canal de soporte: ____________________
+Horario de atención: ____________________
+Tiempo pactado para primera respuesta: ____________________
+El plazo de resolución se acuerda según la incidencia: ____________________
+Horas incluidas para el cliente: ____________________
+Reserva interna de tiempo (no amplía las horas contratadas): ____________________
+Cuota mensual sin IVA: ____________________
+IVA, si procede, y total: ____________________
+Costes directos incluidos y licencias excluidas: ____________________
+Tarifa y aprobación necesaria para extras: ____________________
+Regla pactada para horas no consumidas: ____________________
+
 1. LISTA DE COMPROBACIÓN MENSUAL
 
 - Revisar copias y confirmar que el sitio puede restaurarse.
+  Anotar última copia correcta: ____________________
+  Fecha y resultado de restauración de prueba en entorno aislado: ____________________
+  No restaurar sobre la web pública para hacer una prueba.
 - Aplicar actualizaciones del core, temas y plugins dentro del alcance pactado.
 - Comprobar formularios, puntos criticos y elementos visibles del sitio.
 - Revisar alertas, errores visibles y senales basicas de seguridad.
@@ -56,3 +81,40 @@ KIT DE MANTENIMIENTO WEB
 
 Este kit ayuda a presentar mejor el mantenimiento web.
 La calculadora sigue siendo la pieza para aterrizar una cuota minima y una zona recomendada con tus propios numeros.
+
+6. REGISTRO MENSUAL (duplicar una ficha por tarea)
+
+Fecha y tarea: ____________________
+Dentro del alcance / extra aprobado: ____________________
+Tiempo empleado: ____________________
+Versiones o componentes afectados, sin credenciales: ____________________
+Comprobación antes y después (formulario, navegación u otra): ____________________
+Resultado y evidencia no sensible: ____________________
+Acción pendiente y responsable: ____________________
+
+7. PROPUESTA DE EXTRA (antes de ejecutarlo)
+
+Petición que queda fuera del alcance: ____________________
+Motivo y diferencia respecto al servicio pactado: ____________________
+Horas y coste estimado sin IVA: ____________________
+IVA, si procede: ____________________
+Persona que autoriza y fecha de aprobación: ____________________
+Plazo acordado y dependencias: ____________________
+No tratar una petición recibida como una aprobación del presupuesto.
+
+8. CIERRE DEL PERIODO
+
+Horas pactadas: ______ Horas consumidas dentro de la cuota: ______
+Horas extra aprobadas y realizadas: ______
+Incidencias resueltas y pendientes: ____________________
+Costes directos reales del mes: ____________________
+Desviación respecto a las horas o costes previstos: ____________________
+Mantener el plan / revisar alcance / proponer nueva cuota: ____________________
+Resumen enviado al cliente y fecha: ____________________
+
+Ejemplo de cálculo y límites del modelo:
+https://www.mantenimientowebmensual.es/cuanto-cobrar-mantenimiento-web-mensual
+
+Referencias técnicas:
+https://developer.wordpress.org/advanced-administration/security/backup/
+https://wordpress.org/documentation/article/updating-wordpress/

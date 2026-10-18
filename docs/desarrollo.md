@@ -40,6 +40,30 @@ esa guía estaba en el sitemap, pero no enlazada desde la portada.
 La corrección se validó con pruebas, compilación y navegación en móvil. No
 cambia las fórmulas, anuncios, URLs canónicas ni solicitudes a Google.
 
+## Revisión de utilidad tras el rechazo de AdSense
+
+El 18 de octubre de 2026 AdSense mostró para este dominio «Requiere su atención»
+por «Contenido de poco valor»; `ads.txt` figuraba como «Autorizado». El panel no
+identifica una página concreta ni garantiza que una corrección determinada
+resuelva el rechazo. No confundir esta evaluación con la indexación de la guía.
+
+- La guía principal conserva su URL y ahora documenta los ocho datos de un caso
+  hipotético, sus operaciones, IVA separado, capacidad y límites del modelo.
+- Los importes de portada, guía y FAQ se calculan con `lib/calculator.ts` y los
+  escenarios ya existentes en `lib/packageExamples.ts`. No son tarifas de mercado.
+- El porcentaje extra se describe como recargo sobre coste, no como margen de
+  beneficio garantizado. Las fórmulas y el seguimiento de uso no cambian.
+- El recurso público conserva su URL y añade ficha editable, registro de tareas,
+  aprobación de extras y cierre del periodo. No exige registro ni correo.
+- El sitemap y los datos de artículo registran solo las páginas revisadas, con
+  fecha real. No se crean nuevas rutas para variantes de palabras clave.
+
+`tests/editorialMaintenance.test.tsx` verifica importes, capacidad, coherencia de
+FAQ, responsabilidad, enlaces y acceso al recurso en HTML generado en servidor.
+No solicitar otra revisión hasta comprobar la versión publicada y decidir que
+las mejoras responden al sitio completo. No activar anuncios ni modificar los
+seguimientos automáticos durante esta corrección.
+
 1. Ejecutar `npm run lint`, `npm test` y `npm run build`.
 2. Probar un cálculo y un valor inválido.
 3. Recorrer las guías y el formulario del recurso.

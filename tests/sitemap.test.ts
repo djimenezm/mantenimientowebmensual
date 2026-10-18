@@ -9,7 +9,9 @@ describe('sitemap', () => {
     );
 
     expect(updatedRoutes).toEqual({
-      '/': '2026-10-02',
+      '/': '2026-10-18',
+      '/cuanto-cobrar-mantenimiento-web-mensual': '2026-10-18',
+      '/kit-mantenimiento-web': '2026-10-18',
       '/mantenimiento-web-para-ecommerce': '2026-10-02',
     });
   });

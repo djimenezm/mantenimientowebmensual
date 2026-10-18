@@ -10,6 +10,7 @@ const footerGroups = [
       { href: '/que-incluye-mantenimiento-web', label: 'Qué incluye' },
       { href: '/precio-mantenimiento-wordpress', label: 'Precio WordPress' },
       { href: '/paquetes-mantenimiento-web', label: 'Paquetes' },
+      { href: '/cuanto-cobrar-mantenimiento-web-mensual#metodo', label: 'Método de cálculo' },
     ],
   },
   {

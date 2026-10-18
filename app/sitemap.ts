@@ -22,7 +22,9 @@ const routes = [
 
 // Only substantive content updates belong here; deployments do not change these dates.
 const lastContentUpdates: Record<string, string> = {
-  '/': '2026-10-02',
+  '/': '2026-10-18',
+  '/cuanto-cobrar-mantenimiento-web-mensual': '2026-10-18',
+  '/kit-mantenimiento-web': '2026-10-18',
   '/mantenimiento-web-para-ecommerce': '2026-10-02',
 };
 

@@ -83,6 +83,8 @@ describe('CalculatorForm', () => {
 
     render(<CalculatorForm />);
 
+    expect(screen.getByRole('spinbutton', { name: /recargo sobre el coste/i })).toHaveValue(15);
+
     await user.click(screen.getByRole('button', { name: /calcular cuota mensual/i }));
 
     const resultCardHeading = await screen.findByRole('heading', {

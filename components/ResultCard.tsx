@@ -111,12 +111,12 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
       <h3 id="result-card-title">Tu cuota mensual recomendada para mantenimiento web</h3>
 
       <p className="result-lead">
-        Con esta simulación, una cuota mensual razonable quedaría en{' '}
+        Con estos datos, el modelo recomienda una cuota mensual de{' '}
         <strong>{formatCurrency(result.recommendedMonthlyRetainer)}</strong> sin IVA. Tu suelo para
-        no quedarte corto con este servicio estaría alrededor de{' '}
-        <strong>{formatCurrency(result.maintenanceFloorRetainer)}</strong>, así que la diferencia
-        entre ambas cifras es el margen real que te das para absorber incidencias, pequeñas
-        desviaciones y negociación.
+        cubrir los costes estimados de este servicio estaría alrededor de{' '}
+        <strong>{formatCurrency(result.maintenanceFloorRetainer)}</strong>. La diferencia es un
+        recargo sobre el coste, no un beneficio garantizado. Contrasta las horas y los costes con
+        el servicio real antes de enviar la propuesta.
       </p>
 
       <div className="result-grid">
@@ -245,7 +245,7 @@ const ResultCard = forwardRef<HTMLElement, ResultCardProps>(function ResultCard(
 
       <p className="result-summary">
         Además, has dejado una reserva fiscal orientativa del{' '}
-        <strong>{formatNumber(result.taxReservePercent, 2)}%</strong> y un margen extra del{' '}
+        <strong>{formatNumber(result.taxReservePercent, 2)}%</strong> y un recargo sobre el coste del{' '}
         <strong>{formatNumber(result.profitMarginPercent, 2)}%</strong>. Eso sitúa el servicio en una referencia
         efectiva de <strong>{formatCurrency(result.effectiveHourlyRate)}/h</strong> sobre las horas
         ya amortiguadas por buffer, con un colchón de{' '}

@@ -384,7 +384,7 @@ export default function CalculatorForm() {
         </label>
 
         <label>
-          <span>Margen extra sobre la cuota (%)</span>
+          <span>Recargo sobre el coste (%)</span>
           <input
             type="number"
             min="0"
