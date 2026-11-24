@@ -254,6 +254,15 @@
   color: rgba(255, 255, 255, 0.82);
 }
 
+.hero .guide-example-link {
+  display: inline-flex;
+  min-height: 44px;
+  align-items: center;
+  color: var(--interior-accent);
+  text-decoration: underline;
+  text-underline-offset: 0.18em;
+}
+
 .guide-jump-links {
   display: flex;
   flex-wrap: wrap;

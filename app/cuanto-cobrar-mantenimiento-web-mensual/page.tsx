@@ -121,6 +121,9 @@ export default function CuantoCobrarMantenimientoWebMensualPage() {
               <p>{example.includedHoursPerClient} horas pactadas al mes.</p>
               <p><strong>{formatCurrency(quote.recommendedMonthlyRetainer)} sin IVA.</strong></p>
               <p>Escenario hipotético, no una tarifa de mercado ni una oferta comercial.</p>
+              <Link href="/precio-mantenimiento-wordpress" className="guide-example-link">
+                Ver precios de mantenimiento WordPress
+              </Link>
             </aside>
           </div>
         </section>
